@@ -12,6 +12,23 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
+//Import routes
+const NoticesRouter = require("./routes/notice.route");
+const DocumentsRouter = require("./routes/document.route");
+const UsersRouter = require("./routes/regUser.route");
+const AdminsRouter = require("./routes/admin.route");
+
+//App middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+//route middleware
+app.use(NoticesRouter);
+app.use(DocumentsRouter);
+app.use(UsersRouter);
+app.use(AdminsRouter);
+
+
 //route middleware
 app.use(studentRoute);
 

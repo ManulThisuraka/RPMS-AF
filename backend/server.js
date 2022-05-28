@@ -18,8 +18,10 @@ const DocumentsRouter = require("./routes/document.route");
 const UsersRouter = require("./routes/regUser.route");
 const AdminsRouter = require("./routes/admin.route");
 
-//Import routes
-const StaffRoutes = require("./routes/staff.route");
+const panelMemberRoutes = require("./routes/PanelMember.route");
+const EvaluateTopicRoutes = require("./routes/EvaluateTopic.route");
+const EvaluatePresentation = require("./routes/EvaluatePresentation.route");
+const FinalMarks = require("./routes/FinalMarks.route");
 
 //App middleware
 app.use(bodyParser.json());
@@ -31,8 +33,10 @@ app.use(DocumentsRouter);
 app.use(UsersRouter);
 app.use(AdminsRouter);
 
-//route middleware
-app.use(StaffRoutes)
+app.use(panelMemberRoutes);
+app.use(EvaluateTopicRoutes);
+app.use(EvaluatePresentation);
+app.use(FinalMarks);
 
 //route middleware
 app.use(studentRoute);

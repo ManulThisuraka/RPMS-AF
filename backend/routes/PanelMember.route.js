@@ -2,7 +2,7 @@
 
 const express = require("express");
 let controller = require("../Controllers/PanelMember.controller");
-const PanelMembers = require("../models/PanelMember.model"); // import user model
+// const PanelMembers = require("../models/PanelMember.model"); // import user model
 const router = express.Router();
 
 const PanelMember = require("../models/PanelMember.model");

@@ -20,7 +20,7 @@ const createEvaluatePresentation = async (req, res) => {
 
 //Get All EvaluatePresentation Details
 const getAllEvaluatePresentations = async (req, res) => {
-  EvaluatePresentationModel.find()
+  EvaluatePresentations.find()
     .then((EvaluatePresentations) => {
       res.json({
         success: true,
@@ -35,7 +35,7 @@ const getAllEvaluatePresentations = async (req, res) => {
 //Get specific EvaluatePresentation Details
 const getEvaluatePresentation = async (req, res) => {
   let userId = req.params.id;
-  EvaluatePresentationModel.findById(userId)
+  EvaluatePresentations.findById(userId)
     .then((EvaluatePresentation) => {
       res.status(200).json({ success: true, EvaluatePresentation });
     })
@@ -47,7 +47,7 @@ const getEvaluatePresentation = async (req, res) => {
 
 //Update EvaluatePresentation Details
 const updateEvaluatePresentation = async (req, res) => {
-  EvaluatePresentationModel.findByIdAndUpdate(req.params.id, {
+  EvaluatePresentations.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {

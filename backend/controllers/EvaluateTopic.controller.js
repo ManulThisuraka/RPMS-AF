@@ -20,7 +20,7 @@ const createEvaluateTopic = async (req, res) => {
 
 //Get All EvaluateTopic Details
 const getAllEvaluateTopics = async (req, res) => {
-  EvaluateTopicModel.find()
+  EvaluateTopics.find()
     .then((EvaluateTopics) => {
       res.json({
         success: true,
@@ -35,7 +35,7 @@ const getAllEvaluateTopics = async (req, res) => {
 //Get specific EvaluateTopic Details
 const getEvaluateTopic = async (req, res) => {
   let userId = req.params.id;
-  EvaluateTopicModel.findById(userId)
+  EvaluateTopics.findById(userId)
     .then((EvaluateTopic) => {
       res.status(200).json({ success: true, EvaluateTopic });
     })
@@ -47,7 +47,7 @@ const getEvaluateTopic = async (req, res) => {
 
 //Update EvaluateTopic Details
 const updateEvaluateTopic = async (req, res) => {
-  EvaluateTopicModel.findByIdAndUpdate(req.params.id, {
+  EvaluateTopics.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {

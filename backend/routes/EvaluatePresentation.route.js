@@ -14,7 +14,7 @@ router.post("/EvaluatePresentation/save", controller.createEvaluatePresentation)
 router.get("/EvaluatePresentation/view/", controller.getAllEvaluatePresentations);
 
 //Get a specific EvaluatePresentation Details
-router.get("/EvaluateTopics/view/:id", controller.getEvaluatePresentation);
+router.get("/EvaluatePresentations/view/:id", controller.getEvaluatePresentation);
 
 //Update EvaluatePresentation Details
 router.put("/EvaluatePresentations/update/:id", controller.updateEvaluatePresentation);

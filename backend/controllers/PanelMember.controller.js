@@ -20,7 +20,7 @@ const createPanelMember = async (req, res) => {
 
 //Get All PanelMember Details
 const getAllPanelMembers = async (req, res) => {
-  PanelMemberModel.find()
+  PanelMembers.find()
     .then((PanelMembers) => {
       res.json({
         success: true,
@@ -35,7 +35,7 @@ const getAllPanelMembers = async (req, res) => {
 //Get specific PanelMember Details
 const getPanelMember = async (req, res) => {
   let userId = req.params.id;
-  PanelMemberModel.findById(userId)
+  PanelMembers.findById(userId)
     .then((document) => {
       res.status(200).json({ success: true, PanelMember });
     })
@@ -47,7 +47,7 @@ const getPanelMember = async (req, res) => {
 
 //Update PanelMember Details
 const updatePanelMember = async (req, res) => {
-  PanelMemberModel.findByIdAndUpdate(req.params.id, {
+  PanelMembers.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {
@@ -63,7 +63,7 @@ const updatePanelMember = async (req, res) => {
 
 //Delete PanelMember Details
 const deletePanelMember = async (req, res) => {
-  PanelMembers.findByIdAndDelete(req.params.panelmemberID)
+  PanelMembers.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "PanelMembers Deleted Succesfully" });
     })

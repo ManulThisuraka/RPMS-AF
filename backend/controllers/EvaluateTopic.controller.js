@@ -63,7 +63,7 @@ const updateEvaluateTopic = async (req, res) => {
 
 //Delete EvaluateTopic Details
 const deleteEvaluateTopic = async (req, res) => {
-  EvaluateTopicModel.findByIdAndDelete(req.params.id)
+  EvaluateTopics.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "EvaluateTopic Deleted Succesfully" });
     })

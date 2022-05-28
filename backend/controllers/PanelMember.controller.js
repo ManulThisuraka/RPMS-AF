@@ -63,7 +63,7 @@ const updatePanelMember = async (req, res) => {
 
 //Delete PanelMember Details
 const deletePanelMember = async (req, res) => {
-  PanelMemberModel.findByIdAndDelete(req.params.id)
+  PanelMembers.findByIdAndDelete(req.params.panelmemberID)
     .then(() => {
       res.status(200).json({ status: "PanelMembers Deleted Succesfully" });
     })

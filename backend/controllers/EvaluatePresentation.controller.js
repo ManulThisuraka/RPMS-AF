@@ -65,7 +65,7 @@ const updateEvaluatePresentation = async (req, res) => {
 
 //Delete EvaluatePresentation Details
 const deleteEvaluatePresentation = async (req, res) => {
-  EvaluatePresentationModel.findByIdAndDelete(req.params.id)
+  EvaluatePresentations.findByIdAndDelete(req.params.id)
     .then(() => {
       res
         .status(200)

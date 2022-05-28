@@ -18,6 +18,9 @@ const DocumentsRouter = require("./routes/document.route");
 const UsersRouter = require("./routes/regUser.route");
 const AdminsRouter = require("./routes/admin.route");
 
+//Import routes
+const StaffRoutes = require("./routes/staff.route");
+
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -28,6 +31,8 @@ app.use(DocumentsRouter);
 app.use(UsersRouter);
 app.use(AdminsRouter);
 
+//route middleware
+app.use(StaffRoutes)
 
 //route middleware
 app.use(studentRoute);

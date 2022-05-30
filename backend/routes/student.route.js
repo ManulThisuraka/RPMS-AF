@@ -37,8 +37,7 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 router.post("/topic/create", requestSupervisor);
 
 //File upload
-//File upload
-router.route("/upload").post(upload.single("file"), async (req, res) => {
+router.route("/upload").post(upload.single("photo"), async (req, res) => {
   try {
     const result = await cloudinary.uploader.upload(req.file.path);
     console.log(result);

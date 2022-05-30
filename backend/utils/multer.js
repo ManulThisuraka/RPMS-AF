@@ -3,11 +3,15 @@ const path = require("path");
 
 module.exports = multer({
   storage: multer.diskStorage({}),
+
   fileFilter: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    if (ext !== ".pdf" && ext !== ".docx") {
-      return cb(new Error("Only pdf files are allowed"));
+    let ext = path.extname(file.originalname);
+
+    if (ext !== ".pdf") {
+      cb(new Error("File type is not supported"), false);
+      return;
     }
+    //console.log(file, path);
     cb(null, true);
   },
 });

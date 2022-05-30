@@ -1,19 +1,16 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-var Url = process.env.test;
+var Url = process.env.MONGO_URL;
 
 console.log("Url", Url);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://admin:admin123@recentrocluster.omuv3.mongodb.net/?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Successfully connected to the database");
   } catch (error) {
     console.log(error);

@@ -25,6 +25,14 @@ exports.ActTopicValidator = [
   check("remarks").not().isEmpty().trim().withMessage("All fields required"),
 ];
 
+//Validation for Accept Topic 
+exports.EvDocumentValidator = [
+  check("groupID").not().isEmpty().trim().withMessage("All fields required"),
+  check("supervisorName").not().isEmpty().trim().withMessage("All fields required"),
+  check("evDocument").not().isEmpty().trim().withMessage("All fields required"),
+  check("documentMarks").not().isEmpty().trim().withMessage("All fields required"),
+];
+
 //Validation result
 exports.validatorResult = (req, res, next) => {
     const result = validationResult(req);

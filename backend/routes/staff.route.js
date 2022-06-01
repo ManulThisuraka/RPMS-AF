@@ -1,10 +1,42 @@
 const express = require("express");
 const router = express.Router();
-const {StaffsignupValidator,ActTopicValidator, validatorResult} = require("../middleware/staffValidator");
-const {StaffSignUpController,deleteStaffController,getStaffInfo,getStaffInfoById} = require("../controllers/staff.controller");
-const {createActTopicController,getActTopicInfo,getActTopicInfoById,updateActTopic,deleteActTopicController} = require("../controllers/acceptTopic.controller");
 
-const Users = require("../models/Users.model");
+//Validator Routes
+const {
+    StaffsignupValidator,
+    ActTopicValidator,
+    EvDocumentValidator, 
+    validatorResult
+} = require("../middleware/staffValidator");
+
+//Controller Routes
+
+/** Staff Contoller */
+const {
+    StaffSignUpController,
+    deleteStaffController,
+    getStaffInfo,
+    getStaffInfoById
+} = require("../controllers/staff.controller");
+
+/** Accept Topic Contoller */
+const {
+    createActTopicController,
+    getActTopicInfo,
+    getActTopicInfoById,
+    updateActTopic,
+    deleteActTopicController
+} = require("../controllers/acceptTopic.controller");
+
+/** Evaluation Document Contoller */
+const {
+    createEvDocumentController,
+    getEvDocumentInfo,
+    getEvDocumentById,
+    updateEvDocument,
+    deleteEvDocumentController
+} = require("../controllers/EvaluationDocument.controller");
+
 
 /** Begin of Staff  Signup Routes **/
 //Staff Save details
@@ -31,5 +63,18 @@ router.put("/actTopic/update/:id", updateActTopic);
 router.delete("/actTopic/delete/:id", deleteActTopicController);
 /** End of Accept Topic Routes **/
 
+
+/** Begin of Evaluation Document Routes **/
+//Evaluation Document save 
+router.post("/evDoc/save", EvDocumentValidator, validatorResult, createEvDocumentController );
+//Evaluation Document Get all details 
+router.get("/evDoc/view", getEvDocumentInfo);
+//Get specifict Evaluation Document
+router.get("/evDoc/view/:id", getEvDocumentById);
+//Update the Evaluation Document 
+router.put("/evDoc/update/:id", updateEvDocument);
+//Delete the Evaluation Document
+router.delete("/evDoc/delete/:id", deleteEvDocumentController);
+/** End of Evaluation Document Routes **/
 
 module.exports = router;

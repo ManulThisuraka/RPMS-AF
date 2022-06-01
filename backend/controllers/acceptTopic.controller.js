@@ -12,13 +12,6 @@ exports.createActTopicController = async (req, res) => {
   } = req.body;
 
   try {
-    // const user = await AcTopic.findOne({ email });
-    // if (user) {
-    //   return res.status(400).json({
-    //     errorMessage: "Email already exists",
-    //   });
-    // }
-
     const newTopic = new AcTopic();
     newTopic.groupID = groupID;
     newTopic.supervisorName = supervisorName;
@@ -26,9 +19,6 @@ exports.createActTopicController = async (req, res) => {
     newTopic.coSupervisorName = coSupervisorName;
     newTopic.status = status;
     newTopic.remarks = remarks;
-
-    // const salt = await bcrypt.genSalt(10);
-    // newTopic.password = await bcrypt.hash(password, salt);
 
     await newTopic.save();
 

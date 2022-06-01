@@ -1,29 +1,35 @@
+//const AutoIncrementPlugin = require("auto-increment-plugin");
 const mongoose = require("mongoose");
-const STDGroupSchema = new mongoose.Schema(
+const student_group = new mongoose.Schema(
   {
     groupID: {
       type: String,
       required: true,
     },
-    staffID: {
+    leaderID: {
       type: String,
       required: true,
     },
-    panelID: {
-      type: String,
-      required: true,
-    },
-    topic: {
-      type: String,
-      required: true,
-    },
-    result: {
-      type: String,
-      required: true,
-    },
+    members: [
+      {
+        member_1: {
+          type: String,
+        },
+        member_2: {
+          type: String,
+        },
+        member_3: {
+          type: String,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
 
-const STDGroup = mongoose.model("student.groups", STDGroupSchema);
-module.exports = STDGroup;
+// student_group.plugin(AutoIncrementPlugin, {
+//   model_name: "student.groups",
+// });
+
+const studentGroup = mongoose.model("student.groups", student_group);
+module.exports = studentGroup;

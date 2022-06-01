@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+//Chat Model
 const chatSchema = new mongoose.Schema(
     {
         userID: {

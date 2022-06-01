@@ -1,6 +1,6 @@
 const Chat = require("../models/chat.model")
 
-//Get all chat datta
+//Get all chat data 
 const findAll = async (id) => {
     const chats = await Chat.find({groupId: id});
     return chats;
@@ -37,7 +37,7 @@ const findById = async (req, res) => {
     res.send(chat);
 }
 
-//Store chat 
+//Store chat details
 const store = async (data) => {
     const chat = new Chat(data);
     chat.createdAt = Date.now().toString();

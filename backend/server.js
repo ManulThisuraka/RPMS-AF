@@ -28,18 +28,12 @@ const studentRoute = require("./routes/student.route");
 
 
 //Import panel member routes
-const panelMemberRoutes = require("./routes/PanelMember.route");
-const EvaluateTopicRoutes = require("./routes/EvaluateTopic.route");
-const EvaluatePresentation = require("./routes/EvaluatePresentation.route");
-const FinalMarks = require("./routes/FinalMarks.route");
+const panelMemberRoutes = require("./routes/panelMember.route");
 
 //route middleware
 app.use(AdminRouter);
 
 app.use(panelMemberRoutes);
-app.use(EvaluateTopicRoutes);
-app.use(EvaluatePresentation);
-app.use(FinalMarks);
 
 //route middleware
 app.use(studentRoute);

@@ -5,16 +5,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-<<<<<<< HEAD
 const chatRoomController = require("./controllers/chat.controller");
 
 //Import routes
 const studentRoute = require("./routes/student.route");
 const staffRoute = require("./routes/staff.route")
-=======
 require("dotenv").config();
 
->>>>>>> 476e6234fdc8332e8e287f33ad623f683dad06eb
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());

@@ -14,7 +14,7 @@ const createNotice = async (req, res) => {
 //Get Notices by roleID
 const getCategoryNotices = async (req, res) => {
     let role = req.params.roleID;
-    noticeModel.find({ roleID: role })
+    noticeModel.find({ roleID:{$in: [role, 'all']}})
         .then((notices) => {
             res.status(200).json({ 
                 success: true, 
@@ -49,19 +49,19 @@ const getNotice = async (req, res) => {
     })
 }
 
-//Update Notice
-const updateNotice = async (req, res) => {
-    noticeModel.findByIdAndUpdate(req.params.id,
-        {
-            $set:req.body
-        })
-    .then(()=>{
-        res.status(200).json({success: "Arrival updated"})
-    }).catch((err)=>{
-        console.log(err);
-        res.status(500).json({status: "Error with updating data", error: err.message});
-    })
-}
+// //Update Notice
+// const updateNotice = async (req, res) => {
+//     noticeModel.findByIdAndUpdate(req.params.id,
+//         {
+//             $set:req.body
+//         })
+//     .then(()=>{
+//         res.status(200).json({success: "Notice updated"})
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.status(500).json({status: "Error with updating data", error: err.message});
+//     })
+// }
 
 //Delete Notice
 const deleteNotice = async (req, res) => {
@@ -81,6 +81,5 @@ module.exports = {
     getCategoryNotices,
     getAllNotices,
     getNotice,
-    updateNotice,
     deleteNotice
 }

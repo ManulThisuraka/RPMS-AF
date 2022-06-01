@@ -9,18 +9,14 @@ const DocumentSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    staffID :{
+    supervisorID :{
         type : String 
     },
     groupID :{
         type : String
     },
-    inputDoc :{
+    docURL :{
         type : String
-    },
-    status :{
-        type : String,
-        default:"Pending"
     }
 })
 

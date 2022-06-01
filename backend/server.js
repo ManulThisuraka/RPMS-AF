@@ -13,20 +13,14 @@ app.use(cors());
 app.use(express.json());
 
 //Import routes
-const NoticesRouter = require("./routes/notice.route");
-const DocumentsRouter = require("./routes/document.route");
-const UsersRouter = require("./routes/regUser.route");
-const AdminsRouter = require("./routes/admin.route");
+const AdminRouter = require("./routes/admin.routes");
 
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
-app.use(NoticesRouter);
-app.use(DocumentsRouter);
-app.use(UsersRouter);
-app.use(AdminsRouter);
+app.use(AdminRouter);
 
 
 //route middleware

@@ -6,17 +6,17 @@ const NoticeSchema = new mongoose.Schema({
         required : true
     },
     roleID :{
-        type : Number, // (0)Student,(1)Admin,(2)staff
+        type : String, //All(0),student(1),staff(2)
         required : true
     },
-    notice :{
-        type : String,
+    noticeCategory :{
+        type : String, //topic,download,notice,presentation,document
         required : true
     },
-    outputDoc :{
+    description :{
         type : String,
     },
-    inputDoc :{
+    docURL :{
         type : String,
     }
 })

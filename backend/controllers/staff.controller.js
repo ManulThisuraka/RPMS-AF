@@ -39,6 +39,7 @@ exports.StaffSignUpController = async (req, res) => {
     newStaff.NIC = null;
     newStaff.phoneNumber = null;
     newStaff.specialization = null;
+    newStaff.panelID= null;
 
 
     const salt = await bcrypt.genSalt(10);

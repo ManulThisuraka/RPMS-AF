@@ -58,6 +58,10 @@ const UsersSchema = new mongoose.Schema(
         type: String,
         required: false,
     },
+    panelID: {
+      type: String,
+      required: false,
+    },
     roleID: {
         type: Number,
         default: 0, // 0: student, 1: admin, 2: staff

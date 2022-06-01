@@ -1,8 +1,8 @@
-let FinalMarks = require("../models/FinalMarks.model");
+let finalMarks = require("../models/finalMarks.model");
 
 //Save FinalMarks Details
 const createFinalMark = async (req, res) => {
-  let newFinalMarks = new FinalMarks(req.body);
+  let newFinalMarks = new finalMarks(req.body);
 
   newFinalMarks.save((err) => {
     console.log(newFinalMarks._id);
@@ -20,7 +20,7 @@ const createFinalMark = async (req, res) => {
 
 //Get All FinalMarks Details
 const getAllFinalMarks = async (req, res) => {
-  FinalMarks.find()
+  finalMarks.find()
     .then((FinalMarks) => {
       res.json({
         success: true,
@@ -35,7 +35,7 @@ const getAllFinalMarks = async (req, res) => {
 //Get specific FinalMark Details
 const getFinalMark = async (req, res) => {
   let userId = req.params.id;
-  FinalMarks.findById(userId)
+  finalMarks.findById(userId)
     .then((FinalMark) => {
       res.status(200).json({ success: true, FinalMark });
     })
@@ -47,7 +47,7 @@ const getFinalMark = async (req, res) => {
 
 //Update FinalMark Details
 const updateFinalMark = async (req, res) => {
-  FinalMarks.findByIdAndUpdate(req.params.id, {
+  finalMarks.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {
@@ -63,7 +63,7 @@ const updateFinalMark = async (req, res) => {
 
 //Delete FinalMark Details
 const deleteFinalMark = async (req, res) => {
-  FinalMarks.findByIdAndDelete(req.params.id)
+  finalMarks.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "FinalMarks Deleted Succesfully" });
     })

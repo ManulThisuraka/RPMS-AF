@@ -1,25 +1,25 @@
-//Write the http requests in create, update and delete crud functions
-
-const express = require("express");
+const router = require("express").Router();
 let controller = require("../Controllers/PanelMember.controller");
-// const PanelMembers = require("../models/PanelMember.model"); // import user model
-const router = express.Router();
 
-const PanelMember = require("../models/PanelMember.model");
+// PanelMember Router Paths
+router.post("/panelMembers/save", controller.createPanelMember); //Save PanelMember Details
+router.get("/PanelMembers/view/", controller.getAllPanelMembers); //Get All PanelMember Details
+router.get("/PanelMembers/view/:id", controller.getPanelMember); //Get a specific PanelMember Details
+router.put("/PanelMembers/update/:id", controller.updatePanelMember); //Update PanelMember Details
+router.delete("/PanelMembers/delete/:id", controller.deletePanelMember); //Delete PanelMember
 
-//Save PanelMember Details
-router.post("/panelMembers/save", controller.createPanelMember);
+// // panel Router Paths
+// router.post("/panel/save", controller.createPanel); //Save panel Details
+// router.get("/panel/view/", controller.getAllPanel); //Get All panel Details
+// router.get("/panel/view/:id", controller.getPanel); //Get a specific panel Details
+// router.put("/panel/update/:id", controller.updatePanel); //Update panel Details
+// router.delete("/panel/delete/:id", controller.deletePanel); //Delete panel
 
-//Get All PanelMember Details
-router.get("/PanelMembers/view/", controller.getAllPanelMembers);
-
-//Get a specific PanelMember Details
-router.get("/PanelMembers/view/:id", controller.getPanelMember);
-
-//Update PanelMember Details
-router.put("/PanelMembers/update/:id", controller.updatePanelMember);
-
-//Delete PanelMember
-router.delete("/PanelMembers/delete/:id", controller.deletePanelMember);
+// Final Marks Paths
+// router.post("/panel/save", controller.createFinalMark); //Save Final Marks Details
+// router.get("/panel/view/", controller.getAllFinalMarks); //Get All Final Marks Details
+// router.get("/panel/view/:id", controller.getFinalMark); //Get a specific Final Marks Details
+// router.put("/panel/update/:id", controller.updateFinalMark); //Update Final Marks Details
+// router.delete("/panel/delete/:id", controller.deleteFinalMark); //Delete Final Marks
 
 module.exports = router;

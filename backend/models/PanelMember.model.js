@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const panelmemberSchema = new mongoose.Schema({
+  staffID: {
+    type: String,
+    require: true,
+  },
   panelmemberID: {
     type: String,
     require: true,
   },
-  panelmemberemail: {
+  panelmemberName: {
     type: String,
-    required: true,
+    require: true,
   },
-  researchArea: {
-    type: String,
-    required: true,
-  },
-  panelGroup: {
+  p_researchArea: {
     type: String,
     required: true,
   },

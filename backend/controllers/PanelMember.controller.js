@@ -2,7 +2,7 @@ let PanelMembers = require("../models/PanelMember.model");
 
 //Save PanelMember Details
 const createPanelMember = async (req, res) => {
-  let newPanelMembers = new PanelMembers(req.body);
+  const newPanelMembers = new PanelMembers(req.body);
 
   newPanelMembers.save((err) => {
     console.log(newPanelMembers._id);
@@ -36,7 +36,7 @@ const getAllPanelMembers = async (req, res) => {
 const getPanelMember = async (req, res) => {
   let userId = req.params.id;
   PanelMembers.findById(userId)
-    .then((document) => {
+    .then((PanelMember) => {
       res.status(200).json({ success: true, PanelMember });
     })
     .catch((err) => {
@@ -69,12 +69,10 @@ const deletePanelMember = async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res
-        .status(500)
-        .json({
-          status: "Error with deleting PanelMember",
-          error: err.message,
-        });
+      res.status(500).json({
+        status: "Error with deleting PanelMember",
+        error: err.message,
+      });
     });
 };
 

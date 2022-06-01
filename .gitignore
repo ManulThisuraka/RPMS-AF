@@ -3,7 +3,11 @@
 # dependencies
 
 backend/node_modules
+
 frontend/node_modules
+frontend/.parcel-cache
+frontend/dist
+
 /.pnp
 .pnp.js
 

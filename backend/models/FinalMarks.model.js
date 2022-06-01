@@ -2,27 +2,35 @@ const mongoose = require("mongoose");
 
 const FinalMarkSchema = new mongoose.Schema({
   
-  studentGroupID: {
-    type: String,
-    require: true,
-  },
   panelGroupID: {
     type: String,
     require: true,
   },
-  Finalviva: {
+  studentGroupID: {
+    type: String,
+    require: true,
+  },
+  charter: {
+    type: String,
+    require: true,
+  },
+  pro_proposal: {
+    type: String,
+    require: true,
+  },
+  pp_01: {
     type: String,
     required: true,
   },
-  Finalpresentation: {
+  pp_02: {
     type: String,
     required: true,
   },
-  evaluation_01: {
+  final_report: {
     type: String,
     required: true,
   },
-  evaluation_02: {
+  App_Banner: {
     type: String,
     required: true,
   },

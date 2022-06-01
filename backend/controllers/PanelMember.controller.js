@@ -2,7 +2,7 @@ let PanelMembers = require("../models/PanelMember.model");
 
 //Save PanelMember Details
 const createPanelMember = async (req, res) => {
-  let newPanelMembers = new PanelMembers(req.body);
+  const newPanelMembers = new PanelMembers(req.body);
 
   newPanelMembers.save((err) => {
     console.log(newPanelMembers._id);
@@ -20,7 +20,7 @@ const createPanelMember = async (req, res) => {
 
 //Get All PanelMember Details
 const getAllPanelMembers = async (req, res) => {
-  PanelMemberModel.find()
+  PanelMembers.find()
     .then((PanelMembers) => {
       res.json({
         success: true,
@@ -35,8 +35,8 @@ const getAllPanelMembers = async (req, res) => {
 //Get specific PanelMember Details
 const getPanelMember = async (req, res) => {
   let userId = req.params.id;
-  PanelMemberModel.findById(userId)
-    .then((document) => {
+  PanelMembers.findById(userId)
+    .then((PanelMember) => {
       res.status(200).json({ success: true, PanelMember });
     })
     .catch((err) => {
@@ -47,7 +47,7 @@ const getPanelMember = async (req, res) => {
 
 //Update PanelMember Details
 const updatePanelMember = async (req, res) => {
-  PanelMemberModel.findByIdAndUpdate(req.params.id, {
+  PanelMembers.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {
@@ -63,18 +63,16 @@ const updatePanelMember = async (req, res) => {
 
 //Delete PanelMember Details
 const deletePanelMember = async (req, res) => {
-  PanelMemberModel.findByIdAndDelete(req.params.id)
+  PanelMembers.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "PanelMembers Deleted Succesfully" });
     })
     .catch((err) => {
       console.log(err);
-      res
-        .status(500)
-        .json({
-          status: "Error with deleting PanelMember",
-          error: err.message,
-        });
+      res.status(500).json({
+        status: "Error with deleting PanelMember",
+        error: err.message,
+      });
     });
 };
 

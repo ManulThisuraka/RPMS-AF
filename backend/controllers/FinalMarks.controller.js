@@ -20,7 +20,7 @@ const createFinalMark = async (req, res) => {
 
 //Get All FinalMarks Details
 const getAllFinalMarks = async (req, res) => {
-  FinalMarkModel.find()
+  FinalMarks.find()
     .then((FinalMarks) => {
       res.json({
         success: true,
@@ -35,7 +35,7 @@ const getAllFinalMarks = async (req, res) => {
 //Get specific FinalMark Details
 const getFinalMark = async (req, res) => {
   let userId = req.params.id;
-  FinalMarkModel.findById(userId)
+  FinalMarks.findById(userId)
     .then((FinalMark) => {
       res.status(200).json({ success: true, FinalMark });
     })
@@ -47,7 +47,7 @@ const getFinalMark = async (req, res) => {
 
 //Update FinalMark Details
 const updateFinalMark = async (req, res) => {
-  FinalMarkModel.findByIdAndUpdate(req.params.id, {
+  FinalMarks.findByIdAndUpdate(req.params.id, {
     $set: req.body,
   })
     .then(() => {
@@ -63,7 +63,7 @@ const updateFinalMark = async (req, res) => {
 
 //Delete FinalMark Details
 const deleteFinalMark = async (req, res) => {
-  FinalMarkModel.findByIdAndDelete(req.params.id)
+  FinalMarks.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "FinalMarks Deleted Succesfully" });
     })

@@ -18,10 +18,10 @@ router.put("/panel/update/:id", panelcontroller.updatePanel); //Update panel Det
 router.delete("/panel/delete/:id", panelcontroller.deletePanel); //Delete panel
 
 // Final Marks Paths
-router.post("/panel/save", finalMarkcontroller.createFinalMark); //Save Final Marks Details
-router.get("/panel/view/", finalMarkcontroller.getAllFinalMarks); //Get All Final Marks Details
-router.get("/panel/view/:id", finalMarkcontroller.getFinalMark); //Get a specific Final Marks Details
-router.put("/panel/update/:id", finalMarkcontroller.updateFinalMark); //Update Final Marks Details
-router.delete("/panel/delete/:id", finalMarkcontroller.deleteFinalMark); //Delete Final Marks
+router.post("/finalMarks/save", finalMarkcontroller.createFinalMark); //Save Final Marks Details
+router.get("/finalMarks/view/", finalMarkcontroller.getAllFinalMarks); //Get All Final Marks Details
+router.get("/finalMarks/view/:id", finalMarkcontroller.getFinalMark); //Get a specific Final Marks Details
+router.put("/finalMarks/update/:id", finalMarkcontroller.updateFinalMark); //Update Final Marks Details
+router.delete("/finalMarks/delete/:id", finalMarkcontroller.deleteFinalMark); //Delete Final Marks
 
 module.exports = router;

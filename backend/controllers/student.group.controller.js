@@ -1,65 +1,34 @@
-const express = require("express");
 const Group = require("../models/student.groups.model");
 
-// exports.createStudentGroup = (req, res) => {
-//     const group = new Group({
-//         groupid : req.body.groupid,
-//         department : req.body.department,
-//         memberLeader : req.body.memberLeader,
-//         memberone: req.body.memberone,
-//         membertwo : req.body.membertwo,
-//         mamberthree : req.body.mamberthree
-
-//     });
-
-//     group
-//     .save()
-//     .then(() => res.json("Groups Added Successfully..."))
-//     .catch((err) => res.json(err.message));
-// };
-
+//Create student group
 exports.createStudentGroup = async (req, res) => {
-  const {
-    fullName,
-    stdID,
-    NIC,
-    stdEmail,
-    password,
-    phoneNumber,
-    specialization,
-    roleID,
-  } = req.body;
+  const newGroup = new Group(req.body);
 
-  try {
-    const user = await Student.findOne({ stdEmail });
-    if (user) {
+  newGroup.save((err) => {
+    console.log(newGroup._id);
+    if (err) {
       return res.status(400).json({
-        errorMessage: "Email already exists",
+        error: err,
       });
     }
-
-    const newUser = new Student();
-    newUser.fullName = fullName;
-    newUser.stdID = stdID;
-    newUser.NIC = NIC;
-    newUser.stdEmail = stdEmail;
-    newUser.password = password;
-    newUser.phoneNumber = phoneNumber;
-    newUser.specialization = specialization;
-    newUser.roleID = roleID;
-
-    const salt = await bcrypt.genSalt(10);
-    newUser.password = await bcrypt.hash(password, salt);
-
-    await newUser.save();
-
-    res.json({
-      successMessage: "Registration Success. Please Sign-In",
+    return res.status(200).json({
+      success: " Student group successfully created",
+      data: newGroup._id,
     });
-  } catch (err) {
-    console.log("signupController error:", err);
-    res.status(500).json({
-      errorMessage: "Server Error",
+  });
+};
+
+//Get all student groups
+exports.getAllStudentGroups = async (req, res) => {
+  Group.find().exec((err, user) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      studentGroups: user,
     });
-  }
+  });
 };

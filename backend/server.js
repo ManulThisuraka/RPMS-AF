@@ -3,31 +3,41 @@ const app = express();
 const connectDB = require("./database/database");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
+<<<<<<< HEAD
 const chatRoomController = require("./controllers/chat.controller");
 
 //Import routes
 const studentRoute = require("./routes/student.route");
 const staffRoute = require("./routes/staff.route")
+=======
+require("dotenv").config();
+
+>>>>>>> 476e6234fdc8332e8e287f33ad623f683dad06eb
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
-//Import routes
+//App middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+//Import student routes
+const studentRoute = require("./routes/student.route");
+
+//Import notice routes
 const NoticesRouter = require("./routes/notice.route");
 const DocumentsRouter = require("./routes/document.route");
 const UsersRouter = require("./routes/regUser.route");
 const AdminsRouter = require("./routes/admin.route");
 
+//Import panel member routes
 const panelMemberRoutes = require("./routes/PanelMember.route");
 const EvaluateTopicRoutes = require("./routes/EvaluateTopic.route");
 const EvaluatePresentation = require("./routes/EvaluatePresentation.route");
 const FinalMarks = require("./routes/FinalMarks.route");
-
-//App middleware
-app.use(bodyParser.json());
-app.use(cors());
 
 //route middleware
 app.use(NoticesRouter);

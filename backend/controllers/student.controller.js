@@ -67,7 +67,7 @@ exports.signinController = async (req, res) => {
       res.status(400).send("All input is required");
     }
     // Validate if user exist in our database
-    const user = await Student.findOne({ stdEmail: email });
+    const user = await Student.findOne({ email: email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
@@ -78,10 +78,8 @@ exports.signinController = async (req, res) => {
           expiresIn: "2h",
         }
       );
-
       // save user token
       user.token = token;
-
       // user
       res.status(200).json(user);
     }

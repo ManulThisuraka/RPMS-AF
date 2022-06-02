@@ -58,6 +58,7 @@ exports.signupController = async (req, res) => {
 };
 
 exports.signinController = async (req, res) => {
+  console.log(req.body);
   try {
     // Get user input
     const { email, password } = req.body;
@@ -78,10 +79,8 @@ exports.signinController = async (req, res) => {
           expiresIn: "2h",
         }
       );
-
       // save user token
       user.token = token;
-
       // user
       res.status(200).json(user);
     }

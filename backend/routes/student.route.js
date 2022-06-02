@@ -3,6 +3,8 @@ const router = express.Router();
 const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 
+const Assignment = require("../models/assignment");
+
 //Student Registration/ Login
 const {
   signupController,
@@ -48,13 +50,44 @@ router.get('/topics/view/:id',topiccontroller.getTopic);
 router.delete('/topics/update/:id',topiccontroller.updateTopic);
 
 //File upload
-router.route("/upload").post(upload.single("photo"), async (req, res) => {
+// router.route("/upload").post(upload.single("file"), async (req, res) => {
+//   try {
+//     const result = await cloudinary.uploader.upload(req.file.path);
+//     console.log(result);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+router.post("/test/add", upload.single("file"), async (req, res) => {
   try {
-    const result = await cloudinary.uploader.upload(req.file.path);
+    if (!req.file) {
+      return err.json("File is empty");
+    }
+
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      resource_type: "raw",
+      folder: "Template",
+      public_id: req.file.originalname,
+    });
     console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
+
+    const assignment = new Assignment({
+      asgName: req.body.asgName,
+      endDate: req.body.endDate,
+      endTime: req.body.endTime,
+      department: req.body.department,
+      template: result.secure_url,
+      cloudinary_id: result.public_id,
+      fileName: req.body.fileName,
+    });
+    await assignment
+      .save()
+      .then(() => {
+        res.json("Assignment Added Successfully...");
+      })
+      .catch((err) => res.json(err.message));
+  } catch (err) {}
 });
 
 module.exports = router;

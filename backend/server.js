@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Import student routes
-const studentRoute = require("./routes/student.route");
+// const studentRoute = require("./routes/student.route");
 
 
 //Import panel member routes

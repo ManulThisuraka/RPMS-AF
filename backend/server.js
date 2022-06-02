@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 const chatRoomController = require("./controllers/chat.controller");
 
 //Import routes
-const staffRoute = require("./routes/staff.route")
+const staffRoute = require("./routes/staff.route");
 require("dotenv").config();
 
 //App middleware
@@ -27,11 +27,7 @@ app.use(cors());
 const studentRoute = require("./routes/student.route");
 
 //Import panel member routes
-<<<<<<< HEAD
-const panelMemberRoutes = require("./routes/PanelMember.route");
-=======
 const panelMemberRoutes = require("./routes/panelMember.route");
->>>>>>> fb3141dc5c7d7c1c909ff3271336319e81dc35c9
 
 //route middleware
 app.use(AdminRouter);
@@ -52,42 +48,39 @@ const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 /** Chat Implementation  */
 
-const io = require('socket.io')(server);
+const io = require("socket.io")(server);
 
 //Chat Scocket begin
 
 const connectedClients = {};
 
-io.on('connection', (client) => {
-
+io.on("connection", (client) => {
   console.log("New client connected");
 
   //Client Sent a message
   client.on("SendMessage", async (messageData) => {
     // chatRoomData.push(messageData)
-    await chatRoomController.store(messageData)
-    console.log('client', client.id);
-    await sendUpdatedChatRoomData(client, messageData.groupId)
-  })
+    await chatRoomController.store(messageData);
+    console.log("client", client.id);
+    await sendUpdatedChatRoomData(client, messageData.groupId);
+  });
 
   client.on("GetMessages", async (groupId) => {
-    await sendUpdatedChatRoomData(client, groupId)
-  })
+    await sendUpdatedChatRoomData(client, groupId);
+  });
 
   //Disconnecting from chat room...
-  client.on('disconnecting', async (data) => {
+  client.on("disconnecting", async (data) => {
     console.log("Client disconnecting...");
-    if(connectedClients[client.id]){
-      delete connectedClients[client.id]
+    if (connectedClients[client.id]) {
+      delete connectedClients[client.id];
     }
-
   });
-})
+});
 
 //Sending update chat data to all connected clients
-async function  sendUpdatedChatRoomData(client, id){
-  const allChatRoomData= await chatRoomController.findAll(id)
-  client.emit("RetrieveChatRoomData", allChatRoomData)
-  client.broadcast.emit("RetrieveChatRoomData", allChatRoomData)
-
+async function sendUpdatedChatRoomData(client, id) {
+  const allChatRoomData = await chatRoomController.findAll(id);
+  client.emit("RetrieveChatRoomData", allChatRoomData);
+  client.broadcast.emit("RetrieveChatRoomData", allChatRoomData);
 }

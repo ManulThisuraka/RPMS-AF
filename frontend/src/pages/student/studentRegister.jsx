@@ -165,7 +165,7 @@ const studentRegister = () => {
           <span className="input-group-text">
             <i className="fa fa-user"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="fullName"
           value={fullName}
@@ -174,14 +174,14 @@ const studentRegister = () => {
           type="text"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Student ID */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-user"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="stdID"
           value={stdID}
@@ -190,14 +190,14 @@ const studentRegister = () => {
           type="text"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* NIC */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-id-card"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="NIC"
           value={NIC}
@@ -206,14 +206,14 @@ const studentRegister = () => {
           type="text"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Student E-Mail */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-map-marker"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="stdEmail"
           value={stdEmail}
@@ -222,14 +222,14 @@ const studentRegister = () => {
           type="text"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Password */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-phone"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="password"
           value={password}
@@ -238,14 +238,14 @@ const studentRegister = () => {
           type="password"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Confirm Password */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-envelope"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="password2"
           value={password2}
@@ -254,14 +254,14 @@ const studentRegister = () => {
           type="password"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Phone number */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
             <i className="fa fa-user"></i>
           </span>
-        </div>
+        </div>&nbsp;
         <input
           name="phoneNumber"
           value={phoneNumber}
@@ -270,7 +270,7 @@ const studentRegister = () => {
           type="text"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
       {/* Student specialization */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
@@ -304,11 +304,13 @@ const studentRegister = () => {
         />
       </div> */}
       {/* signup button */}
+      <center>
+      &nbsp;
       <div className="form-group">
         <button type="submit" className="btn btn-primary btn-block">
           Sign Up
         </button>
-      </div>
+      </div></center>
       {/* already have account */}
       <div>
         <p className="text-center text-Black">

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/* const mongoose = require("mongoose");
 
 const StaffSchema = new mongoose.Schema(
   {
@@ -10,7 +10,7 @@ const StaffSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    staffId: {
+    staffId: { //userId 
       type: String,
       required: true,
     },
@@ -44,4 +44,4 @@ const StaffSchema = new mongoose.Schema(
 
 const Staff = mongoose.model("Staff", StaffSchema);
 
-module.exports = Staff;
+module.exports = Staff; */

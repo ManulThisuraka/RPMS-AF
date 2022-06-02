@@ -8,7 +8,6 @@ const dotenv = require("dotenv");
 const chatRoomController = require("./controllers/chat.controller");
 
 //Import routes
-const studentRoute = require("./routes/student.route");
 const staffRoute = require("./routes/staff.route")
 require("dotenv").config();
 
@@ -19,6 +18,7 @@ app.use(express.json());
 
 //Import routes
 const AdminRouter = require("./routes/admin.routes");
+
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());

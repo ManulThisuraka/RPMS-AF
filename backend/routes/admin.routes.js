@@ -3,12 +3,19 @@ const router = require("express").Router();
 let doccontroller = require('../Controllers/document.controller');
 let noticontroller = require('../Controllers/notice.controller');
 let regcontroller = require('../Controllers/regUser.controller');
+let prescontroller = require('../Controllers/presentation.controller');
 
 //Document Routes 
 router.post('/documents/add',doccontroller.createDocument);
 router.get('/documents/viewBySupervisor/:staffID',doccontroller.getCategoryDocuments);
 router.get('/documents/viewByGroup/:groupID',doccontroller.getCategoryDocumentsGroup);
 router.get('/documents/view',doccontroller.getAllDocuments);
+
+//presentations Routes 
+router.post('/presentations/add',prescontroller.createPresentation);
+router.get('/presentations/viewByPanel/:panelID',prescontroller.getCategoryPresentations);
+router.get('/presentations/viewByGroup/:groupID',prescontroller.getCategoryPresentationsGroup);
+router.get('/presentations/view',prescontroller.getAllPresentations);
 
 
 //notice Routes

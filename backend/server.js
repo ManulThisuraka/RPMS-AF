@@ -30,9 +30,7 @@ const panelMemberRoutes = require("./routes/PanelMember.route");
 
 //route middleware
 app.use(AdminRouter);
-
 app.use(panelMemberRoutes);
-
 
 //route middleware
 app.use(studentRoute);

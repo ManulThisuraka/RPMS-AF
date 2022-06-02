@@ -2,23 +2,30 @@ import React from "react";
 import axios from "axios";
 import {BrowserRouter as Router , Routes, Route } from 'react-router-dom';
 import UserContext from "./src/context/UserContext";
+import "./App.css";
 
-import LoginPage from "./src/pages/LoginPage";
+//Student pages
+import StudentLogin from "./src/pages/student/studentLogin";
+import StudentRegister from "./src/pages/student/studentRegister";
+
+
 import AddPanelMember from "./src/pages/AddPanelMember";
+import AddAssignment from "./src/pages/student/uploadFileTest";
+
 import { render } from "react-dom";
 import StaffSignup from "./src/pages/StaffMembers/StaffSignup";
 
 export default class App extends React.Component {
 
-
-
   render() {
     return (
       <Router>
         <Routes>
-          <Route path="/user/login" element={<LoginPage/>}/>
+          <Route path="/" element={<StudentLogin/>}/>
           <Route path="/panelmember/add" element={<AddPanelMember/>}/>
           <Route path="/staff/signup" element={<StaffSignup/>}/>
+          <Route path="/assignment/add" element={<AddAssignment/>}/>
+          <Route path="/student/register" element={<StudentRegister/>}/>
         </Routes>
       </Router>
     );

@@ -26,13 +26,11 @@ app.use(cors());
 //Import student routes
 // const studentRoute = require("./routes/student.route");
 
-
 //Import panel member routes
 const panelMemberRoutes = require("./routes/panelMember.route");
 
 //route middleware
 app.use(AdminRouter);
-
 app.use(panelMemberRoutes);
 
 //route middleware

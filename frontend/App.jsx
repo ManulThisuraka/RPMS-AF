@@ -6,6 +6,7 @@ import UserContext from "./src/context/UserContext";
 import LoginPage from "./src/pages/LoginPage";
 import AddPanelMember from "./src/pages/AddPanelMember";
 import { render } from "react-dom";
+import StaffSignup from "./src/pages/StaffMembers/StaffSignup";
 
 export default class App extends React.Component {
 
@@ -17,6 +18,7 @@ export default class App extends React.Component {
         <Routes>
           <Route path="/user/login" element={<LoginPage/>}/>
           <Route path="/panelmember/add" element={<AddPanelMember/>}/>
+          <Route path="/staff/signup" element={<StaffSignup/>}/>
         </Routes>
       </Router>
     );

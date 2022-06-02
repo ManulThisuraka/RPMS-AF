@@ -17,7 +17,7 @@ const submitToPanel = new mongoose.Schema({
     type: String,
     required: true,
   },
-  topicDocument: {
+  docURL: {
     type: String,
     required: true,
   },

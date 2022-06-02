@@ -7,6 +7,7 @@ import "./App.css";
 //Student pages
 import StudentLogin from "./src/pages/student/studentLogin";
 import StudentRegister from "./src/pages/student/studentRegister";
+import GetAllStudents from "./src/pages/admin/getAllStudents";
 
 
 import AddPanelMember from "./src/pages/AddPanelMember";
@@ -24,6 +25,7 @@ export default class App extends React.Component {
           <Route path="/panelmember/add" element={<AddPanelMember/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
+          <Route path="/admin/getAll" element={<GetAllStudents/>}/>
         </Routes>
       </Router>
     );

@@ -5,10 +5,10 @@ let finalMarkcontroller = require("../Controllers/finalMarks.controller");
 
 // PanelMember Router Paths
 router.post("/panelMembers/save", panelMembercontroller.createPanelMember); //Save PanelMember Details
-router.get("/PanelMembers/view/", panelMembercontroller.getAllPanelMembers); //Get All PanelMember Details
-router.get("/PanelMembers/view/:id", panelMembercontroller.getPanelMember); //Get a specific PanelMember Details
-router.put("/PanelMembers/update/:id", panelMembercontroller.updatePanelMember); //Update PanelMember Details
-router.delete("/PanelMembers/delete/:id", panelMembercontroller.deletePanelMember); //Delete PanelMember
+router.get("/panelMembers/view/", panelMembercontroller.getAllPanelMembers); //Get All PanelMember Details
+router.get("/panelMembers/view/:id", panelMembercontroller.getPanelMember); //Get a specific PanelMember Details
+router.put("/panelMembers/update/:id", panelMembercontroller.updatePanelMember); //Update PanelMember Details
+router.delete("/panelMembers/delete/:id", panelMembercontroller.deletePanelMember); //Delete PanelMember
 
 // panel Router Paths
 router.post("/panel/save", panelcontroller.createPanel); //Save panel Details

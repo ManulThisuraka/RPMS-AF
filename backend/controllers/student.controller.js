@@ -24,7 +24,7 @@ exports.signupController = async (req, res) => {
   } = req.body;
 
   try {
-    const user = await Student.findOne({ stdEmail });
+    const user = await Student.find({ stdEmail });
     if (user) {
       return res.status(400).json({
         errorMessage: "Email already exists",

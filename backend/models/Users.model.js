@@ -3,16 +3,17 @@ const mongoose = require("mongoose");
 const UsersSchema = new mongoose.Schema(
   {
     userID: {
-        type: String,
-        required: true,
+      //
+      type: String,
+      required: true,
     },
     userType: {
-        type: String,
-        required: true, // Student, Staff, Admin 
+      type: String,
+      required: true, // Student, Staff, Admin
     },
     userSubType: {
-        type: String,
-        required: true, // Student -> learder & normal memeber, Staff -> supervisor, co-supervisor & panel memeber 
+      type: String,
+      required: true, // Student -> learder & normal memeber, Staff -> supervisor, co-supervisor & panel memeber
     },
     firstName: {
       type: String,
@@ -39,32 +40,32 @@ const UsersSchema = new mongoose.Schema(
       required: true,
     },
     fullName: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     stdID: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     NIC: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     phoneNumber: {
-        type: Number,
-        required: false,
+      type: Number,
+      required: false,
     },
     specialization: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     panelID: {
       type: String,
       required: false,
     },
     roleID: {
-        type: Number,
-        default: 0, // 0: student, 1: admin, 2: staff
+      type: Number,
+      default: 0, // 0: student, 1: admin, 2: staff
     },
   },
   { timestamps: true }

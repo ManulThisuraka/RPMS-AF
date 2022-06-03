@@ -1,16 +1,6 @@
 let documentModel = require("../models/document.model");
 
-//New Document
-const createDocument = async (req, res) => {
-    const newDocument = new documentModel(req.body);
 
-    newDocument.save().then(() => {
-        res.status(200).json({ success: "Document added" });
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).send({ success: false, error: err.message });
-    })
-}
 //Get Documents by Supervisor
 const getCategoryDocuments = async (req, res) => {
     let id = req.params.staffID;
@@ -58,7 +48,6 @@ const getAllDocuments = async (req, res) => {
 
 
 module.exports = {
-    createDocument,
     getCategoryDocuments,
     getCategoryDocumentsGroup,
     getAllDocuments

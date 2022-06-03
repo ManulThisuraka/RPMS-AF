@@ -1,16 +1,6 @@
 const topicModel = require("../models/student.topics.panel.model");
  
-//New Topic
-const createTopic = async (req, res) => {
-  const newTopic = new topicModel(req.body);
 
-  newTopic.save().then(() => {
-      res.status(200).json({ success: "Topic registered" });
-  }).catch((err) => {
-      console.log(err);
-      res.status(500).send({ success: false, error: err.message });
-  })
-}
 
 //Get all Topics
 const getAllTopics = async (req, res) => {
@@ -79,7 +69,6 @@ const updateTopic = async (req, res) => {
 }
 
 module.exports = {
-  createTopic,
   getAllTopics,
   getCategoryTopicsGroup,
   getCategoryTopics,

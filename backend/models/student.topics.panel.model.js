@@ -19,7 +19,7 @@ const submitToPanel = new mongoose.Schema({
   },
   docURL: {
     type: String,
-    required: true,
+    //required: true,
   },
   panelID: {
     type: String,

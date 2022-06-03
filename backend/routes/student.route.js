@@ -60,18 +60,7 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 router.post("/topic/create", requestSupervisor);
 
 //topics Registation
-router.post("/topics/add", topiccontroller.createTopic);
-router.get("/topics/view", topiccontroller.getAllTopics);
-router.get(
-  "/topics/viewByGroup/:groupID",
-  topiccontroller.getCategoryTopicsGroup
-);
-router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);
-router.get("/topics/view/:id", topiccontroller.getTopic);
-router.delete("/topics/update/:id", topiccontroller.updateTopic);
-router.post(
-  "/topics/add",
-  multerUploadInMemory.single("file"),
+router.post("/topics/add", multerUploadInMemory.single("file"),
   async (req, res) => {
     console.log(req.body);
     console.log(req.file);
@@ -108,10 +97,7 @@ router.post(
   }
 );
 router.get("/topics/view", topiccontroller.getAllTopics);
-router.get(
-  "/topics/viewByGroup/:groupID",
-  topiccontroller.getCategoryTopicsGroup
-);
+router.get("/topics/viewByGroup/:groupID",topiccontroller.getCategoryTopicsGroup);
 router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);
 router.get("/topics/view/:id", topiccontroller.getTopic);
 router.put("/topics/update/:id", topiccontroller.updateTopic);

@@ -79,7 +79,7 @@ router.post('/topics/add',multerUploadInMemory.single("file"),async (req, res) =
       "topic":req.body.topic ,
       "supervisorID":req.body.supervisorID ,
       "co_supervisorID":req.body.co_supervisorID ,
-      "docURL": uploadResult.docURL
+      "docURL": uploadResult.Location
   }
 
   const newTopic = new topicModel(newTopicObj);

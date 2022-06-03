@@ -59,13 +59,13 @@
 
 .container {
     /* background-image: url('./src/components/images/image19.jpg'); */
-    color:white;
     background-size: cover;
     background-size: 1920px 1080px;
 
     background-repeat: no-repeat;
      
 }
+
 
 .returnBackground {
     background-image: url('./src/components/images/image19.jpg');

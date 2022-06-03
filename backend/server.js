@@ -4,30 +4,28 @@ const connectDB = require("./database/database");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
+require("dotenv").config();
 
 const chatRoomController = require("./controllers/chat.controller");
 
 //Import routes
 const staffRoute = require("./routes/staff.route");
-require("dotenv").config();
+//Import routes
+const AdminRouter = require("./routes/admin.routes");
+
+//Import student routes
+const studentRoute = require("./routes/student.route");
+//Import panel member routes
+const panelMemberRoutes = require("./routes/panelMember.route");
 
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 
-//Import routes
-const AdminRouter = require("./routes/admin.routes");
-
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
-
-//Import student routes
-const studentRoute = require("./routes/student.route");
-
-//Import panel member routes
-const panelMemberRoutes = require("./routes/panelMember.route");
 
 //route middleware
 app.use(AdminRouter);

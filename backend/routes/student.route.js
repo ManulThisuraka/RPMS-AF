@@ -96,6 +96,7 @@ router.post("/topics/add", multerUploadInMemory.single("file"),
       });
   }
 );
+
 router.get("/topics/view", topiccontroller.getAllTopics);
 router.get("/topics/viewByGroup/:groupID",topiccontroller.getCategoryTopicsGroup);
 router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);

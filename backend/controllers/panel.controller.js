@@ -22,10 +22,10 @@ const createPanel = async (req, res) => {
 const getAllPanel = async (req, res) => {
   panel
     .find()
-    .then((panel) => {
+    .then((panels) => {
       res.json({
         success: true,
-        PanelList: panel,
+        PanelList: panels,
       });
     })
     .catch((err) => {

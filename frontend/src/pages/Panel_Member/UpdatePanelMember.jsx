@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 export default class UpdatePanelMember extends Component {
+
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +13,29 @@ export default class UpdatePanelMember extends Component {
       panelmemberName: "",
       p_researchArea: "",
     };
-  }
+  }  
+
+  
+
+
+//  componentDidMount(){
+//   const { id } = props.match.params.id;
+//   console.log(id);;
+//     //console.log ("aaaaaaaaaa",this.props.match.params.id);
+  
+//     //  axios.get(`/panelMembers/view/${id}`).then((res) => {
+//     //      if(res.data.success){
+//     //          this.setState({
+//     //            staffID:res.data.panelmembers.staffID, 
+//     //           panelmemberID:res.data.panelmembers.panelmemberID, 
+//     //            panelmemberName:res.data.panelmembers.panelmemberName, 
+//     //            p_researchArea:res.data.panelmembers.p_researchArea
+//     //         });
+  
+//     //        console.log(this.state.edit);
+//     //     }
+//     //  });
+//  }
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +48,7 @@ export default class UpdatePanelMember extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    const id = this.props.match.params.id;
     const { staffID, panelmemberID, panelmemberName, p_researchArea } =
       this.state;
 
@@ -36,20 +61,21 @@ export default class UpdatePanelMember extends Component {
 
     console.log(data);
 
-    axios
-      .post("http://localhost:5000/panelMembers/update/:id", data)
-      .then((res) => {
-        if (res.data.success) {
-          alert("Data Updated successfully !!!");
-          this.setState({
-            staffID: "",
-            panelmemberID: "",
-            panelmemberName: "",
-            p_researchArea: "",
-          });
-        }
-      });
-  };
+    axios.put(`/panelMembers/update/${id}`,data).then((res) => {
+      if(res.data.success){
+          alert(" updated successfully !!!")
+          this.props.history.push('/home')
+          this.setState ({
+            staffID: "", 
+            panelmemberID: "", 
+            panelmemberName: "", 
+            p_researchArea: ""
+          })
+      }
+  })
+}
+
+
 
   render() {
     return (

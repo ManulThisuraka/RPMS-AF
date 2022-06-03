@@ -7,12 +7,9 @@ export default class AddFinalMarks extends Component {
     this.state = {
       panelGroupID: "",
       studentGroupID: "",
-      charter: "",
-      pro_proposal: "",
       pp_01: "",
       pp_02: "",
       final_report: "",
-      App_Banner: "",
       finalmark: "",
       finalgrade: "",
     };
@@ -33,12 +30,9 @@ export default class AddFinalMarks extends Component {
     const {
       panelGroupID,
       studentGroupID,
-      charter,
-      pro_proposal,
       pp_01,
       pp_02,
       final_report,
-      App_Banner,
       finalmark,
       finalgrade,
     } = this.state;
@@ -46,12 +40,9 @@ export default class AddFinalMarks extends Component {
     const data = {
       panelGroupID: panelGroupID,
       studentGroupID: studentGroupID,
-      charter: charter,
-      pro_proposal: pro_proposal,
       pp_01: pp_01,
       pp_02: pp_02,
       final_report: final_report,
-      App_Banner: App_Banner,
       finalmark: finalmark,
       finalgrade: finalgrade,
     };
@@ -64,12 +55,9 @@ export default class AddFinalMarks extends Component {
         this.setState({
           panelGroupID: "",
           studentGroupID: "",
-          charter: "",
-          pro_proposal: "",
           pp_01: "",
           pp_02: "",
           final_report: "",
-          App_Banner: "",
           finalmark: "",
           finalgrade: "",
         });
@@ -111,32 +99,6 @@ export default class AddFinalMarks extends Component {
               />
             </div>
 
-            {/* charter */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Charter </label>
-              <input
-                type="text"
-                className="form-control"
-                name="charter"
-                placeholder="Enter Charter Marks"
-                value={this.state.charter}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {/* Project Proposal */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Project Proposal </label>
-              <input
-                type="text"
-                className="form-control"
-                name="pro_proposal"
-                placeholder="Enter Project Proposal Marks"
-                value={this.state.pro_proposal}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
             {/* pp_01 */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <label style={{ marginBottom: "5px" }}> pp_01 </label>
@@ -172,19 +134,6 @@ export default class AddFinalMarks extends Component {
                 name="final_report"
                 placeholder="Enter Final Report Marks"
                 value={this.state.final_report}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {/* App Banner */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> App Banner </label>
-              <input
-                type="text"
-                className="form-control"
-                name="App_Banner"
-                placeholder="Enter App_Banner Marks"
-                value={this.state.App_Banner}
                 onChange={this.handleInputChange}
               />
             </div>

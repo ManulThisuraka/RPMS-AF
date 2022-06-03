@@ -20,62 +20,7 @@
     opacity: 0.8;
     background-attachment: fixed;
    
-}
-
-.panel-container {
-    background-image: url('./src/components/images/image_pp.jpg');
-    height: 538px;
-    /* height: auto; */
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-
-}
-
-.panelmember-container {
-    background-image: url('./src/components/images/image_pp.jpg');
-    height: 538px;
-    /* height: auto; */
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-
-}
-
-.finalMarks-container {
-    background-image: url('./src/components/images/image_pp.jpg');
-    height: 538px;
-    /* height: auto; */
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-
-}
-
-.panelMembers-container {
-    background-image: url('./src/components/images/image_pp.jpg');
-    height: 538px;
-    /* height: auto; */
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-
-}
-   
-  
-
+}  
 
 .center {
     display: flex;

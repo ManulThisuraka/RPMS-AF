@@ -26,7 +26,7 @@ const {
 } = require("../controllers/student.topic.controller");
 
 //topic Registation
-let topiccontroller = require('../Controllers/student.topic.panel.controller');
+let topiccontroller = require("../Controllers/student.topic.panel.controller");
 
 //Student routes
 router.post("/register", signupController);
@@ -42,12 +42,15 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 router.post("/topic/create", requestSupervisor);
 
 //topics Registation
-router.post('/topics/add',topiccontroller.createTopic);
-router.get('/topics/view',topiccontroller.getAllTopics);
-router.get('/topics/viewByGroup/:groupID',topiccontroller.getCategoryTopicsGroup);
-router.get('/topics/viewByPanel/:panelID',topiccontroller.getCategoryTopics);
-router.get('/topics/view/:id',topiccontroller.getTopic);
-router.delete('/topics/update/:id',topiccontroller.updateTopic);
+router.post("/topics/add", topiccontroller.createTopic);
+router.get("/topics/view", topiccontroller.getAllTopics);
+router.get(
+  "/topics/viewByGroup/:groupID",
+  topiccontroller.getCategoryTopicsGroup
+);
+router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);
+router.get("/topics/view/:id", topiccontroller.getTopic);
+router.delete("/topics/update/:id", topiccontroller.updateTopic);
 
 //File upload
 // router.route("/upload").post(upload.single("file"), async (req, res) => {

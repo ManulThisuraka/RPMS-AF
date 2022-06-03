@@ -28,10 +28,11 @@ export default class App extends React.Component {
       <Router>
         <Routes>
           <Route path="/" element={<StudentLogin/>}/>
+          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
           <Route path="/panelmember/add" element={<AddPanelMember/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
-          <Route path="/admin/getAll" element={<GetAllStudents/>}/>
+          
 
           <Route path="/panel/add" element={<AddPanel />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />

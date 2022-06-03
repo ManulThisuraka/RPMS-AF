@@ -10,15 +10,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../api/auth";
 
 const studentRegister = () => {
-  let history = useNavigate();
+  let navigate = useNavigate();
 
-  //   useEffect(() => {
-  //     if (isAuthenticated() && isAuthenticated().roleID === 1) {
-  //       history.push("/admin/dashboard");
-  //     } else if (isAuthenticated() && isAuthenticated().roleID === 0) {
-  //       history.push("/product");
-  //     }
-  //   }, [history]);
+    useEffect(() => {
+      if (isAuthenticated().roleID === 1) {
+        navigate("/admin/dashboard");
+      } else if (isAuthenticated().roleID === 0) {
+        navigate("/product");
+      }
+    }, []);
 
   const [formData, setFormData] = useState({
     fullName: "Test User",

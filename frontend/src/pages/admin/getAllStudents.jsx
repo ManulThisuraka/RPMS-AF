@@ -8,6 +8,7 @@ constructor(props) {
   this.state={
     existingUser:[]
   };
+  
 
 }
 
@@ -18,12 +19,12 @@ componentDidMount(){
 retrieveAllUser() {
   axios.get("http://localhost:5000/getAllUsers").then(res =>{
     if(res.data.success){
-      console.log(res.data.existingUser);
+      console.log("Hellooo",res.data.existingUser);
       this.setState({
-        existingUser:res.data.user
+        existingUser:res.data.existingUser
       });
 
-  console.log(this.state.existingUser);
+
     }
   });
 }
@@ -61,7 +62,7 @@ handleSearchArea = (e) => {
       <div className="viewPanelMember-container">
           <div className="row">
             <div className="col-lg-9 mt-2 mb-2"><br></br><br></br><br></br>
-              <h1><center><b>All Panel Members Details</b></center></h1> <br></br> 
+              <h1><center><b>All Students Details</b></center></h1> <br></br> 
             </div>
           <div className="col-lg-3 mt-2 mb-2"><br></br><br></br><br></br>
             <input className="form-control mr-sm-2" type="search" placeholder="Search ..." name="searchQue" onChange={this.handleSearchArea}>
@@ -82,21 +83,22 @@ handleSearchArea = (e) => {
               </thead>
 
               <tbody>
-                  {this.state.existingUser?.map((existingUser,index) => (
+                {console.log("State user",this.state.existingUser)}
+                  {this.state.existingUser?.map((user,index) => (
                     <tr>
                       <th scope="row">{index+1}</th>
-                      <td>{existingUser.fullName}</td>
-                      <td>{existingUser.stdID}</td>
-                      <td>{existingUser.NIC}</td>
-                      <td>{existingUser.stdEmail}</td>
-                      <td>{existingUser.phoneNumber}</td>
-                      <td>{existingUser.specialization}</td>
+                      <td>{user.fullName}</td>
+                      <td>{user.stdID}</td>
+                      <td>{user.NIC}</td>
+                      <td>{user.stdEmail}</td>
+                      <td>{user.phoneNumber}</td>
+                      <td>{user.specialization}</td>
                       <td>
-                        <a className="btn btn-secondary btn-sm btn-block" href={`/edit/${existingUser._id}`}>
+                        <a className="btn btn-secondary btn-sm btn-block" href={`/edit/${user._id}`}>
                           <i className="fas fa-edit"></i>&nbsp;UPDATE   
                         </a> 
                         &nbsp; 
-                        <a className="btn btn-secondary btn-sm btn-block" href="#" onClick={() =>this.onDelete(existingUser._id)}>
+                        <a className="btn btn-secondary btn-sm btn-block" href="#" onClick={() =>this.onDelete(user._id)}>
                           <i className="far fa-trash-alt"></i>&nbsp;DELETE
                         </a>
                       </td>

@@ -9,13 +9,13 @@ const multerS3 = require("multer-s3");
 
 const s3 = new aws.S3({
   accessKeyId: process.env.S3_ACCESS_KEY,
-  secretAccessKey: process.env.S3_SECRET_KEY ,
-  region: process.env.BUCKET_REIGEN ,
+  secretAccessKey: process.env.S3_SECRET_KEY,
+  region: process.env.BUCKET_REIGEN,
 });
 
 const multerMemoryStorage = multer.memoryStorage();
 const multerUploadInMemory = multer({
-  storage: multerMemoryStorage
+  storage: multerMemoryStorage,
 });
 
 require("dotenv").config();
@@ -44,7 +44,7 @@ const {
 } = require("../controllers/student.topic.controller");
 
 //topic Registation
-let topiccontroller = require('../Controllers/student.topic.panel.controller');
+let topiccontroller = require("../Controllers/student.topic.panel.controller");
 
 //Student routes
 router.post("/register", signupController);
@@ -60,41 +60,61 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 router.post("/topic/create", requestSupervisor);
 
 //topics Registation
-router.post('/topics/add',multerUploadInMemory.single("file"),async (req, res) => {
-
-  console.log(req.body);
+router.post("/topics/add", topiccontroller.createTopic);
+router.get("/topics/view", topiccontroller.getAllTopics);
+router.get(
+  "/topics/viewByGroup/:groupID",
+  topiccontroller.getCategoryTopicsGroup
+);
+router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);
+router.get("/topics/view/:id", topiccontroller.getTopic);
+router.delete("/topics/update/:id", topiccontroller.updateTopic);
+router.post(
+  "/topics/add",
+  multerUploadInMemory.single("file"),
+  async (req, res) => {
+    console.log(req.body);
     console.log(req.file);
 
-    const uploadResult = await s3.upload({
+    const uploadResult = await s3
+      .upload({
         Bucket: "recentro-bucket",
         Key: req.file.originalname,
         Body: req.file.buffer,
-    }).promise();
+      })
+      .promise();
 
     console.log(`Upload Successful!`);
     console.log(uploadResult.Location);
 
     var newTopicObj = {
-      "groupID": req.body.groupID,
-      "topic":req.body.topic ,
-      "supervisorID":req.body.supervisorID ,
-      "co_supervisorID":req.body.co_supervisorID ,
-      "docURL": uploadResult.docURL
-  }
+      groupID: req.body.groupID,
+      topic: req.body.topic,
+      supervisorID: req.body.supervisorID,
+      co_supervisorID: req.body.co_supervisorID,
+      docURL: uploadResult.docURL,
+    };
 
-  const newTopic = new topicModel(newTopicObj);
-  newTopic.save().then(() => {
-      res.status(200).json({ success: "Topic registered" });
-  }).catch((err) => {
-      console.log(err);
-      res.status(500).send({ success: false, error: err.message });
-  })
-});
-router.get('/topics/view',topiccontroller.getAllTopics);
-router.get('/topics/viewByGroup/:groupID',topiccontroller.getCategoryTopicsGroup);
-router.get('/topics/viewByPanel/:panelID',topiccontroller.getCategoryTopics);
-router.get('/topics/view/:id',topiccontroller.getTopic);
-router.put('/topics/update/:id',topiccontroller.updateTopic);
+    const newTopic = new topicModel(newTopicObj);
+    newTopic
+      .save()
+      .then(() => {
+        res.status(200).json({ success: "Topic registered" });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ success: false, error: err.message });
+      });
+  }
+);
+router.get("/topics/view", topiccontroller.getAllTopics);
+router.get(
+  "/topics/viewByGroup/:groupID",
+  topiccontroller.getCategoryTopicsGroup
+);
+router.get("/topics/viewByPanel/:panelID", topiccontroller.getCategoryTopics);
+router.get("/topics/view/:id", topiccontroller.getTopic);
+router.put("/topics/update/:id", topiccontroller.updateTopic);
 
 //File upload
 // router.route("/upload").post(upload.single("file"), async (req, res) => {

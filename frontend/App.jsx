@@ -35,7 +35,7 @@ export default class App extends React.Component {
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
 
-          <Route path="/edit/id" element = { <UpdatePanelMember/>} />
+          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/panel/viewall" element={<ViewAllPanels />} />

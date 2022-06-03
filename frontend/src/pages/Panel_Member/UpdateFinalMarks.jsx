@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class AddFinalMarks extends Component {
+export default class UpdateFinalMarks extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,23 +58,25 @@ export default class AddFinalMarks extends Component {
 
     console.log(data);
 
-    axios.post("http://localhost:5000/finalMarks/save", data).then((res) => {
-      if (res.data.success) {
-        alert("Data saved successfully !!!");
-        this.setState({
-          panelGroupID: "",
-          studentGroupID: "",
-          charter: "",
-          pro_proposal: "",
-          pp_01: "",
-          pp_02: "",
-          final_report: "",
-          App_Banner: "",
-          finalmark: "",
-          finalgrade: "",
-        });
-      }
-    });
+    axios
+      .post("http://localhost:5000/finalMarks/update/:id", data)
+      .then((res) => {
+        if (res.data.success) {
+          alert("Data Updated successfully !!!");
+          this.setState({
+            panelGroupID: "",
+            studentGroupID: "",
+            charter: "",
+            pro_proposal: "",
+            pp_01: "",
+            pp_02: "",
+            final_report: "",
+            App_Banner: "",
+            finalmark: "",
+            finalgrade: "",
+          });
+        }
+      });
   };
 
   render() {
@@ -82,7 +84,7 @@ export default class AddFinalMarks extends Component {
       <div className="finalMarks-container">
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal">ADD FINAL MARKS </h2>
+            <h2 className="h3 mb-3 font-weight-normal"><UPDATE></UPDATE> FINAL MARKS </h2>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}
@@ -222,7 +224,7 @@ export default class AddFinalMarks extends Component {
               onClick={this.onSubmit}
             >
               <i className="far fa-check-square"></i>
-              &nbsp; SAVE
+              &nbsp; UPDATE
             </button>
           </form>
         </div>

@@ -86,7 +86,7 @@ const SignIn = () => {
           type="email"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
 
       {/* password */}
       <div className="form-group input-group">
@@ -103,14 +103,16 @@ const SignIn = () => {
           type="password"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
 
       {/* signin button */}
+      <center>
       <div className="form-group">
         <button type="submit" className="btn btn-primary btn-block">
           Sign In
         </button>
       </div>
+      </center>
 
       {/* create new account */}
       <p className="text-center text-Black">

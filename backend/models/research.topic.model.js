@@ -9,6 +9,10 @@ const supervisorSelection = new mongoose.Schema({
     type: String,
     required: true,
   },
+  co_supervisorID: {
+    type: String,
+    required: false,
+  },
   topic: {
     type: String,
     required: true,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 export default class NoticePresentationForm extends Component {
     constructor(props) {
@@ -138,12 +139,12 @@ export default class NoticePresentationForm extends Component {
                 <form>
 
                     <div className="form-group">
-                        <label>Topic</label>
-                        <input type="text" className="form-control" id="topic" placeholder="Enter Topic"
-                            name="topic"
-                            value={this.state.topic}
+                        <label>Presentation Type (Ex:PP_01)</label>
+                        <input type="text" className="form-control" id="presentationType" placeholder="Enter Presentation Type"
+                            name="presentationType"
+                            value={this.state.presentationType}
                             onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.etopic}</small>
+                        <small className="text-danger">{this.state.epresentationType}</small>
                     </div>
 
                     <div className="form-group">
@@ -156,22 +157,14 @@ export default class NoticePresentationForm extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Supervisor ID</label>
-                        <input type="text" className="form-control" id="supervisorID" placeholder="Enter Supervisor ID"
-                            name="supervisorID"
-                            value={this.state.supervisorID}
+                        <label>Panel ID</label>
+                        <input type="text" className="form-control" id="panelID" placeholder="Enter Panel ID"
+                            name="panelID"
+                            value={this.state.panelID}
                             onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.esupervisorID}</small>
+                        <small className="text-danger">{this.state.epanelID}</small>
                     </div>
 
-                    <div className="form-group">
-                        <label>Co-Supervisor ID</label>
-                        <input type="text" className="form-control" id="co_supervisorID" placeholder="Enter Co-Supervisor ID"
-                            name="co_supervisorID"
-                            value={this.state.co_supervisorID}
-                            onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.eco_supervisorID}</small>
-                    </div>
 
                     <label>Upload Document</label><br />
                     <input type="file" id="file" onChange={this.selectFile} /><br />

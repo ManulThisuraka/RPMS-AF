@@ -15,10 +15,12 @@ const PresentationSchema = new mongoose.Schema({
         type : String
     },
     comments :{
-        type : String
+        type : String,
+        default: "Not Evaluated Yet"
     },
     marks :{
-        type : String
+        type : String,
+        default: "Not Evaluated Yet"
     }
 })
 

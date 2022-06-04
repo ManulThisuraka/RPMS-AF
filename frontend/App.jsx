@@ -65,10 +65,10 @@ export default class App extends React.Component {
       <Router>
         <Header/>
         <Routes>
-        <Route path="/" element={<Home/>} />
+        {/* <Route path="/" element={<Home/>} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
-          <Route path="/stuHome" element={<StudentHome/>}></Route>
+          <Route path="/studentHome" element={<StudentHome/>}></Route>
 
           // Panel Member
           <Route path="/panelhome" element={<PanelHome />} />

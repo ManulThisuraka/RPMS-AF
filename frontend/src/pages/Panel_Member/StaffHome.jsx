@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { isAuthenticated, logout } from "../../helpers/auth";
+import { useNavigate } from "react-router-dom";
 
 export default class StaffHome extends Component {
+  
+  componentDidMount(){
+    if(isAuthenticated() == false){
+      window.location.replace("/login");
+      }
+  }
+  
   render() {
+    
     return (
       <div className="StaffHome_container">
         <center>

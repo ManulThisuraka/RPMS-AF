@@ -42,6 +42,7 @@ import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
 
 
+
 //Staff Pages
 import StaffSignup from "./src/pages/StaffMembers/StaffSignup";
 import StaffDetails from "./src/pages/StaffMembers/StaffDetails";
@@ -78,7 +79,7 @@ export default class App extends React.Component {
           <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
 
           // Student
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
+         
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>

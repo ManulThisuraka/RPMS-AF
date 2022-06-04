@@ -17,6 +17,7 @@ import SupervisorRequest from "./src/pages/student/supervisorRequest";
 //Student pages
 import StudentRegister from "./src/pages/student/studentRegister";
 import GetAllStudents from "./src/pages/admin/getAllStudents";
+import CreateStudentGroups from "./src/pages/student/createStudentGroups";
 import StudentHome from "./src/pages/student/StudentHome";
 
 
@@ -40,6 +41,7 @@ import NoticeDocumentForm from "./src/pages/student/NoticeDocumentForm";
 import NoticePresentationForm from "./src/pages/student/NoticePresentationForm";
 import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
+import PresentationsPanel from "./src/pages/Panel_Member/PresentationsPanel";
 
 
 
@@ -63,6 +65,7 @@ export default class App extends React.Component {
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
+          <Route path="/stuHome" element={<StudentHome/>}></Route>
 
           // Panel Member
           <Route path="/panelhome" element={<PanelHome />} />
@@ -70,16 +73,27 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
+<<<<<<< HEAD
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
+=======
+          
+          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
+
+
+>>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
           <Route path="/finalMarks/viewall" element={<ViewFinalMarks />} />        
           <Route path="/panelETopic" element={<PanelEvaluateTopic />} />
-          <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
+          <Route path="/panelEPresentation/:id" element={<PanelEvaluatePresentation />} />
 
           // Student
+<<<<<<< HEAD
          
+=======
+          
+>>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
@@ -88,8 +102,15 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
+<<<<<<< HEAD
           <Route path="/stuHome" element={<StudentHome/>}></Route>
+=======
+          
+>>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
+          <Route path="/student/creategroup" element={<CreateStudentGroups />} />
+          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
+        
           
 
           // Admin
@@ -102,7 +123,8 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
-          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
+          <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
+          
         </Routes>
         <Footer/>
       </Router>

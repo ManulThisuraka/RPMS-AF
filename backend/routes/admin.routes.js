@@ -77,6 +77,24 @@ router.get("/documents/view", doccontroller.getAllDocuments);
 router.post(
   "/presentations/add",
   multerUploadInMemory.single("file"),
+  async (req, res) => {}
+);
+router.get(
+  "/documents/viewBySupervisor/:staffID",
+  doccontroller.getCategoryDocuments
+);
+router.get(
+  "/documents/viewByGroup/:groupID",
+  doccontroller.getCategoryDocumentsGroup
+);
+router.get("/documents/view", doccontroller.getAllDocuments);
+router.get("/documents/view/:id", doccontroller.getDocument);
+router.put("/documents/update/:id", doccontroller.updateDocument);
+
+//presentations Routes
+router.post(
+  "/presentations/add",
+  multerUploadInMemory.single("file"),
   async (req, res) => {
     console.log(req.body);
     console.log(req.file);

@@ -13,6 +13,14 @@ const DocumentSchema = new mongoose.Schema({
     },
     docURL :{
         type : String
+    },
+    comments :{
+        type : String,
+        default: "Not Evaluated Yet"
+    },
+    marks :{
+        type : String,
+        default: "Not Evaluated Yet"
     }
 })
 

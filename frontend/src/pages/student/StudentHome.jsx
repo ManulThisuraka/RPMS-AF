@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { isAuthenticated, logout } from "../../helpers/auth";
 
 export default class StaffHome extends Component {
+
+
+  componentDidMount(){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
+      window.location.replace("/login");
+      }
+  }
+  
+  
   render() {
     return (
       <div className="StudentHome_container">
@@ -20,7 +31,7 @@ export default class StaffHome extends Component {
           <form>
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="/student/creategroup"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -30,7 +41,7 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="/student/requestSupervisor"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -40,17 +51,17 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="/student/viewNotices"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Submit Topic To Panel{" "}
+                View Notices{" "}
               </a>
             </button>{" "}
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href=""
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -64,8 +75,6 @@ export default class StaffHome extends Component {
     );
   }
 }
-
-
 
 
 

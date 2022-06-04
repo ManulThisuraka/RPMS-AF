@@ -42,6 +42,9 @@ import NoticePresentationForm from "./src/pages/student/NoticePresentationForm";
 import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
 import PresentationsPanel from "./src/pages/Panel_Member/PresentationsPanel";
+import PresentationsStudent from "./src/pages/student/PresentationsStudent";
+import DocumentsSupervisor from "./src/pages/StaffMembers/DocumentsSupervisor";
+import DocumentsStudent from "./src/pages/student/DocumentsStudent";
 
 
 
@@ -62,10 +65,10 @@ export default class App extends React.Component {
       <Router>
         <Header/>
         <Routes>
-        <Route path="/" element={<Home/>} />
+        {/* <Route path="/" element={<Home/>} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
-          <Route path="/stuHome" element={<StudentHome/>}></Route>
+          <Route path="/studentHome" element={<StudentHome/>}></Route>
 
           // Panel Member
           <Route path="/panelhome" element={<PanelHome />} />
@@ -94,7 +97,7 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
-          
+          <Route path="/stuHome" element={<StudentHome/>}></Route>
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
@@ -112,6 +115,9 @@ export default class App extends React.Component {
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
+          <Route path="/student/presentations" element={<PresentationsStudent/>}/>
+          <Route path="/staff/documents" element={<DocumentsSupervisor/>}/>
+          <Route path="/student/documents" element={<DocumentsStudent/>}/>
           
         </Routes>
         <Footer/>

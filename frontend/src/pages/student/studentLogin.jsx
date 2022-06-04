@@ -49,7 +49,7 @@ const SignIn = () => {
         .then((response) => {
           console.log("Axios login success: ", response);
           if (response.data.userType == "Student") {
-            navigate("/home");
+            navigate("/studentHome");
           }else if (response.data.userType == "Staff") {
             navigate("/staffhome");
           }

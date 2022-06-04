@@ -17,6 +17,7 @@ import SupervisorRequest from "./src/pages/student/supervisorRequest";
 //Student pages
 import StudentRegister from "./src/pages/student/studentRegister";
 import GetAllStudents from "./src/pages/admin/getAllStudents";
+import CreateStudentGroups from "./src/pages/student/createStudentGroups";
 
 
 
@@ -90,6 +91,8 @@ export default class App extends React.Component {
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
+          <Route path="/student/creategroup" element={<CreateStudentGroups />} />
+        
           
 
           // Admin

@@ -31,6 +31,7 @@ import PanelEvaluatePresentation from "./src/pages/Panel_Member/PanelEvaluatePre
 import ManageNotices from "./src/pages/admin/ManageNotices";
 import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
 import ViewNoticesAdmin from "./src/pages/admin/ViewNoticesAdmin";
+import StaffHome from "./src/pages/Panel_Member/StaffHome";
 
 export default class App extends React.Component {
 
@@ -39,32 +40,34 @@ export default class App extends React.Component {
       <Router>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/panel/add" element={<AddPanel />} />
+          <Route path="/staffhome" element={<StaffHome />} />
+          // Panel Member
+          <Route path="/panelhome" element={<PanelHome />} />
+          //in the admin side
+          <Route path="/panel/add" element={<AddPanel />} />  
+          <Route path="/panel/viewall" element={<ViewAllPanels />} />
+
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
 
-          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
-
           <Route path="/panelmember/add" element={<AddPanelMember />} />
-          <Route path="/panel/viewall" element={<ViewAllPanels />} />
+          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
+
+          <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/viewall" element={<ViewFinalMarks />} />
-          <Route path="/panelhome" element={<PanelHome />} />
+          
           <Route path="/panelETopic" element={<PanelEvaluateTopic />} />
           <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
 
+          // Student
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
-
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
-          <Route path="/panelmember/add" element={<AddPanelMember/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
-          <Route path="/student/register" element={<StudentRegister/>}/>
-          
+          <Route path="/student/register" element={<StudentRegister/>}/>         
 
-          <Route path="/panel/add" element={<AddPanel />} />
-          <Route path="/finalMarks/add" element={<AddFinalMarks />} />
-
+          // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
           <Route path="/admin/viewNotices" element={<ViewNoticesAdmin/>}/>

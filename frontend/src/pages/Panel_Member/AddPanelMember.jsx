@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class AddPanelMember extends Component {
   constructor(props) {
@@ -38,27 +39,28 @@ export default class AddPanelMember extends Component {
     axios.post("http://localhost:5000/panelMembers/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
-        this.setState({
-          staffID: "",
-          panelmemberID: "",
-          panelmemberName: "",
-          p_researchArea: "",
-        });
+        this.props.history.push('/panelmember/viewall')
+        // this.setState({
+        //   staffID: "",
+        //   panelmemberID: "",
+        //   panelmemberName: "",
+        //   p_researchArea: "",
+        // });
       }
     });
   };
 
   render() {
     return (
-      <div className="panelmember-container">
+      <div className="panelmember-container"><br></br><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal">ADD PANAL MEMBER </h2>
+            <h1><b>ADD PANAL MEMBER </b></h1><br></br><br></br>
           </center>
           <form className="needs-validation" noValidate>
             {/* Staff ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Staff ID </label>
+            <b><label style={{ marginBottom: "5px" }}> Staff ID </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -71,7 +73,7 @@ export default class AddPanelMember extends Component {
 
             {/* Panel Member ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Member ID </label>
+            <b><label style={{ marginBottom: "5px" }}> Panel Member ID </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -84,10 +86,10 @@ export default class AddPanelMember extends Component {
 
             {/* Panel Member Name */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}>
+            <b><label style={{ marginBottom: "5px" }}>
                 {" "}
                 Panel Member Name{" "}
-              </label>
+              </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -100,10 +102,10 @@ export default class AddPanelMember extends Component {
 
             {/* Research Area */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}>
+            <b><label style={{ marginBottom: "5px" }}>
                 {" "}
                 Research Area{" "}
-              </label>
+              </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -118,15 +120,8 @@ export default class AddPanelMember extends Component {
                           <i className="fas fa-edit"></i>&nbsp;UPDATE   
                         </a>  */}
 
-            <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              <i className="far fa-check-square"></i>
-              &nbsp; SAVE
-            </button>
+<center><button type="submit" className="btn btn-secondary btn-lg active" onClick={this.onSubmit} style={{marginTop:'10px'}}>
+                <a href="" style={{textDecoration:'none', color:'white'}}> Save </a></button></center> <br></br> 
           </form>
         </div>
       </div>

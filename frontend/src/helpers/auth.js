@@ -17,6 +17,27 @@ export const isAuthenticated = () => {
     return false;
   }
 };
+/*Chat component starting */
+export const getCurrentUser = () => {
+  if (getLocalStorage("user")) {
+    return getLocalStorage("user");
+  } else {
+    return false;
+  }
+};
+
+export const setSelectedChat = (id) => {
+  setLocalStorage("chatID", id);
+};
+
+export const getCurrentChat = () => {
+  if (getLocalStorage("chatID")) {
+    return getLocalStorage("chatID");
+  } else {
+    return false;
+  }
+};
+/*Chat component ending */
 
 export const logout = (next) => {
   deleteCookie("token");

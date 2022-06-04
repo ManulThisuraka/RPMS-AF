@@ -49,6 +49,10 @@ import SupervisorHome from "./src/pages/StaffMembers/SupervisorHome";
 import Header from "./src/pages/Common/Header";
 import Home from "./src/pages/Common/Home";
 import Footer from "./src/pages/Common/Footer";
+import AcceptTopic from "./src/pages/StaffMembers/AcceptTopic";
+import ChatRoom from "./src/pages/StaffMembers/ChatRoom";
+import ViewAllRequests from "./src/pages/StaffMembers/ViewAllRequests";
+import Chat from "./src/pages/StaffMembers/Chat";
 
 
 export default class App extends React.Component {
@@ -102,6 +106,11 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
+          <Route path="/accept/add" element={<AcceptTopic/>} />  
+          <Route path="/viewAllRequest" element={<ViewAllRequests/>} />  
+          <Route path="/chatroom" element={<ChatRoom/>} />  
+          <Route path="/chat" element={<Chat/>} />  
+          
 
         </Routes>
         <Footer/>

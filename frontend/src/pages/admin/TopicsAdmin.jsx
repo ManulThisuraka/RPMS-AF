@@ -42,6 +42,7 @@ export default class TopicsAdmin extends Component {
 
     render() {
         return (
+            <div className="StudentHome_container">
             <div className="container">
                 <br />
                 <br />
@@ -87,6 +88,7 @@ export default class TopicsAdmin extends Component {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         )
     }

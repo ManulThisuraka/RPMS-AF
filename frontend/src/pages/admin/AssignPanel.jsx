@@ -64,6 +64,7 @@ export default class AssignPanel extends Component {
 
     render() {
         return (
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />
@@ -77,7 +78,7 @@ export default class AssignPanel extends Component {
 
                     <div className="form-group">
                         <label>Panel ID</label>
-                        <input type="text" className="form-control" id="panelID" placeholder="Enter Document Description Type"
+                        <input type="text" className="form-control" id="panelID" placeholder="Enter Panel ID"
                             name="panelID"
                             value={this.state.panelID}
                             onChange={this.handleInputChange} />
@@ -85,6 +86,7 @@ export default class AssignPanel extends Component {
 
                 </form>
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Submit</button>
+            </div>
             </div>
         )
     }

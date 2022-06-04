@@ -67,7 +67,7 @@ export default class PanelEvaluatePresentation extends Component {
           </center>
           <form className="needs-validation" noValidate>
             {/* Presentation Type */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
+            {/* <div className="form-group" style={{ marginBottom: "15px" }}>
               <b>
                 <label style={{ marginBottom: "5px" }}>
                   {" "}
@@ -82,7 +82,7 @@ export default class PanelEvaluatePresentation extends Component {
                 value={this.state.pp_Type}
                 onChange={this.handleInputChange}
               />
-            </div>
+            </div> */}
 
             {/* Panel Presentation Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>

@@ -61,7 +61,6 @@ export default class App extends React.Component {
         <Routes>
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
-          
           <Route path="/staffhome" element={<StaffHome />} />
 
           // Panel Member
@@ -70,11 +69,7 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
-
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
-
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
@@ -83,6 +78,7 @@ export default class App extends React.Component {
           <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
 
           // Student
+          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>

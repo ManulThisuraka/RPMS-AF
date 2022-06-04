@@ -1,5 +1,5 @@
 .signup-container {
-  background-image: url("./src/components/images/background-main.jpg");
+  background-image: url("./src/components/images/Signup.jpg");
   /*height: 700px;*/
   height:  750px;;
   width: 100%;
@@ -37,8 +37,8 @@
 }
 
 .signin-container {
-  background-image: url("./src/components/images/background-main.jpg");
-  height: 650px;
+  background-image: url("./src/components/images/signIn.jpg");
+  height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,7 +61,7 @@
 
 .Home_container {
   background-image: url("./src/components/images/Home.jpg");
-  height:  500px;
+  height:  600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

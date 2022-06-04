@@ -186,15 +186,14 @@ export default class AddFinalMarks extends Component {
               />
             </div>
 
-            <button
+            <center><button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="btn btn-secondary btn-lg active"></i>
-              &nbsp; SAVE
-            </button>
+              &nbsp;SAVE
+            </button></center>
           </form>
         </div>
       </div>

@@ -1,9 +1,17 @@
 import React , {Component} from "react";
 import axios from "axios";
-
+import { isAuthenticated, logout } from "../../helpers/auth";
 
 
 export default class ViewNoticesStudent extends Component{
+
+  componentDidMount(){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
+      window.location.replace("/login");
+      }
+  }
+
   constructor(props){
     super(props);
     

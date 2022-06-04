@@ -28,8 +28,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-//Import panel member routes
-const panelMemberRoutes = require("./routes/PanelMember.route");
+
 
 
 //route middleware

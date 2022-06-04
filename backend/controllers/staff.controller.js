@@ -11,9 +11,9 @@ exports.StaffSignUpController = async (req, res) => {
     lastName,
     topicArea,
     email,
-    username, 
+    username,
     password,
-    roleID
+    roleID,
   } = req.body;
 
   try {
@@ -39,8 +39,7 @@ exports.StaffSignUpController = async (req, res) => {
     newStaff.NIC = null;
     newStaff.phoneNumber = null;
     newStaff.specialization = null;
-    newStaff.panelID= null;
-
+    newStaff.panelID = null;
 
     const salt = await bcrypt.genSalt(10);
     newStaff.password = await bcrypt.hash(password, salt);
@@ -91,15 +90,15 @@ exports.getStaffInfoById = async (req, res) => {
 //Delte the data from the backend
 exports.deleteStaffController = async (req, res) => {
   User.findByIdAndDelete(req.params.id).exec((err, deleteStaff) => {
-      if (err)
-        return res.status(400).json({
-          message: "Delete unsuccessfull",
-          err,
-        });
-  
-      return res.json({
-        message: "Delete Successfull",
-        deleteStaff,
+    if (err)
+      return res.status(400).json({
+        message: "Delete unsuccessfull",
+        err,
       });
+
+    return res.json({
+      message: "Delete Successfull",
+      deleteStaff,
     });
+  });
 };

@@ -28,21 +28,21 @@ export default class ViewNoticesStaff extends Component {
     });
   }
 
-  navigate = (category,id)=>{
-    if(category == "topic"){
-        location.href = `/student/NoticeTopic/${id}`;
-    }else if(category =="document"){
-        location.href = `/student/NoticeDocument/${id}`;
-    }else if(category =="presentation"){
-        location.href = `/student/NoticePresentation/${id}`;
-    }else{
-        location.href = `/admin/Notice/${id}`;
+  navigate = (category, id) => {
+    if (category == "topic") {
+      location.href = `/student/NoticeTopic/${id}`;
+    } else if (category == "document") {
+      location.href = `/student/NoticeDocument/${id}`;
+    } else if (category == "presentation") {
+      location.href = `/student/NoticePresentation/${id}`;
+    } else {
+      location.href = `/admin/Notice/${id}`;
     }
   };
 
   render() {
     return (
-      <div className="container">
+      <div className="admin-container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <h2>Student Notices</h2>

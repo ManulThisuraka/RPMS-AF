@@ -161,7 +161,7 @@ const StaffSignup = () => {
             <br />
             <center>
               {" "}
-              <h2> Registration Form </h2>{" "}
+              <h2> Staff Registration Form </h2>{" "}
             </center>{" "}
             <br />
             {/* firstName */}

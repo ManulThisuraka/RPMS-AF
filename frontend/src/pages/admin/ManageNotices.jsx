@@ -4,7 +4,7 @@ export default class ManageNotices extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="admin-container">
                 <center>
                     <br/>
                     <br/>

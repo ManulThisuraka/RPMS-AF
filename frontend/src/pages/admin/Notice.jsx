@@ -30,7 +30,7 @@ export default class Notice extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="admin-container">
                 <center>
                 <br />
                 <br />

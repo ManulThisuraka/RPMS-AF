@@ -106,6 +106,7 @@ export default class NewNoticeForm extends Component {
 
         return (
             <div className="admin-container">
+                <div className="container">
                 <br />
                 <br />
                 <br />
@@ -159,6 +160,7 @@ export default class NewNoticeForm extends Component {
 
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Publish</button>&nbsp;
                 
+            </div>
             </div>
         )
     }

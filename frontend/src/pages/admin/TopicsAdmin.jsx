@@ -36,12 +36,13 @@ export default class TopicsAdmin extends Component {
     }
 
     navigate = (id) => {
-        location.href = `/panelEPresentation/${id}`;
+        location.href = `/admin/topics/${id}`;
     }
 
 
     render() {
         return (
+            <div className="StudentHome_container">
             <div className="container">
                 <br />
                 <br />
@@ -87,6 +88,7 @@ export default class TopicsAdmin extends Component {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         )
     }

@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 
-export default class ViewNoticesStudent extends Component{
+export default class ViewNoticesStaff extends Component{
   constructor(props){
     super(props);
     
@@ -17,7 +17,7 @@ export default class ViewNoticesStudent extends Component{
   }
 
   retrieveNotices(){
-    axios.get("http://localhost:5000/notices/viewByRole/student").then(res=>{
+    axios.get("http://localhost:5000/notices/viewByRole/staff").then(res=>{
       if(res.data.success){
         this.setState({
             noticeList:res.data.noticeList

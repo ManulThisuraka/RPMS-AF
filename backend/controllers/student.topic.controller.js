@@ -3,12 +3,11 @@ const Group = require("../models/student.groups.model");
 
 //Create supervisor request with related group & topic
 exports.requestSupervisor = async (req, res) => {
-  const { groupID, supervisorID, topic, co_supervisorID } = req.body;
+  const { groupID, supervisorID, topic } = req.body;
 
   const reqSupervisor = new supervisorRequest();
   reqSupervisor.groupID = groupID;
   reqSupervisor.supervisorID = supervisorID;
-  reqSupervisor.co_supervisorID = co_supervisorID;
   reqSupervisor.topic = topic;
 
   await reqSupervisor.save((err) => {

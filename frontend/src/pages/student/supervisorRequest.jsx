@@ -1,112 +1,68 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-export default class SubmitTopicToPanel extends Component {
+import Select from "react-select";
+class SupervisorRequest extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      groupID: "",
-      supervisorID: "",
-      topic: "",
+      dropDownOpt: [],
+      id: "",
+      name: "",
     };
   }
+  async renderData() {
 
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    this.setState({
-      ...this.state,
-      [name]: value,
-    });
-  };
-
-  onSubmit = (e) => {
-    e.preventDefault();
-
-    const { panelGroupID, panelHead, panel_researchArea } = this.state;
-
-    const data = {
-      panelGroupID: panelGroupID,
-      panelHead: panelHead,
-      panel_researchArea: panel_researchArea,
-    };
-
-    console.log(data);
-
-    axios.post("http://localhost:5000/panel/save", data).then((res) => {
+    axios.get("http://localhost:5000/staff/view").then((res) => {
       if (res.data.success) {
-        alert("Data saved successfully !!!");
+        const serverResponse = res.data.existingStaff.filter(d => d.userSubType === "Supervisor");
+        const dropDownValue = serverResponse?.map((response) => ({
+          value: response.__id,
+          label: response.username,
+        }));
+        console.log(dropDownValue);
         this.setState({
-          panelGroupID: "",
-          panelHead: "",
-          panel_researchArea: "",
+          
+          dropDownOpt: dropDownValue 
         });
       }
     });
-  };
 
+    // console.log("API DATA",API.request.response);
+    // const serverResponse = API.existingStaff;
+    // const dropDownValue = serverResponse?.map((response) => ({
+    //   value: response.__id,
+    //   label: response.username,
+    // }));
+    // this.setState({
+    //   dropDownOpt: dropDownValue,
+    // });
+  }
+  onChange(event) {
+    this.setState({
+      id: event.value,
+      name: event.label,
+    });
+  }
+  componentDidMount() {
+    this.renderData();
+  }
   render() {
     return (
-      <div className="panel-container">
-        <div className="col-md-8 mt-4 mx-auto">
-          <center>
-            <h2 className="h3 mb-3 font-weight-normal">ADD PANAL </h2>
-          </center>
-          <form className="needs-validation" noValidate>
-            {/* Student Group ID */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
-              <input
-                type="text"
-                className="form-control"
-                name="groupID"
-                placeholder="Enter Panel Group ID"
-                value={this.state.panelGroupID}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {/* Supervisor ID */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Head </label>
-              <input
-                type="text"
-                className="form-control"
-                name="panelHead"
-                placeholder="Enter Panel Head"
-                value={this.state.panelHead}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {/* Panel Research Area */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}>
-                {" "}
-                Panel Research Area{" "}
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                name="panel_researchArea"
-                placeholder="Enter Panel Research Area "
-                value={this.state.panel_researchArea}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              <i className="far fa-check-square"></i>
-              &nbsp; SAVE
-            </button>
-          </form>
+      <div className="App">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="custom-dropdown">
+          <Select
+            class="dropdown-menu"
+            options={this.state.dropDownOpt}
+            onChange={this.onChange.bind(this)}
+          />
         </div>
       </div>
     );
   }
 }
+export default SupervisorRequest;

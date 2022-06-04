@@ -120,6 +120,7 @@ export default class NoticePresentationForm extends Component {
         })
         document.getElementById("file").value = "";
     }
+    
 
     render() {
         return (

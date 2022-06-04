@@ -32,11 +32,11 @@ export default class ViewNoticesStudent extends Component{
 
   navigate = (category,id)=>{
     if(category == "topic"){
-        location.href = `/admin/NoticeTopic/${id}`;
+        location.href = `/student/NoticeTopic/${id}`;
     }else if(category =="document"){
-        location.href = `/admin/NoticeDocument/${id}`;
+        location.href = `/student/NoticeDocument/${id}`;
     }else if(category =="presentation"){
-        location.href = `/admin/NoticePresentation/${id}`;
+        location.href = `/student/NoticePresentation/${id}`;
     }else{
         location.href = `/admin/Notice/${id}`;
     }

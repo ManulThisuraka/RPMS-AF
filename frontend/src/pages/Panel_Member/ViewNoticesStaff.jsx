@@ -28,6 +28,7 @@ export default class ViewNoticesStaff extends Component {
     });
   }
 
+<<<<<<< HEAD
   navigate = (category, id) => {
     if (category == "topic") {
       location.href = `/admin/NoticeTopic/${id}`;
@@ -37,6 +38,17 @@ export default class ViewNoticesStaff extends Component {
       location.href = `/admin/NoticePresentation/${id}`;
     } else {
       location.href = `/admin/Notice/${id}`;
+=======
+  navigate = (category,id)=>{
+    if(category == "topic"){
+        location.href = `/student/NoticeTopic/${id}`;
+    }else if(category =="document"){
+        location.href = `/student/NoticeDocument/${id}`;
+    }else if(category =="presentation"){
+        location.href = `/student/NoticePresentation/${id}`;
+    }else{
+        location.href = `/admin/Notice/${id}`;
+>>>>>>> 5f8661f0e604c82dceda942c21ed1d7e1e905e59
     }
   };
 

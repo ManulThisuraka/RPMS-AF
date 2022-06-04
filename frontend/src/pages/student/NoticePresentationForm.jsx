@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios';
 
-export default class NoticeTopicForm extends Component {
+export default class NoticePresentationForm extends Component {
     constructor(props) {
         super(props);
 
@@ -9,16 +9,14 @@ export default class NoticeTopicForm extends Component {
             noticeHeader: "",
             description: "",
             downdocument: "",
-            topic: "",
+            presentationType:"",
+            panelID: "",
             groupID: "",
-            supervisorID: "",
-            co_supervisorID: "",
             document: null,
-            etopic: "",
+            epresentationType:"",
+            epanelID: "",
             egroupID: "",
-            esupervisorID: "",
-            eco_supervisorID: "",
-            edocument: "",
+            edocument: ""
         };
     }
 
@@ -31,30 +29,25 @@ export default class NoticeTopicForm extends Component {
     }
 
     validate = () => {
-        let etopic = "";
+        let epresentationType = "";
+        let epanelID = "";
         let egroupID = "";
-        let esupervisorID = "";
-        let eco_supervisorID = "";
         let edocument = "";
 
-
-        if (!this.state.topic) {
-            etopic = "Topic is required !!!"
+        if (!this.state.presentationType) {
+            epresentationType = "Presentation Type is required !!!"
+        }
+        if (!this.state.panelID) {
+            epanelID = "Panel ID is required !!!"
         }
         if (!this.state.groupID) {
             egroupID = "Group ID is required !!!"
         }
-        if (!this.state.supervisorID) {
-            esupervisorID = "Supervisor ID is required !!!"
-        }
-        if (!this.state.co_supervisorID) {
-            eco_supervisorID = "Co-Supervisor ID is required !!!"
-        }
         if (!this.state.document) {
             edocument = "Document is required !!!"
         }
-        if (etopic || egroupID || esupervisorID || eco_supervisorID || edocument) {
-            this.setState({ etopic, egroupID, esupervisorID, eco_supervisorID, edocument });
+        if (epresentationType || epanelID || egroupID ||edocument) {
+            this.setState({ epresentationType, epanelID, egroupID, edocument });
             return false;
         }
         return true;
@@ -68,19 +61,18 @@ export default class NoticeTopicForm extends Component {
         const isValid = this.validate();
 
         if (isValid) {
-            const { topic, groupID, supervisorID, co_supervisorID, document } = this.state;
+            const { presentationType, panelID, groupID, document } = this.state;
             
             let data = new FormData();
             data.append('file',document);
-            data.append('topic',topic);
+            data.append('topic',panelID);
             data.append('groupID',groupID);
-            data.append('supervisorID',supervisorID);
-            data.append('co_supervisorID',co_supervisorID);
+            data.append('presentationType',presentationType);
             
 
-            axios.post('http://localhost:5000/topics/add', data).then((res) => {
+            axios.post('http://localhost:5000/presentations/add', data).then((res) => {
                 if (res.data.success) {
-                    alert("Topic Registerd Successfully");
+                    alert("Presentation submitted Successfully");
                     this.empty();
                 }
             })
@@ -118,23 +110,25 @@ export default class NoticeTopicForm extends Component {
 
     empty = (e) => {
         this.setState({
-            topic: "",
+            presentationType:"",
+            panelID: "",
             groupID: "",
-            supervisorID: "",
-            co_supervisorID: "",
             document: null,
-            etopic: "",
+            epresentationType:"",
+            epanelID: "",
             egroupID: "",
-            esupervisorID: "",
-            eco_supervisorID: "",
-            edocument: "",
+            edocument: ""
         })
         document.getElementById("file").value = "";
     }
+    
 
     render() {
         return (
             <div className="container">
+                <br />
+                <br />
+                <br />
                 <h2>{this.state.noticeHeader}</h2>
                 <br />
                 <h4>{this.state.description}</h4>
@@ -145,12 +139,12 @@ export default class NoticeTopicForm extends Component {
                 <form>
 
                     <div className="form-group">
-                        <label>Topic</label>
-                        <input type="text" className="form-control" id="topic" placeholder="Enter Topic"
-                            name="topic"
-                            value={this.state.topic}
+                        <label>Presentation Type (Ex:PP_01)</label>
+                        <input type="text" className="form-control" id="presentationType" placeholder="Enter Presentation Type"
+                            name="presentationType"
+                            value={this.state.presentationType}
                             onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.etopic}</small>
+                        <small className="text-danger">{this.state.epresentationType}</small>
                     </div>
 
                     <div className="form-group">
@@ -163,22 +157,14 @@ export default class NoticeTopicForm extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Supervisor ID</label>
-                        <input type="text" className="form-control" id="supervisorID" placeholder="Enter Supervisor ID"
-                            name="supervisorID"
-                            value={this.state.supervisorID}
+                        <label>Panel ID</label>
+                        <input type="text" className="form-control" id="panelID" placeholder="Enter Panel ID"
+                            name="panelID"
+                            value={this.state.panelID}
                             onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.esupervisorID}</small>
+                        <small className="text-danger">{this.state.epanelID}</small>
                     </div>
 
-                    <div className="form-group">
-                        <label>Co-Supervisor ID</label>
-                        <input type="text" className="form-control" id="co_supervisorID" placeholder="Enter Co-Supervisor ID"
-                            name="co_supervisorID"
-                            value={this.state.co_supervisorID}
-                            onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.eco_supervisorID}</small>
-                    </div>
 
                     <label>Upload Document</label><br />
                     <input type="file" id="file" onChange={this.selectFile} /><br />

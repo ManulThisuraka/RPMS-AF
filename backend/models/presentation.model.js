@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
 const PresentationSchema = new mongoose.Schema({
-    presentationHeader :{
-        type : String,
-        required : true
-    },
-    presentationDescription :{
+    presentationType :{
         type : String,
         required : true
     },
@@ -17,6 +13,14 @@ const PresentationSchema = new mongoose.Schema({
     },
     docURL :{
         type : String
+    },
+    comments :{
+        type : String,
+        default: "Not Evaluated Yet"
+    },
+    marks :{
+        type : String,
+        default: "Not Evaluated Yet"
     }
 })
 

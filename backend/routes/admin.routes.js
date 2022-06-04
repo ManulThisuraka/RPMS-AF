@@ -43,7 +43,6 @@ router.post('/documents/add',multerUploadInMemory.single("file"),async (req, res
     console.log(uploadResult.Location);
 
     var newDocObj = {
-        "documentHeader": req.body.documentHeader,
         "documentDescription":req.body.documentDescription ,
         "supervisorID":req.body.supervisorID ,
         "groupID":req.body.groupID ,
@@ -80,11 +79,10 @@ router.post('/presentations/add',multerUploadInMemory.single("file"),async (req,
     console.log(uploadResult.Location);
 
     var newPresObj = {
-        "presentationHeader": req.body.presentationHeader,
-        "presentationDescription":req.body.presentationDescription ,
+        "presentationType": req.body.presentationType,
         "panelID":req.body.panelID ,
         "groupID":req.body.groupID ,
-        "docURL": uploadResult.Location
+        "docURL": uploadResult.Location,
     }
 
     const newPresentation = new presentationModel(newPresObj);

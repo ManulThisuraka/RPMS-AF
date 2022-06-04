@@ -216,7 +216,7 @@ const StaffSignup = () => {
             <div className="form-group input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <i className="fa fa-map-marker"></i>
+                  <i class="fa fa-users" aria-hidden="true"></i>
                 </span>
               </div>
               <input
@@ -232,7 +232,7 @@ const StaffSignup = () => {
             <div className="form-group input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <i className="fa fa-phone"></i>
+                  <i className="fa fa-file"></i>
                 </span>
               </div>
               <input
@@ -308,6 +308,8 @@ const StaffSignup = () => {
                 onChange={handleChange}
               />
             </div>
+            <br/>
+       
             {/* signup button */}
             <div className="form-group">
               <button type="submit" className="btn btn-primary btn-block">
@@ -320,6 +322,7 @@ const StaffSignup = () => {
                 <b> Have an account? </b> <Link to="/">Log In</Link>
               </p>
             </div>
+            
           </form>
         );
       
@@ -328,7 +331,7 @@ const StaffSignup = () => {
          *************************************/
       
         return (
-          <div className="signup-container">
+          <div className="staffsignup-container">
             <div className="row px-3 py-4 vh-100">
               <div className="col-md-5 mx-auto align-self-center">
                 <br />

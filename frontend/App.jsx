@@ -19,6 +19,8 @@ import { render } from "react-dom";
 import StaffSignup from "./src/pages/StaffMembers/StaffSignup";
 import StaffDetails from "./src/pages/StaffMembers/StaffDetails";
 import StaffInfo from "./src/pages/StaffMembers/StaffInfo";
+import SupervisorHome from "./src/pages/StaffMembers/SupervisorHome";
+import Header from "./src/pages/Common/Header";
 
 
 export default class App extends React.Component {
@@ -26,6 +28,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
+        <Header/>
         <Routes>
           <Route path="/" element={<StudentLogin/>}/>
           <Route path="/panelmember/add" element={<AddPanelMember/>}/>
@@ -34,6 +37,7 @@ export default class App extends React.Component {
           <Route path="/student/register" element={<StudentRegister/>}/>
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
+          <Route path="/supHome" element={<SupervisorHome/>}></Route>
         </Routes>
       </Router>
     );

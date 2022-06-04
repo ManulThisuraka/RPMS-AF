@@ -18,10 +18,12 @@ componentDidMount(){
 retrieveStaff() {
   axios.get("http://localhost:5000/staff/view").then(res =>{
     if(res.data.success){
+      console.log("RESPONSE",res.data.existingStaff);
       this.setState({
-        staff:res.data.existingStaff
+        // staff:res.data.existingStaff
+         staff: res.data.existingStaff.filter(d => d.userType === "Staff") 
       });
-
+      
   console.log(this.state.staff);
     }
   });

@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Select from "react-select";
+import { isAuthenticated, logout } from "../../helpers/auth";
 class SupervisorRequest extends React.Component {
+
+  componentDidMount(){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
+      window.location.replace("/login");
+      }
+  }
   constructor(props) {
     super(props);
     this.state = {

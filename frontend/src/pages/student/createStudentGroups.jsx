@@ -6,7 +6,8 @@ import { isAuthenticated, logout } from "../../helpers/auth";
 class CreateStudentGroups extends React.Component {
 
   componentDidMount(){
-    if(isAuthenticated() == false){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
       window.location.replace("/login");
       }
   }

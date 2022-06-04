@@ -1,25 +1,37 @@
 import React, { Component } from "react";
-import { isAuthenticated, logout } from "../../helpers/auth";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { isAuthenticated, logout } from "../../helpers/auth";
 
-export default class StudentHome extends Component {
+export default class StaffHome extends Component {
+
 
   componentDidMount(){
-    if(isAuthenticated() == false){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
       window.location.replace("/login");
       }
   }
-
-
+  
+  
   render() {
     return (
-      <div className="StaffHome_container">
+      <div className="StudentHome_container">
         <center>
-          
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
           <form>
             <button className="btn btn-secondary btn-lg">
-              <a href="#"
+              <a
+                href="/student/creategroup"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -29,7 +41,7 @@ export default class StudentHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="#"
+                href="/student/requestSupervisor"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -39,17 +51,17 @@ export default class StudentHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="#"
+                href="/student/viewNotices"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Submit Topic To Panel{" "}
+                View Notices{" "}
               </a>
             </button>{" "}
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="#"
+                href=""
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -63,9 +75,6 @@ export default class StudentHome extends Component {
     );
   }
 }
-
-
-
 
 
 

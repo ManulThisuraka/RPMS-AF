@@ -50,13 +50,13 @@ export default class PanelEvaluatePresentation extends Component {
       <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <b><h1>Evaluate Presentations </h1></b>
+            <b><h1>Evaluate Presentations </h1></b><br></br>
           </center>
           <form className="needs-validation" noValidate>
 
             {/* Presentation Type */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Presentation Type </label></b>
+            <b><label style={{ marginBottom: "5px" }}> Presentation Type (PP_01 / PP_02)</label></b>
               <input
                 type="text"
                 className="form-control"

@@ -173,7 +173,7 @@ export default class AddFinalMarks extends Component {
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="far fa-check-square"></i>
+              <i className="btn btn-secondary btn-lg active"></i>
               &nbsp; SAVE
             </button>
           </form>

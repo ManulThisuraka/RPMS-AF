@@ -13,7 +13,13 @@ import AddPanelMember from "./src/pages/AddPanelMember";
 import AddAssignment from "./src/pages/student/uploadFileTest";
 
 import { render } from "react-dom";
+
+
+//Staff Pages
 import StaffSignup from "./src/pages/StaffMembers/StaffSignup";
+import StaffDetails from "./src/pages/StaffMembers/StaffDetails";
+import StaffInfo from "./src/pages/StaffMembers/StaffInfo";
+
 
 export default class App extends React.Component {
 
@@ -26,6 +32,8 @@ export default class App extends React.Component {
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
+          <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
+          <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
         </Routes>
       </Router>
     );

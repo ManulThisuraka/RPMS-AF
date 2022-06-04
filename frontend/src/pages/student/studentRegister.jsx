@@ -24,7 +24,7 @@ const studentRegister = () => {
     fullName: "Test User",
     stdID: "IT20256978",
     NIC: "123412341234",
-    stdEmail: "user@x.com",
+    email: "testytt@x.com",
     password: "password1234",
     password2: "password1234",
     phoneNumber: "0772500896",
@@ -39,7 +39,7 @@ const studentRegister = () => {
     fullName,
     stdID,
     NIC,
-    stdEmail,
+    email,
     password,
     password2,
     phoneNumber,
@@ -71,7 +71,7 @@ const studentRegister = () => {
       isEmpty(fullName) ||
       isEmpty(stdID) ||
       isEmpty(NIC) ||
-      isEmpty(stdEmail) ||
+      isEmpty(email) ||
       isEmpty(password) ||
       isEmpty(password2) ||
       isEmpty(phoneNumber) ||
@@ -86,7 +86,7 @@ const studentRegister = () => {
         ...formData,
         errorMsg: "Invalid Contact Number",
       });
-    } else if (!isEmail(stdEmail)) {
+    } else if (!isEmail(email)) {
       setFormData({
         ...formData,
         errorMsg: "Invalid Email",
@@ -101,7 +101,7 @@ const studentRegister = () => {
         fullName,
         stdID,
         NIC,
-        stdEmail,
+        email,
         password,
         phoneNumber,
         specialization,
@@ -111,7 +111,7 @@ const studentRegister = () => {
         fullName,
         stdID,
         NIC,
-        stdEmail,
+        email,
         password,
         phoneNumber,
         specialization,
@@ -127,7 +127,7 @@ const studentRegister = () => {
             fullName: "",
             stdID: "",
             NIC: "",
-            stdEmail: "",
+            email: "",
             password: "",
             password2: "",
             phoneNumber: "",
@@ -215,8 +215,8 @@ const studentRegister = () => {
           </span>
         </div>&nbsp;
         <input
-          name="stdEmail"
-          value={stdEmail}
+          name="email"
+          value={email}
           className="form-control"
           placeholder="Enter Student E-Mail"
           type="text"

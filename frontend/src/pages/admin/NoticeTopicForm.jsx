@@ -135,6 +135,9 @@ export default class NoticeTopicForm extends Component {
     render() {
         return (
             <div className="container">
+                <br />
+                <br />
+                <br />
                 <h2>{this.state.noticeHeader}</h2>
                 <br />
                 <h4>{this.state.description}</h4>

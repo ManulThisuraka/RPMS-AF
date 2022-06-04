@@ -45,6 +45,9 @@ import PresentationsPanel from "./src/pages/Panel_Member/PresentationsPanel";
 import PresentationsStudent from "./src/pages/student/PresentationsStudent";
 import DocumentsSupervisor from "./src/pages/StaffMembers/DocumentsSupervisor";
 import DocumentsStudent from "./src/pages/student/DocumentsStudent";
+import TopicsAdmin from "./src/pages/admin/TopicsAdmin";
+import TopicsPanel from "./src/pages/Panel_Member/TopicsPanel";
+import TopicsStudent from "./src/pages/student/TopicsStudent";
 
 
 
@@ -118,6 +121,9 @@ export default class App extends React.Component {
           <Route path="/student/presentations" element={<PresentationsStudent/>}/>
           <Route path="/staff/documents" element={<DocumentsSupervisor/>}/>
           <Route path="/student/documents" element={<DocumentsStudent/>}/>
+          <Route path="/admin/topics" element={<TopicsAdmin/>}/>
+          <Route path="/panel/topics" element={<TopicsPanel/>}/>
+          <Route path="/student/topics" element={<TopicsStudent/>}/>
           
         </Routes>
         <Footer/>

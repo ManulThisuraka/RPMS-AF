@@ -43,7 +43,6 @@ router.post('/documents/add',multerUploadInMemory.single("file"),async (req, res
     console.log(uploadResult.Location);
 
     var newDocObj = {
-        "documentHeader": req.body.documentHeader,
         "documentDescription":req.body.documentDescription ,
         "supervisorID":req.body.supervisorID ,
         "groupID":req.body.groupID ,

@@ -11,7 +11,7 @@ import AddPanel from "./src/pages/Panel_Member/AddPanel";
 import AddFinalMarks from "./src/pages/Panel_Member/AddFinalMarks";
 import UpdateFinalMarks from "./src/pages/Panel_Member/UpdateFinalMarks";
 import UpdatePanelMember from "./src/pages/Panel_Member/UpdatePanelMember";
-import MultiSelectComponent from "./src/pages/student/MultiSelectComponent";
+import SupervisorRequest from "./src/pages/student/supervisorRequest";
 
 
 //Student pages
@@ -69,10 +69,9 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
-
+          
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
+
 
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
@@ -84,13 +83,13 @@ export default class App extends React.Component {
           // Student
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
-          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
+          <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           
 
           // Admin
@@ -103,6 +102,7 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
+          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
         </Routes>
         <Footer/>
       </Router>

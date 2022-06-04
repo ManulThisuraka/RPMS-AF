@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 export default class UpdatePanelMember extends Component {
-
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -13,29 +11,28 @@ export default class UpdatePanelMember extends Component {
       panelmemberName: "",
       p_researchArea: "",
     };
-  }  
+  }
 
-  
+  componentDidMount() {
+    console.log("Hi",window.location.pathname);
+    const myArray = window.location.pathname.split("/", 3);
+    const id = myArray[2];
 
+     axios.get(`http://localhost:5000/panelMembers/view/${id}`).then((res) => {
+      console.log(res);
+         if(res.data.success){
+           console.log(res.data.PanelMember);
+             this.setState({
+               staffID:res.data.PanelMember.staffID,
+               panelmemberID:res.data.PanelMember.panelmemberID,
+               panelmemberName:res.data.PanelMember.panelmemberName,
+               p_researchArea:res.data.PanelMember.p_researchArea
+            });
 
-//  componentDidMount(){
-//   const { id } = props.match.params.id;
-//   console.log(id);;
-//     //console.log ("aaaaaaaaaa",this.props.match.params.id);
-  
-//     //  axios.get(`/panelMembers/view/${id}`).then((res) => {
-//     //      if(res.data.success){
-//     //          this.setState({
-//     //            staffID:res.data.panelmembers.staffID, 
-//     //           panelmemberID:res.data.panelmembers.panelmemberID, 
-//     //            panelmemberName:res.data.panelmembers.panelmemberName, 
-//     //            p_researchArea:res.data.panelmembers.p_researchArea
-//     //         });
-  
-//     //        console.log(this.state.edit);
-//     //     }
-//     //  });
-//  }
+           console.log(this.state.staffID);
+        }
+     });
+  }
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,21 +58,19 @@ export default class UpdatePanelMember extends Component {
 
     console.log(data);
 
-    axios.put(`/panelMembers/update/${id}`,data).then((res) => {
-      if(res.data.success){
-          alert(" updated successfully !!!")
-          this.props.history.push('/home')
-          this.setState ({
-            staffID: "", 
-            panelmemberID: "", 
-            panelmemberName: "", 
-            p_researchArea: ""
-          })
+    axios.put(`/panelMembers/update/${id}`, data).then((res) => {
+      if (res.data.success) {
+        alert(" updated successfully !!!");
+        this.props.history.push("/home");
+        this.setState({
+          staffID: "",
+          panelmemberID: "",
+          panelmemberName: "",
+          p_researchArea: "",
+        });
       }
-  })
-}
-
-
+    });
+  };
 
   render() {
     return (
@@ -135,7 +130,7 @@ export default class UpdatePanelMember extends Component {
                 className="form-control"
                 name="panelresearchArea"
                 placeholder="Enter panel Research Area "
-                value={this.state.p_researchAreaF}
+                value={this.state.p_researchArea}
                 onChange={this.handleInputChange}
               />
             </div>

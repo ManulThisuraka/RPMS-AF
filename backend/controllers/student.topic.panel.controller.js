@@ -1,26 +1,79 @@
-const panelRequest = require("../models/student.topics.panel.model");
+const topicModel = require("../models/student.topics.panel.model");
+ 
 
-//Create supervisor request with related group & topic
-exports.requestSupervisor = async (req, res) => {
-  const { groupID, topic, supervisorID, co_supervisorID, topicDocument } =
-    req.body;
 
-  const reqPanelTopic = new panelRequest();
-  reqPanelTopic.groupID = groupID;
-  reqPanelTopic.topic = topic;
-  reqPanelTopic.supervisorID = supervisorID;
-  reqPanelTopic.co_supervisorID = co_supervisorID;
-  reqPanelTopic.topicDocument = topicDocument;
-
-  await reqPanelTopic.save((err) => {
-    if (err) {
-      return res.status(400).json({
-        error: err,
+//Get all Topics
+const getAllTopics = async (req, res) => {
+  topicModel.find().then((topics)=>{
+      res.json({
+          success:true,
+          topicList:topics
       });
-    }
-    return res.status(200).json({
-      success: " Supervisor requested successfully",
-      data: reqPanelTopic.groupID, //return the topic id
-    });
-  });
-};
+  }).catch((err)=>{
+      res.json({error:err.message});
+  })
+}
+
+//Get Topics by groupID
+const getCategoryTopicsGroup = async (req, res) => {
+  let id = req.params.groupID;
+  topicModel.find({ groupID: id })
+      .then((topics) => {
+          res.status(200).json({ 
+              success: true, 
+              topicList:topics })
+      }).catch((err) => {
+          console.log(err);
+          res.status(500).send({ success: false, error: err.message });
+      })
+}
+
+//Get Topics by panelID
+const getCategoryTopics = async (req, res) => {
+  let id = req.params.panelID;
+  topicModel.find({ panelID: id })
+      .then((topics) => {
+          res.status(200).json({ 
+              success: true, 
+              topicList:topics })
+      }).catch((err) => {
+          console.log(err);
+          res.status(500).send({ success: false, error: err.message });
+      })
+}
+
+//Get specific Topic
+const getTopic = async (req, res) => {
+  let userId = req.params.id;
+  topicModel.findById(userId)
+  .then((Topic)=>{
+      res.status(200).json({success:true,Topic})
+  }).catch((err)=>{
+      console.log(err);
+      res.status(500).send({success: false, error: err.message});
+  })
+}
+
+//Update Topic 
+const updateTopic = async (req, res) => {
+  topicModel.findByIdAndUpdate(req.params.id,
+      {
+          $set:req.body
+      })
+  .then(()=>{
+      res.status(200).json({success: "Topic updated"})
+  }).catch((err)=>{
+      console.log(err);
+      res.status(500).json({status: "Error with updating data", error: err.message});
+  })
+}
+
+module.exports = {
+  getAllTopics,
+  getCategoryTopicsGroup,
+  getCategoryTopics,
+  getTopic,
+  updateTopic
+}
+
+

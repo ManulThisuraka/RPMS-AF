@@ -24,7 +24,7 @@ exports.signupController = async (req, res) => {
   } = req.body;
 
   try {
-    const user = await Student.findOne({ stdEmail });
+    const user = await Student.find({ stdEmail });
     if (user) {
       return res.status(400).json({
         errorMessage: "Email already exists",
@@ -58,6 +58,7 @@ exports.signupController = async (req, res) => {
 };
 
 exports.signinController = async (req, res) => {
+  console.log(req.body);
   try {
     // Get user input
     const { email, password } = req.body;
@@ -67,7 +68,7 @@ exports.signinController = async (req, res) => {
       res.status(400).send("All input is required");
     }
     // Validate if user exist in our database
-    const user = await Student.findOne({ email: email });
+    const user = await Student.findOne({ stdEmail: email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token

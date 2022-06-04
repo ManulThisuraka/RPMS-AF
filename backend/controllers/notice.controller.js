@@ -1,16 +1,6 @@
 let noticeModel = require("../models/notice.model");
 
-//New Notice
-const createNotice = async (req, res) => {
-    const newNotice = new noticeModel(req.body);
 
-    newNotice.save().then(() => {
-        res.status(200).json({ success: "Notice added" });
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).send({ success: false, error: err.message });
-    })
-}
 //Get Notices by roleID
 const getCategoryNotices = async (req, res) => {
     let role = req.params.roleID;
@@ -77,7 +67,6 @@ const deleteNotice = async (req, res) => {
 
 
 module.exports = {
-    createNotice,
     getCategoryNotices,
     getAllNotices,
     getNotice,

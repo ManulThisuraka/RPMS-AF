@@ -48,8 +48,10 @@ const SignIn = () => {
       signin(data)
         .then((response) => {
           console.log("Axios login success: ", response);
-          if (response.data.roleID == 0) {
+          if (response.data.userType == "Student") {
             navigate("/home");
+          }else if (response.data.userType == "Staff") {
+            navigate("/staffhome");
           }
 
         })

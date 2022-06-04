@@ -47,15 +47,31 @@ export default class PanelEvaluateTopic extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
+      <div className="PanelEvaluateTopic-container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
+        <button
+              className="btn btn-secondary"
+              type="submit"
+              style={{ marginTop: "20px" }}
+              onClick={this.onSubmit}
+            >
+              &nbsp; View Uplorded Topics
+            </button>
           <center>
-            <b><h1>Evaluate Topics </h1></b>
+            <b>
+              <h1>Evaluate Topics </h1>
+            </b>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -68,7 +84,9 @@ export default class PanelEvaluateTopic extends Component {
 
             {/* Panel Status */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Status </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Status </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -81,7 +99,9 @@ export default class PanelEvaluateTopic extends Component {
 
             {/* Panel Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Comment </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Comment </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -91,16 +111,15 @@ export default class PanelEvaluateTopic extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
+            <center>
             <button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="far fa-check-square"></i>
-              &nbsp; SUBMIT
-            </button>
+              &nbsp;SUBMIT
+            </button></center>
           </form>
         </div>
       </div>

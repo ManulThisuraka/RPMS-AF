@@ -4,7 +4,7 @@ import axios from "axios";
 export default class StaffHome extends Component {
   render() {
     return (
-      <div className="StaffHome_container">
+      <div className="StudentHome_container">
         <center>
           <br></br>
           <br></br>
@@ -15,37 +15,72 @@ export default class StaffHome extends Component {
           <br></br>
           <br></br>
           <br></br>
+          <br></br>
+          <br></br>
           <form>
-            <br></br>
-            <br></br>
-            <br></br>
             <button className="btn btn-secondary btn-lg">
               <a
                 href="/supHome"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Supervisor/ Co-supervisor{" "}
+                Register Student Groups{" "}
               </a>
             </button>{" "}
-            <br></br>
-            <br></br>
-            <br></br>
+
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/panelhome"
+                href="/supHome"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Research Panels
+                Request Supervisor{" "}
               </a>
             </button>{" "}
-            <br></br>
-            <br></br>
-            <br></br>
+
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/supHome"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Submit Topic To Panel{" "}
+              </a>
+            </button>{" "}
+
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/supHome"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Chat with Supervisor{" "}
+              </a>
+            </button>{" "}
           </form>
+
         </center>
       </div>
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          

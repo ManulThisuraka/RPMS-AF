@@ -20,7 +20,8 @@ const createFinalMark = async (req, res) => {
 
 //Get All FinalMarks Details
 const getAllFinalMarks = async (req, res) => {
-  finalMarks.find()
+  finalMarks
+    .find()
     .then((FinalMarks) => {
       res.json({
         success: true,
@@ -35,7 +36,8 @@ const getAllFinalMarks = async (req, res) => {
 //Get specific FinalMark Details
 const getFinalMark = async (req, res) => {
   let userId = req.params.id;
-  finalMarks.findById(userId)
+  finalMarks
+    .findById(userId)
     .then((FinalMark) => {
       res.status(200).json({ success: true, FinalMark });
     })
@@ -47,9 +49,10 @@ const getFinalMark = async (req, res) => {
 
 //Update FinalMark Details
 const updateFinalMark = async (req, res) => {
-  finalMarks.findByIdAndUpdate(req.params.id, {
-    $set: req.body,
-  })
+  finalMarks
+    .findByIdAndUpdate(req.params.id, {
+      $set: req.body,
+    })
     .then(() => {
       res.status(200).json({ success: "FinalMarks Details are updated" });
     })
@@ -63,18 +66,17 @@ const updateFinalMark = async (req, res) => {
 
 //Delete FinalMark Details
 const deleteFinalMark = async (req, res) => {
-  finalMarks.findByIdAndDelete(req.params.id)
+  finalMarks
+    .findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({ status: "FinalMarks Deleted Succesfully" });
     })
     .catch((err) => {
       console.log(err);
-      res
-        .status(500)
-        .json({
-          status: "Error with deleting FinalMark",
-          error: err.message,
-        });
+      res.status(500).json({
+        status: "Error with deleting FinalMark",
+        error: err.message,
+      });
     });
 };
 

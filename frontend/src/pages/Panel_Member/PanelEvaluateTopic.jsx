@@ -5,8 +5,9 @@ export default class PanelEvaluateTopic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      panel_status: "",
-      panelComment: "",
+      panelID: "",
+      status: "",
+      comment: "",
     };
   }
 
@@ -22,11 +23,12 @@ export default class PanelEvaluateTopic extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { panel_status, panelComment } = this.state;
+    const { panelID, status, comment } = this.state;
 
     const data = {
-        panel_status: panel_status,
-        panelComment: panelComment,
+      panelID: panelID,
+      status: status,
+      comment: comment,
     };
 
     console.log(data);
@@ -35,8 +37,9 @@ export default class PanelEvaluateTopic extends Component {
       if (res.data.success) {
         alert("Data saved successfully !!!");
         this.setState({
-            panel_status: "",
-            panelComment: "",
+          panelID: "",
+          status: "",
+          comment: "",
         });
       }
     });
@@ -44,34 +47,47 @@ export default class PanelEvaluateTopic extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container">
+      <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal">Evaluate Topics </h2>
+            <b><h1>Evaluate Topics </h1></b>
           </center>
           <form className="needs-validation" noValidate>
-            {/* Panel Status */}
+            {/* Panel Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Status </label>
+            <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
               <input
                 type="text"
                 className="form-control"
-                name="panel_status"
+                name="panelID"
+                placeholder="Enter Panel Group ID"
+                value={this.state.panelID}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            {/* Panel Status */}
+            <div className="form-group" style={{ marginBottom: "15px" }}>
+            <b><label style={{ marginBottom: "5px" }}> Panel Status </label></b>
+              <input
+                type="text"
+                className="form-control"
+                name="status"
                 placeholder="Enter Panel Status"
-                value={this.state.panel_status}
+                value={this.state.status}
                 onChange={this.handleInputChange}
               />
             </div>
 
             {/* Panel Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Comment </label>
+            <b><label style={{ marginBottom: "5px" }}> Panel Comment </label></b>
               <input
                 type="text"
                 className="form-control"
-                name="panelHead"
+                name="comment"
                 placeholder="Enter Panel Comment"
-                value={this.state.panel_status}
+                value={this.state.comment}
                 onChange={this.handleInputChange}
               />
             </div>

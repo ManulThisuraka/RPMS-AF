@@ -1,14 +1,13 @@
 .signup-container {
-    background-image: url('./src/components/images/background-main.jpg');
-    /*height: 700px;*/
-    height: auto;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-
+  background-image: url("./src/components/images/background-main.jpg");
+  /*height: 700px;*/
+  height:  750px;;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
 }
 
 .staffsignup-container {
@@ -38,21 +37,110 @@
 }
 
 .signin-container {
-  background-image: url('./src/components/images/background-main.jpg');
-    height: 538px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    background-attachment: fixed;
-   
-}  
+  background-image: url("./src/components/images/background-main.jpg");
+  height: 650px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.Home_container {
+  background-image: url("./src/components/images/Home.jpg");
+  height:  630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.PanelHome_container {
+  background-image: url("./src/components/images/image_addpanel.png");
+  height:  630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.panelmember-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 780px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.viewPanelMember-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 780px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.updatepanelMembers-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 780px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.finalMarks-container {
+  background-image: url("./src/components/images/image_addpanel.png");
+  height: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.PanelEvaluateTopic-container{
+  background-image: url("./src/components/images/pevaluation.jpg");
+  height: 630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.StaffHome_container {
+  background-image: url("./src/components/images/staffhome.jpg");
+  height: 630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.panel-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 700px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:70vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
 
 .footer-container {

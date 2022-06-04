@@ -48,7 +48,7 @@
 
 .Home_container {
   background-image: url("./src/components/images/Home.jpg");
-  height:  630px;
+  height:  500px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -118,7 +118,7 @@
 
 .StaffHome_container {
   background-image: url("./src/components/images/staffhome.jpg");
-  height: 630px;
+  height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -128,13 +128,34 @@
 
 .panel-container {
   background-image: url("./src/components/images/panelMem.jpg");
-  height: 700px;
+  height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.8;
   background-attachment: fixed;
 }
+
+.viewPanel-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 550px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.viewFinalmarks-container {
+  background-image: url("./src/components/images/panelMem.jpg");
+  height: 550px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
 
 .center {
   display: flex;

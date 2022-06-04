@@ -25,7 +25,8 @@ export default class AddPanelMember extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { staffID, panelmemberID, panelmemberName, p_researchArea } = this.state;
+    const { staffID, panelmemberID, panelmemberName, p_researchArea } =
+      this.state;
 
     const data = {
       staffID: staffID,
@@ -39,7 +40,7 @@ export default class AddPanelMember extends Component {
     axios.post("http://localhost:5000/panelMembers/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
-        this.props.history.push('/panelmember/viewall')
+        this.props.history.push("/panelmember/viewall");
         // this.setState({
         //   staffID: "",
         //   panelmemberID: "",
@@ -52,15 +53,24 @@ export default class AddPanelMember extends Component {
 
   render() {
     return (
-      <div className="panelmember-container"><br></br><br></br><br></br>
+      <div className="panelmember-container">
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h1><b>ADD PANAL MEMBER </b></h1><br></br><br></br>
+            <h1>
+              <b>ADD PANAL MEMBER </b>
+            </h1>
+            <br></br>
+            <br></br>
           </center>
           <form className="needs-validation" noValidate>
             {/* Staff ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Staff ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Staff ID </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -70,10 +80,11 @@ export default class AddPanelMember extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
             {/* Panel Member ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Member ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Member ID </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -83,13 +94,14 @@ export default class AddPanelMember extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
             {/* Panel Member Name */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}>
-                {" "}
-                Panel Member Name{" "}
-              </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Panel Member Name{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -99,13 +111,11 @@ export default class AddPanelMember extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
             {/* Research Area */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}>
-                {" "}
-                Research Area{" "}
-              </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Research Area </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -115,13 +125,23 @@ export default class AddPanelMember extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
             {/* <a className="btn btn-secondary btn-sm btn-block" href={`/edit/${panelmembers._id}`}>
                           <i className="fas fa-edit"></i>&nbsp;UPDATE   
                         </a>  */}
-
-<center><button type="submit" className="btn btn-secondary btn-lg active" onClick={this.onSubmit} style={{marginTop:'10px'}}>
-                <a href="" style={{textDecoration:'none', color:'white'}}> Save </a></button></center> <br></br> 
+            <center>
+              <button
+                type="submit"
+                className="btn btn-secondary btn-lg active"
+                onClick={this.onSubmit}
+                style={{ marginTop: "10px" }}
+              >
+                <a href="" style={{ textDecoration: "none", color: "white" }}>
+                  {" "}
+                  Save{" "}
+                </a>
+              </button>
+            </center>{" "}
+            <br></br>
           </form>
         </div>
       </div>

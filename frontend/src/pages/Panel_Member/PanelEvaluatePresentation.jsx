@@ -5,8 +5,8 @@ export default class PanelEvaluatePresentation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    pp_Type: "",
-    panel_ppmarks: "",
+      pp_Type: "",
+      panel_ppmarks: "",
       panel_ppComment: "",
     };
   }
@@ -26,9 +26,9 @@ export default class PanelEvaluatePresentation extends Component {
     const { pp_Type, panel_ppstatus, panel_ppComment } = this.state;
 
     const data = {
-        pp_Type : pp_Type,
-        panel_ppmarks: panel_ppmarks,
-        panel_ppComment: panel_ppComment,
+      pp_Type: pp_Type,
+      panel_ppmarks: panel_ppmarks,
+      panel_ppComment: panel_ppComment,
     };
 
     console.log(data);
@@ -37,9 +37,9 @@ export default class PanelEvaluatePresentation extends Component {
       if (res.data.success) {
         alert("Data saved successfully !!!");
         this.setState({
-            pp_Type : "",
-            panel_ppmarks: "",
-            panel_ppComment: "",
+          pp_Type: "",
+          panel_ppmarks: "",
+          panel_ppComment: "",
         });
       }
     });
@@ -47,16 +47,33 @@ export default class PanelEvaluatePresentation extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
+      <div className="PanelEvaluateTopic-container">
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
+        <button
+              className="btn btn-secondary"
+              type="submit"
+              style={{ marginTop: "20px" }}
+              onClick={this.onSubmit}
+            >
+              &nbsp; View Uplorded Presentations
+            </button>
           <center>
-            <b><h1>Evaluate Presentations </h1></b><br></br>
+            <b>
+              <h1>Evaluate Presentations </h1>
+            </b>
+            <br></br>
           </center>
           <form className="needs-validation" noValidate>
-
             {/* Presentation Type */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Presentation Type (PP_01 / PP_02)</label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Presentation Type (PP_01 / PP_02)
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -69,7 +86,12 @@ export default class PanelEvaluatePresentation extends Component {
 
             {/* Panel Presentation Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Presentation Comment </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Panel Presentation Comment{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -82,7 +104,12 @@ export default class PanelEvaluatePresentation extends Component {
 
             {/* Presentation Mark */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Presentation Mark </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Presentation Mark{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -93,15 +120,14 @@ export default class PanelEvaluatePresentation extends Component {
               />
             </div>
 
-            <button
+            <center><button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="far fa-check-square"></i>
-              &nbsp; SUBMIT
-            </button>
+              &nbsp;SUBMIT
+            </button></center>
           </form>
         </div>
       </div>

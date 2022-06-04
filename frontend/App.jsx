@@ -83,11 +83,8 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-<<<<<<< HEAD
           <Route path="/test/dropdown" element={<MultiSelectComponent />} />
-=======
           
->>>>>>> a4954323c0472f897fec1467411d13b39e839903
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
 
@@ -102,10 +99,8 @@ export default class App extends React.Component {
           
          
           <Route path="/student/register" element={<StudentRegister />} />
-<<<<<<< HEAD
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
-=======
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           
           <Route path="/student/register" element={<StudentRegister/>}/>
@@ -117,7 +112,6 @@ export default class App extends React.Component {
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
         
->>>>>>> a4954323c0472f897fec1467411d13b39e839903
           
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
@@ -129,7 +123,6 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
-<<<<<<< HEAD
 
           //Staff
           <Route path="/staff/signup" element={<StaffSignup/>}/>
@@ -143,7 +136,6 @@ export default class App extends React.Component {
           <Route path="/chat" element={<Chat/>} />  
           
 
-=======
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
           <Route path="/student/presentations" element={<PresentationsStudent/>}/>
           <Route path="/staff/documents" element={<DocumentsSupervisor/>}/>
@@ -152,7 +144,6 @@ export default class App extends React.Component {
           <Route path="/panel/topics" element={<TopicsPanel/>}/>
           <Route path="/student/topics" element={<TopicsStudent/>}/>
           
->>>>>>> a4954323c0472f897fec1467411d13b39e839903
         </Routes>
         <Footer/>
       </Router>

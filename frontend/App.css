@@ -47,7 +47,7 @@
 }
 
 .StudentHome_container {
-  background-image: url("./src/components/images/stuHome1.jpg");
+  background-image: url("./src/components/images/std.jpg");
   height: 650px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -55,9 +55,6 @@
   opacity: 0.8;
   background-attachment: fixed;
 }
-
-
-
 
 .Home_container {
   background-image: url("./src/components/images/Home.jpg");
@@ -90,8 +87,8 @@
 }
 
 .viewPanelMember-container {
-  background-image: url("./src/components/images/panelMem.jpg");
-  height: 780px;
+  background-image: url("./src/components/images/viewpmember.jpg");
+  height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -110,7 +107,7 @@
 }
 
 .finalMarks-container {
-  background-image: url("./src/components/images/image_addpanel.png");
+  background-image: url("./src/components/images/panelMem.jpg");
   height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -120,8 +117,18 @@
 }
 
 .PanelEvaluateTopic-container{
-  background-image: url("./src/components/images/pevaluation.jpg");
+  background-image: url("./src/components/images/imagepp.jpg");
   height: 630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.PanelEvaluatePresentation-container{
+  background-image: url("./src/components/images/panel.jpg");
+  height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -150,7 +157,7 @@
 }
 
 .viewPanel-container {
-  background-image: url("./src/components/images/panelMem.jpg");
+  background-image: url("./src/components/images/viewpmember.jpg");
   height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -160,7 +167,7 @@
 }
 
 .viewFinalmarks-container {
-  background-image: url("./src/components/images/panelMem.jpg");
+  background-image: url("./src/components/images/viewpmember.jpg");
   height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -182,3 +189,5 @@
   overflow: hidden;
   color: white;
 }
+
+

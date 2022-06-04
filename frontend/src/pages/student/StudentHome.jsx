@@ -17,9 +17,6 @@ export default class StaffHome extends Component {
           <br></br>
           <br></br>
           <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
           <form>
             <button className="btn btn-secondary btn-lg">
               <a

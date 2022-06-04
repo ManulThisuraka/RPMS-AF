@@ -40,7 +40,7 @@ export default class AddPanelMember extends Component {
     axios.post("http://localhost:5000/panelMembers/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
-        this.props.history.push("/panelmember/viewall");
+        this.navigate("/panelmember/viewall");
         // this.setState({
         //   staffID: "",
         //   panelmemberID: "",
@@ -50,6 +50,10 @@ export default class AddPanelMember extends Component {
       }
     });
   };
+
+  navigate = (link) => {
+    location.href = link;
+  }
 
   render() {
     return (

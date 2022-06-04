@@ -47,7 +47,7 @@ export default class PanelEvaluatePresentation extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container">
+      <div className="PanelEvaluatePresentation-container">
         <br></br>
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">

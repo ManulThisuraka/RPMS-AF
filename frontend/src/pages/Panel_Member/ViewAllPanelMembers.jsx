@@ -59,7 +59,9 @@ export default class ViewAllPanelMembers extends React.Component {
 
   render() {
     return (
+      
       <div className="viewPanelMember-container">
+        <div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -67,7 +69,7 @@ export default class ViewAllPanelMembers extends React.Component {
             <br></br>
             <h1>
               <center>
-                <b>All Panel Members Details</b>
+                <b>Panel Members Details</b>
               </center>
             </h1>{" "}
             <br></br>
@@ -125,6 +127,7 @@ export default class ViewAllPanelMembers extends React.Component {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

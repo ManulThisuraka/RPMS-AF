@@ -52,6 +52,7 @@ export default class AddFinalMarks extends Component {
     axios.post("http://localhost:5000/finalMarks/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
+        this.navigate("/finalMarks/viewall");
         this.setState({
           panelGroupID: "",
           studentGroupID: "",
@@ -65,6 +66,10 @@ export default class AddFinalMarks extends Component {
     });
   };
 
+  navigate = (link) => {
+    location.href = link;
+  }
+
   render() {
     return (
       <div className="finalMarks-container">
@@ -74,7 +79,7 @@ export default class AddFinalMarks extends Component {
         <div className="col-md-8 mt-4 mx-auto">
           <center>
             <b>
-              <h2 className="h3 mb-3 font-weight-normal">ADD FINAL MARKS </h2>
+              <h1>ADD FINAL MARKS </h1>
             </b>
           </center>
           <form className="needs-validation" noValidate>

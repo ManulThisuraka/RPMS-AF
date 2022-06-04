@@ -27,7 +27,7 @@ export default class ViewFinalMarks extends React.Component {
   }
 
   onDelete = (id) => {
-    axios.delete(`finalMarks/update/${id}`).then((res) => {
+    axios.delete(`http://localhost:5000/finalMarks/delete/${id}`).then((res) => {
       alert("Deleted successfully !!!");
       this.retrieveFinalmarks();
     });
@@ -64,6 +64,7 @@ export default class ViewFinalMarks extends React.Component {
   render() {
     return (
       <div className="viewFinalmarks-container">
+        <div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
             <br></br>
@@ -71,7 +72,7 @@ export default class ViewFinalMarks extends React.Component {
             <br></br>
             <h1>
               <center>
-                <b>All Final Marks Details</b>
+                <b>Final Marks Details</b>
               </center>
             </h1>{" "}
             <br></br>
@@ -96,13 +97,12 @@ export default class ViewFinalMarks extends React.Component {
               <th scope="col"> Index</th>
               <th scope="col"> panel Group ID</th>
               <th scope="col">Student Group ID</th>
-              <th scope="col">Charter</th>
-              <th scope="col"> Proposal Doc</th>
               <th scope="col"> pp_01</th>
               <th scope="col">pp_02</th>
               <th scope="col">Final Report</th>
               <th scope="col">Final Marks</th>
               <th scope="col">Final Grade</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
 
@@ -112,12 +112,9 @@ export default class ViewFinalMarks extends React.Component {
                 <th scope="row">{index + 1}</th>
                 <td>{finalmarks.panelGroupID}</td>
                 <td>{finalmarks.studentGroupID}</td>
-                <td>{finalmarks.charter}</td>
-                <td>{finalmarks.pro_proposal}</td>
                 <td>{finalmarks.pp_01}</td>
                 <td>{finalmarks.pp_02}</td>
                 <td>{finalmarks.final_report}</td>
-                <td>{finalmarks.App_Banner}</td>
                 <td>{finalmarks.finalmark}</td>
                 <td>{finalmarks.finalgrade}</td>
                 <td>
@@ -140,6 +137,7 @@ export default class ViewFinalMarks extends React.Component {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

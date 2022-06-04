@@ -22,7 +22,7 @@ import StudentHome from "./src/pages/student/StudentHome";
 
 
 
-import AddAssignment from "./src/pages/student/uploadFileTest";
+
 
 import ViewAllPanels from "./src/pages/Panel_Member/ViewAllPanels";
 import ViewAllPanelMembers from "./src/pages/Panel_Member/ViewAllPanelMembers";
@@ -89,10 +89,10 @@ export default class App extends React.Component {
 
           // Student
           
-          <Route path="/assignment/add" element={<AddAssignment />} />
+         
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
-          <Route path="/assignment/add" element={<AddAssignment/>}/>
+          
           <Route path="/student/register" element={<StudentRegister/>}/>
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>

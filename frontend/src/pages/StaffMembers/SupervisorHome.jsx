@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { isAuthenticated, logout } from "../../helpers/auth";
 export default class SupervisorHome extends Component {
+
+    componentDidMount(){
+        const USER = isAuthenticated();
+        if(USER.userSubType !== "Supervisor"){
+          window.location.replace("/login");
+          }
+      }
 
     render() {
         return (

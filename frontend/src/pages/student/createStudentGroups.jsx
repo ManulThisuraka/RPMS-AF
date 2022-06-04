@@ -50,6 +50,7 @@ class CreateStudentGroups extends React.Component {
         },
       ],
     };
+    localStorage.setItem("groupID", JSON.stringify(data.groupID));
 
     console.log("STD GRUP", data);
 

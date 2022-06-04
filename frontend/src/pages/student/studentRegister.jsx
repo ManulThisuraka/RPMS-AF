@@ -10,15 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../api/auth";
 
 const studentRegister = () => {
-  let navigate = useNavigate();
 
-    // useEffect(() => {
-    //   if (isAuthenticated().roleID === 1) {
-    //     navigate("/admin/dashboard");
-    //   } else if (isAuthenticated().roleID === 0) {
-    //     navigate("/product");
-    //   }
-    // }, []);
 
   const [formData, setFormData] = useState({
     fullName: "Test User",
@@ -229,7 +221,7 @@ const studentRegister = () => {
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
-            <i className="fa fa-phone"></i>
+            <i className="fa fa-lock"></i>
           </span>
         </div>&nbsp;
         <input
@@ -245,7 +237,7 @@ const studentRegister = () => {
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
-            <i className="fa fa-envelope"></i>
+            <i className="fa fa fa-lock"></i>
           </span>
         </div>&nbsp;
         <input
@@ -261,7 +253,7 @@ const studentRegister = () => {
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
-            <i className="fa fa-user"></i>
+            <i className="fa fa-phone"></i>
           </span>
         </div>&nbsp;
         <input
@@ -277,7 +269,7 @@ const studentRegister = () => {
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
-            <i className="fa fa-lock"></i>
+            <i className="fa fa-user"></i>
           </span>
         </div>
         <input

@@ -31,6 +31,12 @@ import PanelEvaluatePresentation from "./src/pages/Panel_Member/PanelEvaluatePre
 import ManageNotices from "./src/pages/admin/ManageNotices";
 import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
 import ViewNoticesAdmin from "./src/pages/admin/ViewNoticesAdmin";
+import Notice from "./src/pages/admin/Notice";
+import NoticeTopicForm from "./src/pages/admin/NoticeTopicForm";
+import NoticeDocumentForm from "./src/pages/admin/NoticeDocumentForm";
+import NoticePresentationForm from "./src/pages/admin/NoticePresentationForm";
+import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
+import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
 
 export default class App extends React.Component {
 
@@ -68,6 +74,12 @@ export default class App extends React.Component {
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
           <Route path="/admin/viewNotices" element={<ViewNoticesAdmin/>}/>
+          <Route path="/admin/Notice/:id" element={<Notice/>}/>
+          <Route path="/admin/NoticeTopic/:id" element={<NoticeTopicForm/>}/>
+          <Route path="/admin/NoticeDocument/:id" element={<NoticeDocumentForm/>}/>
+          <Route path="/admin/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
+          <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
+          <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
         </Routes>
       </Router>
     );

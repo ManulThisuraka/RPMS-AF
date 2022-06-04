@@ -47,15 +47,15 @@ export default class AddPanel extends Component {
 
   render() {
     return (
-      <div className="panel-container">
+      <div className="panel-container"><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal">ADD PANAL </h2>
+            <b><h1>ADD PANAL </h1></b>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
+              <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -68,7 +68,7 @@ export default class AddPanel extends Component {
 
             {/* Panel Head */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Head </label>
+            <b><label style={{ marginBottom: "5px" }}> Panel Head </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -81,10 +81,10 @@ export default class AddPanel extends Component {
 
             {/* Panel Research Area */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}>
+            <b><label style={{ marginBottom: "5px" }}>
                 {" "}
                 Panel Research Area{" "}
-              </label>
+              </label></b>
               <input
                 type="text"
                 className="form-control"

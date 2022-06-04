@@ -41,6 +41,32 @@ const getAllDocuments = async (req, res) => {
     })
 }
 
+//Get specific Document
+const getDocument = async (req, res) => {
+    let userId = req.params.id;
+    documentModel.findById(userId)
+    .then((Document)=>{
+        res.status(200).json({success:true,Document})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({success: false, error: err.message});
+    })
+}
+
+//Update Document
+const updateDocument = async (req, res) => {
+    documentModel.findByIdAndUpdate(req.params.id,
+        {
+            $set:req.body
+        })
+    .then(()=>{
+        res.status(200).json({success: "Document updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).json({status: "Error with updating Document", error: err.message});
+    })
+}
+
 
 
 
@@ -50,5 +76,7 @@ const getAllDocuments = async (req, res) => {
 module.exports = {
     getCategoryDocuments,
     getCategoryDocumentsGroup,
-    getAllDocuments
+    getAllDocuments,
+    getDocument,
+    updateDocument
 }

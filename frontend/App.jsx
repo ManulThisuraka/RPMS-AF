@@ -17,6 +17,7 @@ import SupervisorRequest from "./src/pages/student/supervisorRequest";
 //Student pages
 import StudentRegister from "./src/pages/student/studentRegister";
 import GetAllStudents from "./src/pages/admin/getAllStudents";
+import CreateStudentGroups from "./src/pages/student/createStudentGroups";
 import StudentHome from "./src/pages/student/StudentHome";
 
 
@@ -62,6 +63,7 @@ export default class App extends React.Component {
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
+          <Route path="/stuHome" element={<StudentHome/>}></Route>
 
           // Panel Member
           <Route path="/panelhome" element={<PanelHome />} />
@@ -69,14 +71,10 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-<<<<<<< HEAD
-          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
-=======
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
 
->>>>>>> 1611f0e4e5c8ac28f59199cff27ebb543c3ea83e
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
@@ -85,7 +83,7 @@ export default class App extends React.Component {
           <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
 
           // Student
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
+          
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
@@ -94,12 +92,11 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
-<<<<<<< HEAD
-          <Route path="/stuHome" element={<StudentHome/>}></Route>
-=======
-          <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           
->>>>>>> 1611f0e4e5c8ac28f59199cff27ebb543c3ea83e
+          <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
+          <Route path="/student/creategroup" element={<CreateStudentGroups />} />
+        
+          
 
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>

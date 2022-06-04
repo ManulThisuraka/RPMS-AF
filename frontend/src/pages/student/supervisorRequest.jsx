@@ -27,22 +27,12 @@ class SupervisorRequest extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    //const isValid = this.validate();
 
-    // const { groupID, id, topic} =
-    //   this.state;
     const data = {
       groupID: this.state.groupID,
       supervisorID: this.state.id,
       topic: this.state.topic
     }
-
-    // let data = new FormData();
-    // data.append("groupID", this.state.groupID);
-    // data.append("supervisorID", this.state.id);
-    // data.append("topic", this.state.topic);
-
-
 
     axios.post("http://localhost:5000/topic/create", data).then((res) => {
       if (res.data.success) {
@@ -121,6 +111,7 @@ class SupervisorRequest extends React.Component {
             <div className="custom-dropdown">
               <Select
                 class="dropdown-menu"
+                defaultValue={""}
                 options={this.state.dropDownOpt}
                 onChange={this.onChange.bind(this)}
                 
@@ -134,7 +125,7 @@ class SupervisorRequest extends React.Component {
           onClick={this.onSubmit}
           style={{ marginTop: "10px" }}
         >
-          Publish
+          Request
         </button>
         &nbsp;
       </div>

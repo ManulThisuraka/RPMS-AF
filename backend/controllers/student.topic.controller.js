@@ -17,7 +17,7 @@ exports.requestSupervisor = async (req, res) => {
       });
     }
     return res.status(200).json({
-      success: " Supervisor requested successfully",
+      success: true,
       data: reqSupervisor.groupID, //return the topic id
     });
   });

@@ -105,7 +105,7 @@ export default class NewNoticeForm extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="admin-container">
                 <br />
                 <br />
                 <br />

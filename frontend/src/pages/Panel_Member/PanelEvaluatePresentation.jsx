@@ -5,8 +5,8 @@ export default class PanelEvaluatePresentation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    pp_Type: "",
-    panel_ppmarks: "",
+      pp_Type: "",
+      panel_ppmarks: "",
       panel_ppComment: "",
     };
   }
@@ -20,43 +20,74 @@ export default class PanelEvaluatePresentation extends Component {
     });
   };
 
+  componentDidMount() {
+    const myArray = window.location.pathname.split("/", 3);
+    console.log(myArray[2]);
+    let id = myArray[2];
+    axios.get(`http://localhost:5000/presentations/view/${id}`).then((res) => {
+        if (res.data.success) {
+            this.setState({
+              pp_Type: res.data.Presentation.presentationType,
+            }) 
+        }
+    })
+}
+
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { pp_Type, panel_ppstatus, panel_ppComment } = this.state;
+    const { panel_ppmarks, panel_ppComment } = this.state;
 
     const data = {
-        pp_Type : pp_Type,
-        panel_ppmarks: panel_ppmarks,
-        panel_ppComment: panel_ppComment,
+        
+      marks: panel_ppmarks,
+      comments: panel_ppComment,
     };
 
     console.log(data);
 
-    axios.post("http://localhost:5000/panel/save", data).then((res) => {
+    const myArray = window.location.pathname.split("/", 3);
+    console.log(myArray[2]);
+    let id = myArray[2];
+
+    axios.put(`http://localhost:5000/presentations/update/${id}`, data).then((res,err) => {
       if (res.data.success) {
-        alert("Data saved successfully !!!");
-        this.setState({
-            pp_Type : "",
-            panel_ppmarks: "",
-            panel_ppComment: "",
-        });
+        alert("Data Updated successfully !!!");
+      }else{
+        console.log(err);
       }
     });
   };
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
+      <div className="PanelEvaluatePresentation-container">
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
+        <button
+              className="btn btn-secondary"
+              type="submit"
+              style={{ marginTop: "20px" }}
+              onClick={this.onSubmit}
+            >
+              &nbsp; View Uplorded Presentations
+            </button>
           <center>
-            <b><h1>Evaluate Presentations </h1></b><br></br>
+            <b>
+              <h1>Evaluate Presentations </h1>
+            </b>
+            <br></br>
           </center>
           <form className="needs-validation" noValidate>
-
             {/* Presentation Type */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Presentation Type (PP_01 / PP_02)</label></b>
+            {/* <div className="form-group" style={{ marginBottom: "15px" }}>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Presentation Type (PP_01 / PP_02)
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -65,15 +96,20 @@ export default class PanelEvaluatePresentation extends Component {
                 value={this.state.pp_Type}
                 onChange={this.handleInputChange}
               />
-            </div>
+            </div> */}
 
             {/* Panel Presentation Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Presentation Comment </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Panel Presentation Comment{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
-                name="panelHead"
+                name="panel_ppComment"
                 placeholder="Enter Presentation Comment"
                 value={this.state.panel_ppComment}
                 onChange={this.handleInputChange}
@@ -82,7 +118,12 @@ export default class PanelEvaluatePresentation extends Component {
 
             {/* Presentation Mark */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Presentation Mark </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Presentation Mark{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -93,15 +134,14 @@ export default class PanelEvaluatePresentation extends Component {
               />
             </div>
 
-            <button
+            <center><button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="far fa-check-square"></i>
-              &nbsp; SUBMIT
-            </button>
+              &nbsp;SUBMIT
+            </button></center>
           </form>
         </div>
       </div>

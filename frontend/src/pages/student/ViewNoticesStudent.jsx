@@ -1,9 +1,17 @@
 import React , {Component} from "react";
 import axios from "axios";
-
+import { isAuthenticated, logout } from "../../helpers/auth";
 
 
 export default class ViewNoticesStudent extends Component{
+
+  componentDidMount(){
+    const USER = isAuthenticated();
+    if(USER.userType !== "Student"){
+      window.location.replace("/login");
+      }
+  }
+
   constructor(props){
     super(props);
     
@@ -32,11 +40,11 @@ export default class ViewNoticesStudent extends Component{
 
   navigate = (category,id)=>{
     if(category == "topic"){
-        location.href = `/admin/NoticeTopic/${id}`;
+        location.href = `/student/NoticeTopic/${id}`;
     }else if(category =="document"){
-        location.href = `/admin/NoticeDocument/${id}`;
+        location.href = `/student/NoticeDocument/${id}`;
     }else if(category =="presentation"){
-        location.href = `/admin/NoticePresentation/${id}`;
+        location.href = `/student/NoticePresentation/${id}`;
     }else{
         location.href = `/admin/Notice/${id}`;
     }

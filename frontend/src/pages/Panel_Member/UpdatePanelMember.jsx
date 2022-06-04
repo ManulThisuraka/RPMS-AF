@@ -14,24 +14,24 @@ export default class UpdatePanelMember extends Component {
   }
 
   componentDidMount() {
-    console.log("Hi",window.location.pathname);
+    console.log("Hi", window.location.pathname);
     const myArray = window.location.pathname.split("/", 3);
     const id = myArray[2];
 
-     axios.get(`http://localhost:5000/panelMembers/view/${id}`).then((res) => {
+    axios.get(`http://localhost:5000/panelMembers/view/${id}`).then((res) => {
       console.log(res);
-         if(res.data.success){
-           console.log(res.data.PanelMember);
-             this.setState({
-               staffID:res.data.PanelMember.staffID,
-               panelmemberID:res.data.PanelMember.panelmemberID,
-               panelmemberName:res.data.PanelMember.panelmemberName,
-               p_researchArea:res.data.PanelMember.p_researchArea
-            });
+      if (res.data.success) {
+        console.log(res.data.PanelMember);
+        this.setState({
+          staffID: res.data.PanelMember.staffID,
+          panelmemberID: res.data.PanelMember.panelmemberID,
+          panelmemberName: res.data.PanelMember.panelmemberName,
+          p_researchArea: res.data.PanelMember.p_researchArea,
+        });
 
-           console.log(this.state.staffID);
-        }
-     });
+        console.log(this.state.staffID);
+      }
+    });
   }
 
   handleInputChange = (e) => {
@@ -61,7 +61,6 @@ export default class UpdatePanelMember extends Component {
     axios.put(`/panelMembers/update/${id}`, data).then((res) => {
       if (res.data.success) {
         alert(" updated successfully !!!");
-        this.props.history.push("/home");
         this.setState({
           staffID: "",
           panelmemberID: "",
@@ -74,7 +73,10 @@ export default class UpdatePanelMember extends Component {
 
   render() {
     return (
-      <div className="updatepanelMembers-container"><br></br><br></br><br></br>
+      <div className="updatepanelMembers-container">
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
             <h2 className="h3 mb-3 font-weight-normal">UPDATE PANAL MEMBER</h2>

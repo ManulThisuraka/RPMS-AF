@@ -8,7 +8,7 @@ import isEmail from "validator/lib/isEmail";
 import { signin } from "../../api/auth";
 
 const SignIn = () => {
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "user@x.com",
@@ -49,9 +49,11 @@ const SignIn = () => {
         .then((response) => {
           console.log("Axios login success: ", response);
           if (response.data.userType == "Student") {
-            navigate("/home");
+            window.location.replace("/studentHome");
+            //navigate("/studentHome");
           }else if (response.data.userType == "Staff") {
-            navigate("/staffhome");
+            window.location.replace("/staffhome");
+            //navigate("/staffhome");
           }
 
         })
@@ -71,8 +73,8 @@ const SignIn = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       {/* email */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
@@ -110,11 +112,11 @@ const SignIn = () => {
       {/* signin button */}
       <center>
       <div className="form-group">
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className="btn btn-primary btn-block" placeholder="Login">
           Sign In
         </button>
       </div>
-      </center>
+      </center><br></br>
 
       {/* create new account */}
       <p className="text-center text-Black">

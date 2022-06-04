@@ -3,10 +3,10 @@ import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, logout } from "../../helpers/auth";
 
 const Header = ({ history }) => {
+
    const handleLogout = (evt) => {
-    logout(() => {
-      history.push("/signin");
-    });
+   logout();
+   window.location.replace("/login");
   };
  
   //views/*
@@ -26,7 +26,7 @@ const Header = ({ history }) => {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -36,20 +36,20 @@ const Header = ({ history }) => {
                   <Link to="/" className="nav-link">
                     <i className="fas fa-home"> Home </i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <li className="nav-item">
                   <Link to="/student/register" className="nav-link">
                     <i className="fas fa-user"> Join as a Student</i>
                   </Link>
                   
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <li className="nav-item">
                   <Link to="/staff/signup" className="nav-link">
                     <i className="fas fa-users"> Join as a Staff</i>
                   </Link>
-                </li> 
+                </li> &nbsp;&nbsp;&nbsp;&nbsp;
 
                 {/*  <li className="nav-item">
                   <Link to="/signup" className="nav-link">
@@ -82,7 +82,7 @@ const Header = ({ history }) => {
                   <Link to="/login" className="nav-link">
                     <i className="fas fa-sign-in-alt"> SignIn</i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
               </Fragment>
             )}
 
@@ -92,24 +92,24 @@ const Header = ({ history }) => {
                   <Link to="/product" className="nav-link">
                     <i className="fas fa-heart"> Product</i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
                 <li className="nav-item">
                   <Link to="/cart" className="nav-link">
                     <i className="	fas fa-shopping-cart"> Add Cart</i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <li className="nav-item">
                   <Link to="/return" className="nav-link">
                     <i className="fas fa-arrow-circle-right"> Return</i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <li className="nav-item">
                   <Link to="/add1" className="nav-link">
                     <i className="fas fa-share"> Refund</i>
                   </Link>
-                </li>
+                </li>&nbsp;&nbsp;&nbsp;&nbsp;
               </Fragment>
             )}
 

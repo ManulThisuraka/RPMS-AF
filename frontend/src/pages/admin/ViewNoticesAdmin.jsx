@@ -44,7 +44,7 @@ export default class ViewNoticesAdmin extends Component{
 
   render(){
     return(
-      <div className="container">
+      <div className="admin-container">
 
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">

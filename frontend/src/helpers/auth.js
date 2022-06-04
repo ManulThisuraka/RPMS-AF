@@ -11,7 +11,7 @@ export const setAuthentication = (user) => {
 };
 
 export const isAuthenticated = () => {
-  if (getCookie("token") && getLocalStorage("user")) {
+  if (getLocalStorage("user")) {
     return getLocalStorage("user");
   } else {
     return false;
@@ -39,9 +39,6 @@ export const getCurrentChat = () => {
 };
 /*Chat component ending */
 
-export const logout = (next) => {
-  deleteCookie("token");
+export function logout() {
   deleteLocalStorage("user");
-
-  next();
-};
+}

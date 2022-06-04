@@ -23,15 +23,17 @@ const submitToPanel = new mongoose.Schema({
   },
   panelID: {
     type: String,
-    //required: true,
+    default: "Not Assingned Yet",
   },
   status: {
     //Accepted, Rejected, Pending
     type: String,
+    default: "Not Evaluated Yet",
     //required: true,
   },
   comment: {
     type: String,
+    default: "Not Evaluated Yet",
     //required: true,
   },
 });

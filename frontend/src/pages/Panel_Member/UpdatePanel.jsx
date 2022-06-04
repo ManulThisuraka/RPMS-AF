@@ -11,6 +11,26 @@ export default class UpdatePanel extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log("Hi", window.location.pathname);
+    const myArray = window.location.pathname.split("/", 3);
+    const id = myArray[2];
+
+    axios.get(`http://localhost:5000/panel/view/${id}`).then((res) => {
+      console.log(res);
+      if (res.data.success) {
+        console.log(res.data.Panel);
+        this.setState({
+          panelGroupID: res.data.Panel.panelGroupID,
+          panelHead: res.data.Panel.panelHead,
+          panel_researchArea: res.data.Panel.panel_researchArea,
+        });
+
+        console.log(this.state.userId);
+      }
+    });
+  }
+
   handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -33,7 +53,7 @@ export default class UpdatePanel extends Component {
 
     console.log(data);
 
-    axios.post("http://localhost:5000/panel/update/:id", data).then((res) => {
+    axios.post(`/panel/update/${id}`, data).then((res) => {
       if (res.data.success) {
         alert("Data updated successfully !!!");
         this.setState({

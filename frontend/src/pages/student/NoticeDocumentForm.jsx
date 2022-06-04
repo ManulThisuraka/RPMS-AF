@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios';
+import { isAuthenticated, logout } from "../../helpers/auth";
 
-export default class NoticeTopicForm extends Component {
+export default class NoticeDocumentForm extends Component {
+    componentDidMount(){
+        const USER = isAuthenticated();
+        if(USER.userType !== "Student"){
+          window.location.replace("/login");
+          }
+      }
+    
     constructor(props) {
         super(props);
 
@@ -9,16 +17,14 @@ export default class NoticeTopicForm extends Component {
             noticeHeader: "",
             description: "",
             downdocument: "",
-            topic: "",
-            groupID: "",
+            documentDescription:"",
             supervisorID: "",
-            co_supervisorID: "",
+            groupID: "",
             document: null,
-            etopic: "",
-            egroupID: "",
+            edocumentDescription:"",
             esupervisorID: "",
-            eco_supervisorID: "",
-            edocument: "",
+            egroupID: "",
+            edocument: ""
         };
     }
 
@@ -31,30 +37,25 @@ export default class NoticeTopicForm extends Component {
     }
 
     validate = () => {
-        let etopic = "";
-        let egroupID = "";
+        let edocumentDescription = "";
         let esupervisorID = "";
-        let eco_supervisorID = "";
+        let egroupID = "";
         let edocument = "";
 
-
-        if (!this.state.topic) {
-            etopic = "Topic is required !!!"
-        }
-        if (!this.state.groupID) {
-            egroupID = "Group ID is required !!!"
+        if (!this.state.documentDescription) {
+            edocumentDescription = "Document Description is required !!!"
         }
         if (!this.state.supervisorID) {
             esupervisorID = "Supervisor ID is required !!!"
         }
-        if (!this.state.co_supervisorID) {
-            eco_supervisorID = "Co-Supervisor ID is required !!!"
+        if (!this.state.groupID) {
+            egroupID = "Group ID is required !!!"
         }
         if (!this.state.document) {
             edocument = "Document is required !!!"
         }
-        if (etopic || egroupID || esupervisorID || eco_supervisorID || edocument) {
-            this.setState({ etopic, egroupID, esupervisorID, eco_supervisorID, edocument });
+        if (edocumentDescription || esupervisorID || egroupID ||edocument) {
+            this.setState({ edocumentDescription, esupervisorID, egroupID, edocument });
             return false;
         }
         return true;
@@ -68,19 +69,18 @@ export default class NoticeTopicForm extends Component {
         const isValid = this.validate();
 
         if (isValid) {
-            const { topic, groupID, supervisorID, co_supervisorID, document } = this.state;
+            const { documentDescription, supervisorID, groupID, document } = this.state;
             
             let data = new FormData();
             data.append('file',document);
-            data.append('topic',topic);
-            data.append('groupID',groupID);
             data.append('supervisorID',supervisorID);
-            data.append('co_supervisorID',co_supervisorID);
+            data.append('groupID',groupID);
+            data.append('documentDescription',documentDescription);
             
 
-            axios.post('http://localhost:5000/topics/add', data).then((res) => {
+            axios.post('http://localhost:5000/documents/add', data).then((res) => {
                 if (res.data.success) {
-                    alert("Topic Registerd Successfully");
+                    alert("Document submitted Successfully");
                     this.empty();
                 }
             })
@@ -118,23 +118,25 @@ export default class NoticeTopicForm extends Component {
 
     empty = (e) => {
         this.setState({
-            topic: "",
-            groupID: "",
+            documentDescription:"",
             supervisorID: "",
-            co_supervisorID: "",
+            groupID: "",
             document: null,
-            etopic: "",
-            egroupID: "",
+            edocumentDescription:"",
             esupervisorID: "",
-            eco_supervisorID: "",
-            edocument: "",
+            egroupID: "",
+            edocument: ""
         })
         document.getElementById("file").value = "";
     }
+    
 
     render() {
         return (
             <div className="container">
+                <br />
+                <br />
+                <br />
                 <h2>{this.state.noticeHeader}</h2>
                 <br />
                 <h4>{this.state.description}</h4>
@@ -145,12 +147,12 @@ export default class NoticeTopicForm extends Component {
                 <form>
 
                     <div className="form-group">
-                        <label>Topic</label>
-                        <input type="text" className="form-control" id="topic" placeholder="Enter Topic"
-                            name="topic"
-                            value={this.state.topic}
+                        <label>Document Description</label>
+                        <input type="text" className="form-control" id="documentDescription" placeholder="Enter Document Description Type"
+                            name="documentDescription"
+                            value={this.state.documentDescription}
                             onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.etopic}</small>
+                        <small className="text-danger">{this.state.edocumentDescription}</small>
                     </div>
 
                     <div className="form-group">
@@ -171,14 +173,6 @@ export default class NoticeTopicForm extends Component {
                         <small className="text-danger">{this.state.esupervisorID}</small>
                     </div>
 
-                    <div className="form-group">
-                        <label>Co-Supervisor ID</label>
-                        <input type="text" className="form-control" id="co_supervisorID" placeholder="Enter Co-Supervisor ID"
-                            name="co_supervisorID"
-                            value={this.state.co_supervisorID}
-                            onChange={this.handleInputChange} />
-                        <small className="text-danger">{this.state.eco_supervisorID}</small>
-                    </div>
 
                     <label>Upload Document</label><br />
                     <input type="file" id="file" onChange={this.selectFile} /><br />

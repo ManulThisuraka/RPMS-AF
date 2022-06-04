@@ -80,11 +80,10 @@ router.post('/presentations/add',multerUploadInMemory.single("file"),async (req,
     console.log(uploadResult.Location);
 
     var newPresObj = {
-        "presentationHeader": req.body.presentationHeader,
-        "presentationDescription":req.body.presentationDescription ,
+        "presentationType": req.body.presentationType,
         "panelID":req.body.panelID ,
         "groupID":req.body.groupID ,
-        "docURL": uploadResult.Location
+        "docURL": uploadResult.Location,
     }
 
     const newPresentation = new presentationModel(newPresObj);

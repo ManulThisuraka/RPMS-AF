@@ -3,41 +3,40 @@ const mongoose = require("mongoose");
 const UsersSchema = new mongoose.Schema(
   {
     userID: {
-      //
       type: String,
-      required: true,
+      required: false,
     },
     userType: {
       type: String,
-      required: true, // Student, Staff, Admin
+      required: false, // Student, Staff, Admin
     },
     userSubType: {
       type: String,
-      required: true, // Student -> learder & normal memeber, Staff -> supervisor, co-supervisor & panel memeber
+      required: false, // Student -> learder & normal memeber, Staff -> supervisor, co-supervisor & panel memeber
     },
     firstName: {
       type: String,
-      required: true,
+      required: false,
     },
     lastName: {
       type: String,
-      required: true,
+      required: false,
     },
     topicArea: {
       type: String,
-      required: true,
+      required: false,
     },
     email: {
       type: String,
-      required: true,
+      required: false,
     },
     username: {
       type: String,
-      required: true,
+      required: false,
     },
     password: {
       type: String,
-      required: true,
+      required: false,
     },
     fullName: {
       type: String,
@@ -72,5 +71,4 @@ const UsersSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("AllUser", UsersSchema);
-
 module.exports = User;

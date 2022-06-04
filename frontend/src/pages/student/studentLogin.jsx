@@ -20,11 +20,11 @@ const SignIn = () => {
   const { email, password, errorMsg, loading } = formData;
 
   const handleChange = (evt) => {
-    // setFormData({
-    //   ...formData,
-    //   [evt.target.name]: evt.target.value,
-    //   errorMsg: "",
-    // });
+    setFormData({
+      ...formData,
+      [evt.target.name]: evt.target.value,
+      errorMsg: "",
+    });
   };
 
   const handleSubmit = (evt) => {
@@ -48,8 +48,10 @@ const SignIn = () => {
       signin(data)
         .then((response) => {
           console.log("Axios login success: ", response);
-          if (response.data.roleID == 0) {
+          if (response.data.userType == "Student") {
             navigate("/home");
+          }else if (response.data.userType == "Staff") {
+            navigate("/staffhome");
           }
 
         })

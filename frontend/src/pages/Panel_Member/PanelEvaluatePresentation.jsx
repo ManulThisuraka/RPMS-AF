@@ -47,16 +47,16 @@ export default class PanelEvaluatePresentation extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluateTopic-container">
+      <div className="PanelEvaluateTopic-container"><br></br><br></br><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal">Evaluate Presentations </h2>
+            <b><h1>Evaluate Presentations </h1></b><br></br>
           </center>
           <form className="needs-validation" noValidate>
 
             {/* Presentation Type */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Presentation Type </label>
+            <b><label style={{ marginBottom: "5px" }}> Presentation Type (PP_01 / PP_02)</label></b>
               <input
                 type="text"
                 className="form-control"
@@ -69,7 +69,7 @@ export default class PanelEvaluatePresentation extends Component {
 
             {/* Panel Presentation Comment */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Presentation Comment </label>
+            <b><label style={{ marginBottom: "5px" }}> Panel Presentation Comment </label></b>
               <input
                 type="text"
                 className="form-control"
@@ -82,7 +82,7 @@ export default class PanelEvaluatePresentation extends Component {
 
             {/* Presentation Mark */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Presentation Mark </label>
+            <b><label style={{ marginBottom: "5px" }}> Presentation Mark </label></b>
               <input
                 type="text"
                 className="form-control"

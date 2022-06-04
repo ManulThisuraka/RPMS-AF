@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class AddPanel extends Component {
+export default class SubmitTopicToPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      panelGroupID: "",
-      panelHead: "",
-      panel_researchArea: "",
+      groupID: "",
+      supervisorID: "",
+      topic: "",
     };
   }
 
@@ -47,28 +47,28 @@ export default class AddPanel extends Component {
 
   render() {
     return (
-      <div className="panel-container"><br></br><br></br>
+      <div className="panel-container">
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <b><h1>ADD PANAL </h1></b>
+            <h2 className="h3 mb-3 font-weight-normal">ADD PANAL </h2>
           </center>
           <form className="needs-validation" noValidate>
-            {/* Panel Group ID */}
+            {/* Student Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
+              <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
               <input
                 type="text"
                 className="form-control"
-                name="panelGroupID"
+                name="groupID"
                 placeholder="Enter Panel Group ID"
                 value={this.state.panelGroupID}
                 onChange={this.handleInputChange}
               />
             </div>
 
-            {/* Panel Head */}
+            {/* Supervisor ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Head </label></b>
+              <label style={{ marginBottom: "5px" }}> Panel Head </label>
               <input
                 type="text"
                 className="form-control"
@@ -81,10 +81,10 @@ export default class AddPanel extends Component {
 
             {/* Panel Research Area */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}>
+              <label style={{ marginBottom: "5px" }}>
                 {" "}
                 Panel Research Area{" "}
-              </label></b>
+              </label>
               <input
                 type="text"
                 className="form-control"

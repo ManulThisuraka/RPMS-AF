@@ -74,7 +74,7 @@ export default class UpdatePanelMember extends Component {
 
   render() {
     return (
-      <div className="panelMembers-container">
+      <div className="updatepanelMembers-container"><br></br><br></br><br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
             <h2 className="h3 mb-3 font-weight-normal">UPDATE PANAL MEMBER</h2>

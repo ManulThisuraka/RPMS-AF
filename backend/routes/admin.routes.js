@@ -84,7 +84,7 @@ router.post('/presentations/add',multerUploadInMemory.single("file"),async (req,
         "presentationDescription":req.body.presentationDescription ,
         "panelID":req.body.panelID ,
         "groupID":req.body.groupID ,
-        "docURL": uploadResult.docURL
+        "docURL": uploadResult.Location
     }
 
     const newPresentation = new presentationModel(newPresObj);
@@ -108,11 +108,13 @@ router.post('/notices/add',multerUploadInMemory.single("file"),async (req, res) 
     console.log(req.body);
     console.log(req.file);
 
+    
     const uploadResult = await s3.upload({
         Bucket: "recentro-bucket",
         Key: req.file.originalname,
         Body: req.file.buffer,
     }).promise();
+    
 
     console.log(`Upload Successful!`);
     console.log(uploadResult.Location);
@@ -122,7 +124,7 @@ router.post('/notices/add',multerUploadInMemory.single("file"),async (req, res) 
         "roleID":req.body.roleID ,
         "noticeCategory":req.body.noticeCategory ,
         "description":req.body.description ,
-        "docURL": uploadResult.docURL
+        "docURL": uploadResult.Location
     }
     
     const newNotice = new noticeModel(newNoticeObj);

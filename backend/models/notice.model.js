@@ -10,7 +10,7 @@ const NoticeSchema = new mongoose.Schema({
         required : true
     },
     noticeCategory :{
-        type : String, //topic,download,notice,presentation,document
+        type : String, //topic,notice,presentation,document
         required : true
     },
     description :{

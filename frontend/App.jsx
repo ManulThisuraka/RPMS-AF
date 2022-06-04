@@ -42,6 +42,9 @@ import NoticePresentationForm from "./src/pages/student/NoticePresentationForm";
 import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
 import PresentationsPanel from "./src/pages/Panel_Member/PresentationsPanel";
+import PresentationsStudent from "./src/pages/student/PresentationsStudent";
+import DocumentsSupervisor from "./src/pages/StaffMembers/DocumentsSupervisor";
+import DocumentsStudent from "./src/pages/student/DocumentsStudent";
 
 
 //Staff Pages
@@ -111,6 +114,9 @@ export default class App extends React.Component {
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
+          <Route path="/student/presentations" element={<PresentationsStudent/>}/>
+          <Route path="/staff/documents" element={<DocumentsSupervisor/>}/>
+          <Route path="/student/documents" element={<DocumentsStudent/>}/>
           
         </Routes>
         <Footer/>

@@ -46,11 +46,8 @@ import StaffDetails from "./src/pages/StaffMembers/StaffDetails";
 import StaffInfo from "./src/pages/StaffMembers/StaffInfo";
 import SupervisorHome from "./src/pages/StaffMembers/SupervisorHome";
 import Header from "./src/pages/Common/Header";
-<<<<<<< HEAD
 import Home from "./src/pages/Common/Home";
-=======
 import Footer from "./src/pages/Common/Footer";
->>>>>>> cd5b2599dfa414b585d65613b92f4d783d2b22c4
 
 
 export default class App extends React.Component {

@@ -3,12 +3,12 @@ import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, logout } from "../../helpers/auth";
 
 const Header = ({ history }) => {
-  /* const handleLogout = (evt) => {
+   const handleLogout = (evt) => {
     logout(() => {
       history.push("/signin");
     });
   };
- */
+ 
   //views/*
   const showNavigation = () => (
     <div className="header_container">

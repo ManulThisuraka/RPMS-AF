@@ -36,7 +36,7 @@ export default class TopicsAdmin extends Component {
     }
 
     navigate = (id) => {
-        location.href = `/panelEPresentation/${id}`;
+        location.href = `/admin/topics/${id}`;
     }
 
 

@@ -48,6 +48,7 @@ import DocumentsStudent from "./src/pages/student/DocumentsStudent";
 import TopicsAdmin from "./src/pages/admin/TopicsAdmin";
 import TopicsPanel from "./src/pages/Panel_Member/TopicsPanel";
 import TopicsStudent from "./src/pages/student/TopicsStudent";
+import AssignPanel from "./src/pages/admin/AssignPanel";
 
 
 
@@ -124,6 +125,7 @@ export default class App extends React.Component {
           <Route path="/admin/topics" element={<TopicsAdmin/>}/>
           <Route path="/panel/topics" element={<TopicsPanel/>}/>
           <Route path="/student/topics" element={<TopicsStudent/>}/>
+          <Route path="/admin/topics/:id" element={<AssignPanel/>}/>
           
         </Routes>
         <Footer/>

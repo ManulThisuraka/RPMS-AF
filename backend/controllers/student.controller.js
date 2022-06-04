@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const Student = require("../models/student.model");
+const User = require("../models/Users.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
@@ -12,11 +12,13 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 exports.signupController = async (req, res) => {
+  console.log("REQ BODY", req.body);
   const {
     fullName,
     stdID,
     NIC,
-    stdEmail,
+    email,
+    userType,
     password,
     phoneNumber,
     specialization,
@@ -24,27 +26,36 @@ exports.signupController = async (req, res) => {
   } = req.body;
 
   try {
-    const user = await Student.find({ stdEmail });
+    const user = await User.findOne({ email: email });
+    console.log(user);
     if (user) {
       return res.status(400).json({
         errorMessage: "Email already exists",
       });
     }
 
-    const newUser = new Student();
-    newUser.fullName = fullName;
-    newUser.stdID = stdID;
-    newUser.NIC = NIC;
-    newUser.stdEmail = stdEmail;
-    newUser.password = password;
-    newUser.phoneNumber = phoneNumber;
-    newUser.specialization = specialization;
-    newUser.roleID = roleID;
+    const newStudent = new User();
+
+    newStudent.email = email;
+    newStudent.roleID = roleID;
+    newStudent.stdID = stdID;
+    newStudent.fullName = fullName;
+    newStudent.NIC = NIC;
+    newStudent.phoneNumber = phoneNumber;
+    newStudent.specialization = specialization;
+    newStudent.userID = null;
+    newStudent.userType = userType;
+    newStudent.userSubType = null;
+    newStudent.firstName = null;
+    newStudent.lastName = null;
+    newStudent.topicArea = null;
+    newStudent.username = null;
+    newStudent.panelID = null;
 
     const salt = await bcrypt.genSalt(10);
-    newUser.password = await bcrypt.hash(password, salt);
+    newStudent.password = await bcrypt.hash(password, salt);
 
-    await newUser.save();
+    await newStudent.save();
 
     res.json({
       successMessage: "Registration Success. Please Sign-In",
@@ -68,7 +79,7 @@ exports.signinController = async (req, res) => {
       res.status(400).send("All input is required");
     }
     // Validate if user exist in our database
-    const user = await Student.findOne({ stdEmail: email });
+    const user = await User.findOne({ email: email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
@@ -92,7 +103,7 @@ exports.signinController = async (req, res) => {
 
 //Retrive the user details in backend
 exports.getAllUsers = async (req, res) => {
-  Student.find().exec((err, user) => {
+  User.find().exec((err, user) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -109,7 +120,7 @@ exports.getAllUsers = async (req, res) => {
 exports.getUserInfoById = async (req, res) => {
   let userId = req.params.id;
 
-  Student.findById(userId, (err, user) => {
+  User.findById(userId, (err, user) => {
     if (err) {
       return res.status(400).json({ isSuccess: false, err });
     }

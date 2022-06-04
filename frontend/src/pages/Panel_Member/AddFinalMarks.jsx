@@ -24,9 +24,48 @@ export default class AddFinalMarks extends Component {
     });
   };
 
+  validate = () => {
+    let epanelGroupID = "";
+    let estudentGroupID = "";
+    let epp_01 = "";
+    let epp_02 = "";
+    let efinal_report = "";
+    let efinalmark = "";
+    let efinalgrade = "";
+
+    if (!this.state.panelGroupID) {
+      epanelGroupID = "Panel Group ID is required !!!"
+    }
+    if (!this.state.studentGroupID) {
+      estudentGroupID = "Student Group ID is required !!!"
+    }
+    if (!this.state.pp_01) {
+      epp_01 = "PP_01 is required !!!"
+    }
+    if (!this.state.pp_02) {
+      epp_02 = "PP_02 is required !!!"
+    }
+    if (!this.state.final_report) {
+      efinal_report = "Final Report Marks is required !!!"
+    }
+    if (!this.state.finalmark) {
+      efinalmark = "Final Marks is required !!!"
+    }
+    if (!this.state.finalgrade) {
+      efinalgrade = "Final Grade is required !!!"
+    }
+    if (epanelGroupID || estudentGroupID || epp_01 || epp_02 || efinal_report || efinalmark || efinalgrade) {
+        this.setState({ epanelGroupID, estudentGroupID, epp_01, epp_02, efinal_report, efinalmark, efinalgrade });
+        return false;
+    }
+    return true;
+};
+
   onSubmit = (e) => {
     e.preventDefault();
+    const isValid = this.validate();
 
+    if (isValid) {
     const {
       panelGroupID,
       studentGroupID,
@@ -65,6 +104,7 @@ export default class AddFinalMarks extends Component {
       }
     });
   };
+}
 
   navigate = (link) => {
     location.href = link;
@@ -95,7 +135,9 @@ export default class AddFinalMarks extends Component {
                 placeholder="Enter Panel Group ID"
                 value={this.state.panelGroupID}
                 onChange={this.handleInputChange}
+                
               />
+              <small className="text-danger">{this.state.epanelGroupID}</small>
             </div>
 
             {/* Student Group ID */}
@@ -114,6 +156,7 @@ export default class AddFinalMarks extends Component {
                 value={this.state.studentGroupID}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.estudentGroupID}</small>
             </div>
 
             {/* pp_01 */}
@@ -129,6 +172,7 @@ export default class AddFinalMarks extends Component {
                 value={this.state.pp_01}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.epp_01}</small>
             </div>
 
             {/* pp_02 */}
@@ -144,6 +188,7 @@ export default class AddFinalMarks extends Component {
                 value={this.state.pp_02}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.epp_02}</small>
             </div>
 
             {/* Final Report */}
@@ -159,6 +204,7 @@ export default class AddFinalMarks extends Component {
                 value={this.state.final_report}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.efinal_report}</small>
             </div>
 
             {/* Final Mark */}
@@ -174,6 +220,7 @@ export default class AddFinalMarks extends Component {
                 value={this.state.finalmark}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.efinalmark}</small>
             </div>
 
             {/* Final Grade */}
@@ -188,7 +235,9 @@ export default class AddFinalMarks extends Component {
                 placeholder="Enter Final Grade Marks"
                 value={this.state.finalgrade}
                 onChange={this.handleInputChange}
+                
               />
+              <small className="text-danger">{this.state.efinalgrade}</small>
             </div>
 
             <center><button

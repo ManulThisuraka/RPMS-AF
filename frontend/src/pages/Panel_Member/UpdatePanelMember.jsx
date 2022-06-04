@@ -61,7 +61,6 @@ export default class UpdatePanelMember extends Component {
     axios.put(`/panelMembers/update/${id}`, data).then((res) => {
       if (res.data.success) {
         alert(" updated successfully !!!");
-        this.props.history.push("/home");
         this.setState({
           staffID: "",
           panelmemberID: "",

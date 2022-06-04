@@ -7,15 +7,36 @@ export default class UpdateFinalMarks extends Component {
     this.state = {
       panelGroupID: "",
       studentGroupID: "",
-      charter: "",
-      pro_proposal: "",
       pp_01: "",
       pp_02: "",
       final_report: "",
-      App_Banner: "",
       finalmark: "",
       finalgrade: "",
     };
+  }
+
+  componentDidMount() {
+    console.log("Hi", window.location.pathname);
+    const myArray = window.location.pathname.split("/", 3);
+    const id = myArray[2];
+
+    axios.get(`http://localhost:5000/finalMarks/view/${id}`).then((res) => {
+      console.log(res);
+      if (res.data.success) {
+        console.log(res.data.PanelMember);
+        this.setState({
+          panelGroupID: res.data.PanelMember.panelGroupID,
+          studentGroupID: res.data.PanelMember.studentGroupID,
+          pp_01: res.data.PanelMember.pp_01,
+          pp_02: res.data.PanelMember.p_researchArea,
+          final_report: res.data.PanelMember.final_report,
+          finalmark: res.data.PanelMember.finalmark,
+          finalgrade: res.data.PanelMember.finalgrade,
+        });
+
+        console.log(this.state.staffID);
+      }
+    });
   }
 
   handleInputChange = (e) => {
@@ -59,19 +80,16 @@ export default class UpdateFinalMarks extends Component {
     console.log(data);
 
     axios
-      .post("http://localhost:5000/finalMarks/update/:id", data)
+      .put(`/finalMarks/update/${id}`, data)
       .then((res) => {
         if (res.data.success) {
           alert("Data Updated successfully !!!");
           this.setState({
             panelGroupID: "",
             studentGroupID: "",
-            charter: "",
-            pro_proposal: "",
             pp_01: "",
             pp_02: "",
             final_report: "",
-            App_Banner: "",
             finalmark: "",
             finalgrade: "",
           });

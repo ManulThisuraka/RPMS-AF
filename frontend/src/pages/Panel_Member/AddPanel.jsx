@@ -20,9 +20,34 @@ export default class AddPanel extends Component {
     });
   };
 
+  validate = () => {
+    let epanelGroupID = "";
+    let epanelHead = "";
+    let epanel_researchArea = "";
+
+    if (!this.state.panelGroupID) {
+      taffID = "Staff ID is required !!!"
+    }
+    if (!this.state.panelHead) {
+      anelmemberID = "Panel Member ID is required !!!"
+    }
+    if (!this.state.panel_researchArea) {
+      anelmemberName = "Panel Member Name is required !!!"
+    }
+    if (epanelGroupID || epanelHead || epanel_researchArea) {
+        this.setState({ epanelGroupID, epanelHead, epanel_researchArea});
+        return false;
+    }
+    return true;
+};
+
+
+
   onSubmit = (e) => {
     e.preventDefault();
+    const isValid = this.validate();
 
+    if (isValid) {
     const { panelGroupID, panelHead, panel_researchArea } = this.state;
 
     const data = {
@@ -36,6 +61,7 @@ export default class AddPanel extends Component {
     axios.post("http://localhost:5000/panel/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
+        this.navigate("/panel/viewall");
         this.setState({
           panelGroupID: "",
           panelHead: "",
@@ -44,6 +70,11 @@ export default class AddPanel extends Component {
       }
     });
   };
+}
+
+  navigate = (link) => {
+    location.href = link;
+  }
 
   render() {
     return (
@@ -78,6 +109,7 @@ export default class AddPanel extends Component {
                 value={this.state.panelGroupID}
                 onChange={this.handleInputChange}
               />
+               <small className="text-danger">{this.state.epanelGroupID}</small>
             </div>
 
             {/* Panel Head */}
@@ -93,6 +125,7 @@ export default class AddPanel extends Component {
                 value={this.state.panelHead}
                 onChange={this.handleInputChange}
               />
+               <small className="text-danger">{this.state.epanelHead}</small>
             </div>
 
             {/* Panel Research Area */}
@@ -111,6 +144,7 @@ export default class AddPanel extends Component {
                 value={this.state.panel_researchArea}
                 onChange={this.handleInputChange}
               />
+               <small className="text-danger">{this.state.epanel_researchArea}</small>
             </div>
             <center>
             <button

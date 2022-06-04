@@ -10,14 +10,6 @@ const FinalMarkSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  charter: {
-    type: String,
-    require: true
-  },
-  pro_proposal: {
-    type: String,
-    require: true
-  },
   pp_01: {
     type: String,
     required: true
@@ -27,10 +19,6 @@ const FinalMarkSchema = new mongoose.Schema({
     required: true
   },
   final_report: {
-    type: String,
-    required: true
-  },
-  App_Banner: {
     type: String,
     required: true
   },

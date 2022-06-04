@@ -33,20 +33,21 @@ const Header = ({ history }) => {
             {!isAuthenticated() && (
               <Fragment>
                 <li className="nav-item">
-                  <Link to="#" className="nav-link">
+                  <Link to="/" className="nav-link">
                     <i className="fas fa-home"> Home </i>
                   </Link>
                 </li>
 
                     <li className="nav-item">
                   <Link to="/student/register" className="nav-link">
-                    <i className="fas fa-building"> Join as a Student</i>
+                    <i className="fas fa-user"> Join as a Student</i>
                   </Link>
+                  
                 </li>
 
                 <li className="nav-item">
                   <Link to="/staff/signup" className="nav-link">
-                    <i className="fas fa-truck"> Join as a Staff</i>
+                    <i className="fas fa-users"> Join as a Staff</i>
                   </Link>
                 </li> 
 
@@ -78,7 +79,7 @@ const Header = ({ history }) => {
                 </li> */}
 
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <Link to="/login" className="nav-link">
                     <i className="fas fa-sign-in-alt"> SignIn</i>
                   </Link>
                 </li>

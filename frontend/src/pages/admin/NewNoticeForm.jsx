@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+
 
 
 export default class NewNoticeForm extends Component {
@@ -17,7 +17,8 @@ export default class NewNoticeForm extends Component {
             enoticeHeader: "",
             eroleID: "",
             enoticeCategory: "",
-            edescription: ""
+            edescription: "",
+            edocument:""
         };
     }
 
@@ -36,6 +37,7 @@ export default class NewNoticeForm extends Component {
         let eroleID = "";
         let enoticeCategory = "";
         let edescription = "";
+        let edocument = "";
 
         
         if (!this.state.noticeHeader) {
@@ -50,8 +52,11 @@ export default class NewNoticeForm extends Component {
         if (!this.state.description) {
             edescription = "Message is required !!!"
         }
-        if (enoticeHeader || eroleID || enoticeCategory || edescription) {
-            this.setState({ enoticeHeader, eroleID, enoticeCategory, edescription });
+        if (!this.state.document) {
+            edocument = "Document is required !!!"
+        }
+        if (enoticeHeader || eroleID || enoticeCategory || edescription || edocument) {
+            this.setState({ enoticeHeader, eroleID, enoticeCategory, edescription ,edocument});
             return false;
         }
         return true;
@@ -90,6 +95,7 @@ export default class NewNoticeForm extends Component {
             enoticeCategory: "",
             edescription: ""
         })
+        document.getElementById("file").value = "";
     }
 
     selectFile = (event) => {
@@ -146,7 +152,8 @@ export default class NewNoticeForm extends Component {
 
                     
                     <label>Upload Template / Material</label><br/>
-                    <input type="file" onChange={this.selectFile} />
+                    <input type="file" id="file" onChange={this.selectFile} /><br/>
+                    <small className="text-danger">{this.state.edocument}</small>
                     
                 </form>
 

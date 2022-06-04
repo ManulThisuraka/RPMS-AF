@@ -1,4 +1,4 @@
-let PanelMembers = require("../models/PanelMember.model");
+let PanelMembers = require("../models/panelMember.model");
 
 //Save PanelMember Details
 const createPanelMember = async (req, res) => {

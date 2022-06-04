@@ -1,25 +1,28 @@
 const router = require("express").Router();
-let controller = require("../Controllers/PanelMember.controller");
+
+let panelMembercontroller = require("../Controllers/panelMember.controller");
+let panelcontroller = require("../Controllers/panel.controller");
+let finalMarkcontroller = require("../Controllers/finalMarks.controller");
 
 // PanelMember Router Paths
-router.post("/panelMembers/save", controller.createPanelMember); //Save PanelMember Details
-router.get("/PanelMembers/view/", controller.getAllPanelMembers); //Get All PanelMember Details
-router.get("/PanelMembers/view/:id", controller.getPanelMember); //Get a specific PanelMember Details
-router.put("/PanelMembers/update/:id", controller.updatePanelMember); //Update PanelMember Details
-router.delete("/PanelMembers/delete/:id", controller.deletePanelMember); //Delete PanelMember
+router.post("/panelMembers/save", panelMembercontroller.createPanelMember); //Save PanelMember Details
+router.get("/panelMembers/view/", panelMembercontroller.getAllPanelMembers); //Get All PanelMember Details
+router.get("/panelMembers/view/:id", panelMembercontroller.getPanelMember); //Get a specific PanelMember Details
+router.put("/panelMembers/update/:id", panelMembercontroller.updatePanelMember); //Update PanelMember Details
+router.delete("/panelMembers/delete/:id", panelMembercontroller.deletePanelMember); //Delete PanelMember
 
-// // panel Router Paths
-// router.post("/panel/save", controller.createPanel); //Save panel Details
-// router.get("/panel/view/", controller.getAllPanel); //Get All panel Details
-// router.get("/panel/view/:id", controller.getPanel); //Get a specific panel Details
-// router.put("/panel/update/:id", controller.updatePanel); //Update panel Details
-// router.delete("/panel/delete/:id", controller.deletePanel); //Delete panel
+// panel Router Paths
+router.post("/panel/save", panelcontroller.createPanel); //Save panel Details
+router.get("/panel/view/", panelcontroller.getAllPanel); //Get All panel Details
+router.get("/panel/view/:id", panelcontroller.getPanel); //Get a specific panel Details
+router.put("/panel/update/:id", panelcontroller.updatePanel); //Update panel Details
+router.delete("/panel/delete/:id", panelcontroller.deletePanel); //Delete panel
 
 // Final Marks Paths
-// router.post("/panel/save", controller.createFinalMark); //Save Final Marks Details
-// router.get("/panel/view/", controller.getAllFinalMarks); //Get All Final Marks Details
-// router.get("/panel/view/:id", controller.getFinalMark); //Get a specific Final Marks Details
-// router.put("/panel/update/:id", controller.updateFinalMark); //Update Final Marks Details
-// router.delete("/panel/delete/:id", controller.deleteFinalMark); //Delete Final Marks
+router.post("/finalMarks/save", finalMarkcontroller.createFinalMark); //Save Final Marks Details
+router.get("/finalMarks/view/", finalMarkcontroller.getAllFinalMarks); //Get All Final Marks Details
+router.get("/finalMarks/view/:id", finalMarkcontroller.getFinalMark); //Get a specific Final Marks Details
+router.put("/finalMarks/update/:id", finalMarkcontroller.updateFinalMark); //Update Final Marks Details
+router.delete("/finalMarks/delete/:id", finalMarkcontroller.deleteFinalMark); //Delete Final Marks
 
 module.exports = router;

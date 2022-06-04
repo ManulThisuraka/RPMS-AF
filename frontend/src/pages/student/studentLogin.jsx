@@ -8,76 +8,53 @@ import isEmail from "validator/lib/isEmail";
 import { signin } from "../../api/auth";
 
 const SignIn = () => {
-  let history = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated() && isAuthenticated().roleID === 0) {
-      history.push("/");
-    } else if (isAuthenticated() && isAuthenticated().roleID === 1) {
-      history.push("/product");
-    }
-  }, [history]);
+  let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    stdEmail: "user@x.com",
+    email: "user@x.com",
     password: "password1234",
     errorMsg: false,
     loading: false,
   });
 
-  const { stdEmail, password, errorMsg, loading } = formData;
+  const { email, password, errorMsg, loading } = formData;
 
-  /************************************
-   *EVENT HANDLERS*
-   *************************************/
   const handleChange = (evt) => {
-    setFormData({
-      ...formData,
-      [evt.target.name]: evt.target.value,
-      errorMsg: "",
-    });
+    // setFormData({
+    //   ...formData,
+    //   [evt.target.name]: evt.target.value,
+    //   errorMsg: "",
+    // });
   };
 
-  const handleSubmit = (evt) =>  {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
 
     //client-side validation
-    if (isEmpty(stdEmail) || isEmpty(password)) {
+    if (isEmpty(email) || isEmpty(password)) {
       setFormData({
         ...formData,
         errorMsg: "All fields are required",
       });
-    } else if (!isEmail(stdEmail)) {
+    } else if (!isEmail(email)) {
       setFormData({
         ...formData,
         errorMsg: "Invalid Email",
       });
     } else {
-      const { stdEmail, password } = formData;
-      const data = { stdEmail, password };
-      console.log("DATA",data);
+      const { email, password } = formData;
+      const data = { email, password };
 
-    //   setFormData({ ...formData, loading: true });
-       await signin(data)
+      signin(data)
         .then((response) => {
-            console.log("Axios login success: ", response);
-        //   setAuthentication(response.data.token, response.data.user);
+          console.log("Axios login success: ", response);
+          if (response.data.roleID == 0) {
+            navigate("/home");
+          }
 
-        //   if (isAuthenticated() && isAuthenticated().roleID === 0) {
-        //     console.log("Redirecting to student home page");
-        //     history.push("/testss");
-        //   } else {
-        //     console.log("Redirecting to user dashboard");
-        //     history.push("/product");
-        //   }
         })
         .catch((err) => {
           console.log("signin api function error: ", err);
-        //   setFormData({
-        //     ...formData,
-        //     loading: false,
-        //     errorMsg: err.response.data.errorMessage,
-        //   });
         });
     }
   };
@@ -103,13 +80,13 @@ const SignIn = () => {
         </div>
         <input
           name="email"
-          value={stdEmail}
+          value={email}
           className="form-control"
           placeholder="Email address"
           type="email"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
 
       {/* password */}
       <div className="form-group input-group">
@@ -126,14 +103,16 @@ const SignIn = () => {
           type="password"
           onChange={handleChange}
         />
-      </div>
+      </div>&nbsp;
 
       {/* signin button */}
+      <center>
       <div className="form-group">
         <button type="submit" className="btn btn-primary btn-block">
           Sign In
         </button>
       </div>
+      </center>
 
       {/* create new account */}
       <p className="text-center text-Black">

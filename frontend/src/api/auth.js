@@ -18,8 +18,8 @@ export const signin = async (data) => {
   //     "Content-Type": "application/json",
   //   },
   // };
-  console.log("Auth Data", data);
 
+  console.log("Data", data);
   const response = await axios.post("http://localhost:5000/login", data);
   console.log("response Data", response);
 

@@ -4,44 +4,44 @@ const FinalMarkSchema = new mongoose.Schema({
   
   panelGroupID: {
     type: String,
-    require: true,
+    require: true
   },
   studentGroupID: {
     type: String,
-    require: true,
+    require: true
   },
   charter: {
     type: String,
-    require: true,
+    require: true
   },
   pro_proposal: {
     type: String,
-    require: true,
+    require: true
   },
   pp_01: {
     type: String,
-    required: true,
+    required: true
   },
   pp_02: {
     type: String,
-    required: true,
+    required: true
   },
   final_report: {
     type: String,
-    required: true,
+    required: true
   },
   App_Banner: {
     type: String,
-    required: true,
+    required: true
   },
   finalmark: {
     type: String,
-    required: true,
+    required: true
   },
   finalgrade: {
     type: String,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
 module.exports = mongoose.model("FinalMarks", FinalMarkSchema);

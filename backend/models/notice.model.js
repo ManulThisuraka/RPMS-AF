@@ -6,11 +6,11 @@ const NoticeSchema = new mongoose.Schema({
         required : true
     },
     roleID :{
-        type : String, //All(0),student(1),staff(2)
+        type : String, //all,student,staff
         required : true
     },
     noticeCategory :{
-        type : String, //topic,download,notice,presentation,document
+        type : String, //topic,notice,presentation,document
         required : true
     },
     description :{

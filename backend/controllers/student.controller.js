@@ -12,11 +12,13 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 exports.signupController = async (req, res) => {
+  console.log("REQ BODY", req.body);
   const {
     fullName,
     stdID,
     NIC,
     email,
+    userType,
     password,
     phoneNumber,
     specialization,
@@ -42,7 +44,7 @@ exports.signupController = async (req, res) => {
     newStudent.phoneNumber = phoneNumber;
     newStudent.specialization = specialization;
     newStudent.userID = null;
-    newStudent.userType = null;
+    newStudent.userType = userType;
     newStudent.userSubType = null;
     newStudent.firstName = null;
     newStudent.lastName = null;

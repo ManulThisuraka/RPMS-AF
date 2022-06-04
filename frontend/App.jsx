@@ -11,6 +11,7 @@ import AddPanel from "./src/pages/Panel_Member/AddPanel";
 import AddFinalMarks from "./src/pages/Panel_Member/AddFinalMarks";
 import UpdateFinalMarks from "./src/pages/Panel_Member/UpdateFinalMarks";
 import UpdatePanelMember from "./src/pages/Panel_Member/UpdatePanelMember";
+import MultiSelectComponent from "./src/pages/student/MultiSelectComponent";
 
 
 //Student pages
@@ -52,12 +53,14 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header/>
+        {/* <Header/> */}
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/panel/add" element={<AddPanel />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
+
+          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
 
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 

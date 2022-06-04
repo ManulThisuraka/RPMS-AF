@@ -12,13 +12,13 @@ import { signup } from "../../api/auth";
 const studentRegister = () => {
   let navigate = useNavigate();
 
-    useEffect(() => {
-      if (isAuthenticated().roleID === 1) {
-        navigate("/admin/dashboard");
-      } else if (isAuthenticated().roleID === 0) {
-        navigate("/product");
-      }
-    }, []);
+    // useEffect(() => {
+    //   if (isAuthenticated().roleID === 1) {
+    //     navigate("/admin/dashboard");
+    //   } else if (isAuthenticated().roleID === 0) {
+    //     navigate("/product");
+    //   }
+    // }, []);
 
   const [formData, setFormData] = useState({
     fullName: "Test User",
@@ -102,6 +102,7 @@ const studentRegister = () => {
         stdID,
         NIC,
         email,
+        userType,
         password,
         phoneNumber,
         specialization,
@@ -112,6 +113,7 @@ const studentRegister = () => {
         stdID,
         NIC,
         email,
+        userType: "Student",
         password,
         phoneNumber,
         specialization,

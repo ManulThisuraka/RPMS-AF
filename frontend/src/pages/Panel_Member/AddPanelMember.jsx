@@ -114,6 +114,10 @@ export default class AddPanelMember extends Component {
               />
             </div>
 
+            {/* <a className="btn btn-secondary btn-sm btn-block" href={`/edit/${panelmembers._id}`}>
+                          <i className="fas fa-edit"></i>&nbsp;UPDATE   
+                        </a>  */}
+
             <button
               className="btn btn-secondary"
               type="submit"

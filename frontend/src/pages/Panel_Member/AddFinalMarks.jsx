@@ -52,6 +52,7 @@ export default class AddFinalMarks extends Component {
     axios.post("http://localhost:5000/finalMarks/save", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
+        this.navigate("/finalMarks/viewall");
         this.setState({
           panelGroupID: "",
           studentGroupID: "",
@@ -65,6 +66,10 @@ export default class AddFinalMarks extends Component {
     });
   };
 
+  navigate = (link) => {
+    location.href = link;
+  }
+
   render() {
     return (
       <div className="finalMarks-container">
@@ -73,12 +78,16 @@ export default class AddFinalMarks extends Component {
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <b><h2 className="h3 mb-3 font-weight-normal">ADD FINAL MARKS </h2></b>
+            <b>
+              <h1>ADD FINAL MARKS </h1>
+            </b>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -91,7 +100,12 @@ export default class AddFinalMarks extends Component {
 
             {/* Student Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Student Group ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Student Group ID{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -104,7 +118,9 @@ export default class AddFinalMarks extends Component {
 
             {/* pp_01 */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> pp_01 </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> pp_01 </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -117,7 +133,9 @@ export default class AddFinalMarks extends Component {
 
             {/* pp_02 */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> pp_02 </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> pp_02 </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -130,7 +148,9 @@ export default class AddFinalMarks extends Component {
 
             {/* Final Report */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Final Report </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Final Report </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -143,7 +163,9 @@ export default class AddFinalMarks extends Component {
 
             {/* Final Mark */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Final Mark </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Final Mark </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -156,7 +178,9 @@ export default class AddFinalMarks extends Component {
 
             {/* Final Grade */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Final Grade </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Final Grade </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -167,15 +191,14 @@ export default class AddFinalMarks extends Component {
               />
             </div>
 
-            <button
+            <center><button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="btn btn-secondary btn-lg active"></i>
-              &nbsp; SAVE
-            </button>
+              &nbsp;SAVE
+            </button></center>
           </form>
         </div>
       </div>

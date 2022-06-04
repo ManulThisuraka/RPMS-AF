@@ -17,7 +17,11 @@ import SupervisorRequest from "./src/pages/student/supervisorRequest";
 //Student pages
 import StudentRegister from "./src/pages/student/studentRegister";
 import GetAllStudents from "./src/pages/admin/getAllStudents";
+<<<<<<< HEAD
 import CreateStudentGroups from "./src/pages/student/createStudentGroups";
+=======
+import StudentHome from "./src/pages/student/StudentHome";
+>>>>>>> 8c299dabc65de536393dd3a20f065c095d087cb8
 
 
 
@@ -35,9 +39,9 @@ import ManageNotices from "./src/pages/admin/ManageNotices";
 import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
 import ViewNoticesAdmin from "./src/pages/admin/ViewNoticesAdmin";
 import Notice from "./src/pages/admin/Notice";
-import NoticeTopicForm from "./src/pages/admin/NoticeTopicForm";
-import NoticeDocumentForm from "./src/pages/admin/NoticeDocumentForm";
-import NoticePresentationForm from "./src/pages/admin/NoticePresentationForm";
+import NoticeTopicForm from "./src/pages/student/NoticeTopicForm";
+import NoticeDocumentForm from "./src/pages/student/NoticeDocumentForm";
+import NoticePresentationForm from "./src/pages/student/NoticePresentationForm";
 import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
 
@@ -61,7 +65,6 @@ export default class App extends React.Component {
         <Routes>
         <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
-          
           <Route path="/staffhome" element={<StaffHome />} />
 
           // Panel Member
@@ -70,10 +73,14 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
+<<<<<<< HEAD
+          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
+=======
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
 
+>>>>>>> 1611f0e4e5c8ac28f59199cff27ebb543c3ea83e
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
@@ -82,6 +89,7 @@ export default class App extends React.Component {
           <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
 
           // Student
+          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
@@ -90,19 +98,23 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
+<<<<<<< HEAD
+          <Route path="/stuHome" element={<StudentHome/>}></Route>
+=======
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
         
           
+>>>>>>> 1611f0e4e5c8ac28f59199cff27ebb543c3ea83e
 
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
           <Route path="/admin/viewNotices" element={<ViewNoticesAdmin/>}/>
           <Route path="/admin/Notice/:id" element={<Notice/>}/>
-          <Route path="/admin/NoticeTopic/:id" element={<NoticeTopicForm/>}/>
-          <Route path="/admin/NoticeDocument/:id" element={<NoticeDocumentForm/>}/>
-          <Route path="/admin/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
+          <Route path="/student/NoticeTopic/:id" element={<NoticeTopicForm/>}/>
+          <Route path="/student/NoticeDocument/:id" element={<NoticeDocumentForm/>}/>
+          <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>

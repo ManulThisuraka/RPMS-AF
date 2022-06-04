@@ -79,14 +79,8 @@ export default class App extends React.Component {
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
-          <Route path="/staff/signup" element={<StaffSignup/>}/>
           <Route path="/assignment/add" element={<AddAssignment/>}/>
-          <Route path="/student/register" element={<StudentRegister/>}/>
-          <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
-          <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
-          <Route path="/supHome" element={<SupervisorHome/>}></Route>
           
-
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
@@ -97,6 +91,14 @@ export default class App extends React.Component {
           <Route path="/admin/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
+
+          //Staff
+          <Route path="/staff/signup" element={<StaffSignup/>}/>
+          <Route path="/student/register" element={<StudentRegister/>}/>
+          <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
+          <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
+          <Route path="/supHome" element={<SupervisorHome/>}></Route>
+
         </Routes>
         <Footer/>
       </Router>

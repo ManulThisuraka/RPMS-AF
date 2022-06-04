@@ -39,6 +39,7 @@ import StaffDetails from "./src/pages/StaffMembers/StaffDetails";
 import StaffInfo from "./src/pages/StaffMembers/StaffInfo";
 import SupervisorHome from "./src/pages/StaffMembers/SupervisorHome";
 import Header from "./src/pages/Common/Header";
+import Footer from "./src/pages/Common/Footer";
 
 
 export default class App extends React.Component {
@@ -83,6 +84,7 @@ export default class App extends React.Component {
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
           <Route path="/admin/viewNotices" element={<ViewNoticesAdmin/>}/>
         </Routes>
+        <Footer/>
       </Router>
     );
   }

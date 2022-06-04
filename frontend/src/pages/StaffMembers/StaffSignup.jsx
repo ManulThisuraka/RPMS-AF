@@ -311,11 +311,14 @@ const StaffSignup = () => {
             <br/>
        
             {/* signup button */}
+            <center>
             <div className="form-group">
               <button type="submit" className="btn btn-primary btn-block">
                 Sign Up
               </button>
             </div>
+            </center>
+            <br/>
             {/* already have account */}
             <div>
               <p className="text-center text-Black">

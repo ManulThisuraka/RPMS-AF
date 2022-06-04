@@ -28,6 +28,10 @@ import PanelHome from "./src/pages/Panel_Member/PanelHome";
 import PanelEvaluateTopic from "./src/pages/Panel_Member/PanelEvaluateTopic";
 import PanelEvaluatePresentation from "./src/pages/Panel_Member/PanelEvaluatePresentation";
 
+import ManageNotices from "./src/pages/admin/ManageNotices";
+import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
+import ViewNoticesAdmin from "./src/pages/admin/ViewNoticesAdmin";
+
 export default class App extends React.Component {
 
   render() {
@@ -60,6 +64,10 @@ export default class App extends React.Component {
 
           <Route path="/panel/add" element={<AddPanel />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
+
+          <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
+          <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
+          <Route path="/admin/viewNotices" element={<ViewNoticesAdmin/>}/>
         </Routes>
       </Router>
     );

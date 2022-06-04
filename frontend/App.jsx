@@ -41,6 +41,7 @@ import NoticeDocumentForm from "./src/pages/student/NoticeDocumentForm";
 import NoticePresentationForm from "./src/pages/student/NoticePresentationForm";
 import ViewNoticesStudent from "./src/pages/student/ViewNoticesStudent";
 import ViewNoticesStaff from "./src/pages/Panel_Member/ViewNoticesStaff";
+import PresentationsPanel from "./src/pages/Panel_Member/PresentationsPanel";
 
 
 //Staff Pages
@@ -80,7 +81,7 @@ export default class App extends React.Component {
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
           <Route path="/finalMarks/viewall" element={<ViewFinalMarks />} />        
           <Route path="/panelETopic" element={<PanelEvaluateTopic />} />
-          <Route path="/panelEPresentation" element={<PanelEvaluatePresentation />} />
+          <Route path="/panelEPresentation/:id" element={<PanelEvaluatePresentation />} />
 
           // Student
           
@@ -95,6 +96,7 @@ export default class App extends React.Component {
           
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
+          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
         
           
 
@@ -108,7 +110,8 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
-          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
+          <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
+          
         </Routes>
         <Footer/>
       </Router>

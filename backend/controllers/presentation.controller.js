@@ -41,14 +41,37 @@ const getAllPresentations = async (req, res) => {
     })
 }
 
+//Get specific Presentation
+const getPresentation = async (req, res) => {
+    let userId = req.params.id;
+    presentationModel.findById(userId)
+    .then((Presentation)=>{
+        res.status(200).json({success:true,Presentation})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({success: false, error: err.message});
+    })
+}
 
-
-
-
+//Update Presentation
+const updatePresentation = async (req, res) => {
+    presentationModel.findByIdAndUpdate(req.params.id,
+        {
+            $set:req.body
+        })
+    .then(()=>{
+        res.status(200).json({success: "Presentation updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).json({status: "Error with updating Presentation", error: err.message});
+    })
+}
 
 
 module.exports = {
     getCategoryPresentations,
     getCategoryPresentationsGroup,
-    getAllPresentations
+    getAllPresentations,
+    getPresentation,
+    updatePresentation
 }

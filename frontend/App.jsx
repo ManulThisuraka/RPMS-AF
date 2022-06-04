@@ -17,6 +17,7 @@ import MultiSelectComponent from "./src/pages/student/MultiSelectComponent";
 //Student pages
 import StudentRegister from "./src/pages/student/studentRegister";
 import GetAllStudents from "./src/pages/admin/getAllStudents";
+import StudentHome from "./src/pages/student/StudentHome";
 
 
 
@@ -91,7 +92,7 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
-          
+          <Route path="/stuHome" element={<StudentHome/>}></Route>
 
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>

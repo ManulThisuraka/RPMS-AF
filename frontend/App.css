@@ -58,7 +58,7 @@
 
 .Home_container {
   background-image: url("./src/components/images/Home.jpg");
-  height:  600px;
+  height:  500px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -87,6 +87,16 @@
 }
 
 .viewPanelMember-container {
+  background-image: url("./src/components/images/viewpmember.jpg");
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.admin-container {
   background-image: url("./src/components/images/viewpmember.jpg");
   height: 600px;
   background-size: cover;

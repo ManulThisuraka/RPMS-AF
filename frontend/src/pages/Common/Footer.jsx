@@ -11,9 +11,8 @@ const Footer = () => (
           <div className="col-md-10 col-lg-1 col-xl-3 mx-auto mt-5">
             <h4 className="text-uppercase mb-4 font-weight-bold">RECENTRO</h4>
             <p>
-              Enter Sri Lanka's freshest online grocery store for all your
-              grocery needs. Now you can order all your daily necessities from
-              the comfort of your home or anywhere you wants!
+            We are a leading non-state degree awarding institute approved by the University Grants Commission (UGC) 
+            under the Universities Act.
             </p>
           </div>
           <hr className="w-100 clearfix d-md-none" />

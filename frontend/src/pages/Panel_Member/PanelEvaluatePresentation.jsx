@@ -20,27 +20,41 @@ export default class PanelEvaluatePresentation extends Component {
     });
   };
 
+  componentDidMount() {
+    const myArray = window.location.pathname.split("/", 3);
+    console.log(myArray[2]);
+    let id = myArray[2];
+    axios.get(`http://localhost:5000/presentations/view/${id}`).then((res) => {
+        if (res.data.success) {
+            this.setState({
+              pp_Type: res.data.Presentation.presentationType,
+            }) 
+        }
+    })
+}
+
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { pp_Type, panel_ppstatus, panel_ppComment } = this.state;
+    const { panel_ppmarks, panel_ppComment } = this.state;
 
     const data = {
-        pp_Type : pp_Type,
-        panel_ppmarks: panel_ppmarks,
-        panel_ppComment: panel_ppComment,
+        
+      marks: panel_ppmarks,
+      comments: panel_ppComment,
     };
 
     console.log(data);
 
-    axios.post("http://localhost:5000/panel/save", data).then((res) => {
+    const myArray = window.location.pathname.split("/", 3);
+    console.log(myArray[2]);
+    let id = myArray[2];
+
+    axios.put(`http://localhost:5000/presentations/update/${id}`, data).then((res,err) => {
       if (res.data.success) {
-        alert("Data saved successfully !!!");
-        this.setState({
-            pp_Type : "",
-            panel_ppmarks: "",
-            panel_ppComment: "",
-        });
+        alert("Data Updated successfully !!!");
+      }else{
+        console.log(err);
       }
     });
   };
@@ -73,7 +87,7 @@ export default class PanelEvaluatePresentation extends Component {
               <input
                 type="text"
                 className="form-control"
-                name="panelHead"
+                name="panel_ppComment"
                 placeholder="Enter Presentation Comment"
                 value={this.state.panel_ppComment}
                 onChange={this.handleInputChange}

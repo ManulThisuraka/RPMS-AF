@@ -96,6 +96,8 @@ router.post('/presentations/add',multerUploadInMemory.single("file"),async (req,
 router.get('/presentations/viewByPanel/:panelID',prescontroller.getCategoryPresentations);
 router.get('/presentations/viewByGroup/:groupID',prescontroller.getCategoryPresentationsGroup);
 router.get('/presentations/view',prescontroller.getAllPresentations);
+router.get('/presentations/view/:id',prescontroller.getPresentation);
+router.put('/presentations/update/:id',prescontroller.updatePresentation);
 
 
 
@@ -143,5 +145,6 @@ router.post('/users/add',regcontroller.createUser);
 router.get('/users/view/',regcontroller.getAllUsers);
 router.get('/users/view/:userID',regcontroller.getUser);
 router.delete('/users/delete/:id',regcontroller.deleteUser);
+
 
 module.exports = router;

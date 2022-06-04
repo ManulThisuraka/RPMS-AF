@@ -65,7 +65,7 @@ export default class NoticePresentationForm extends Component {
             
             let data = new FormData();
             data.append('file',document);
-            data.append('topic',panelID);
+            data.append('panelID',panelID);
             data.append('groupID',groupID);
             data.append('presentationType',presentationType);
             

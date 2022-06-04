@@ -3,10 +3,10 @@ import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, logout } from "../../helpers/auth";
 
 const Header = ({ history }) => {
+
    const handleLogout = (evt) => {
-    logout(() => {
-      history.push("/signin");
-    });
+   logout();
+   window.location.replace("/login");
   };
  
   //views/*

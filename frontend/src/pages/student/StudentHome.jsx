@@ -1,26 +1,25 @@
 import React, { Component } from "react";
+import { isAuthenticated, logout } from "../../helpers/auth";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default class StaffHome extends Component {
+export default class StudentHome extends Component {
+
+  componentDidMount(){
+    if(isAuthenticated() == false){
+      window.location.replace("/login");
+      }
+  }
+
+
   render() {
     return (
-      <div className="StudentHome_container">
+      <div className="StaffHome_container">
         <center>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
+          
           <form>
             <button className="btn btn-secondary btn-lg">
-              <a
-                href="/supHome"
+              <a href="#"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -30,7 +29,7 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="#"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -40,7 +39,7 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="#"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -50,7 +49,7 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/supHome"
+                href="#"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
@@ -64,6 +63,7 @@ export default class StaffHome extends Component {
     );
   }
 }
+
 
 
 

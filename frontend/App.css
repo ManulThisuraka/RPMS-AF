@@ -142,3 +142,9 @@
   align-items: center;
   height: 70vh;
 }
+
+.footer-container {
+  background-color: #404040;
+  overflow: hidden;
+  color: white;
+}

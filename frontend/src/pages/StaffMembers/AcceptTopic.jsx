@@ -33,7 +33,7 @@ export default class AcceptTopic extends Component {
 
     console.log(data);
 
-    axios.post('/topic/create', data).then((res) => {
+    axios.post("http://localhost:5000/topic/create", data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
         this.navigate("/supHome");

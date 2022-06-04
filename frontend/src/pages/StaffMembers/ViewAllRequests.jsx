@@ -71,6 +71,7 @@ handleSearchArea = (e) => {
   render() {
     return(
       <div className="statusRe-container">
+        <div className="container">
           <div className="row">
             <div className="col-lg-9 mt-2 mb-2"><br></br><br></br><br></br>
               <h1><center><b>All Request Topics </b></center></h1> <br></br> 
@@ -107,7 +108,7 @@ handleSearchArea = (e) => {
                     ))}
               </tbody>      
             </table>              
-      </div> 
+      </div> </div>
     )
   }
 }

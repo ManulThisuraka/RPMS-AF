@@ -2,29 +2,32 @@ import React, {Component } from 'react';
 import { Row, Container } from 'react-bootstrap';
 
 let styles = {
-  currentUserTextContainer: {
+  userTextContainer: {
   	marginBottom: 20,
+  	marginRight: '25%',
   	flex: 0,
-  	justifyContent: 'flex-end',
+  	justifyContent: 'flex-start',
   	display: 'flex',
-  	marginLeft: '25%',
   },
   textBubble: {
   	padding: 10,
-  	backgroundColor: '#0071BC',
+  	backgroundColor: '#E6E6E6',
   	justifyContent: 'flex-start',
   	flex: 0,
   	display: 'flex',
+  	textAlign: 'left',
   	borderRadius: 8,
-  	textAlign: 'right',
-  	color:'white'
+  	color:'black'
   },
   usernameText:{
-  	fontSize:9
+  	fontSize:12,
+  	display: 'flex',
+  	justifyContent: 'flex-start',
+  	marginBottom: 3,
   }
 }
 
- class CurrentUserText extends Component {
+class OtherUserText extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
@@ -50,15 +53,17 @@ let styles = {
 	componentWillUnmount(){
 	}
 
-	
 	render(){
 		const {username, message} = this.state
 
 		let {chatRoomData} = this.state
 
 		return (
-			<Row style={styles.currentUserTextContainer}>
+			<Row style={styles.userTextContainer}>
 				<Container>
+					<Row style={styles.usernameText}>
+						{username}
+					</Row>
 					<Row style={styles.textBubble}>
 						{message}
 					</Row>
@@ -68,4 +73,4 @@ let styles = {
 	}
 }
 
-export default CurrentUserText;
+export default OtherUserText;

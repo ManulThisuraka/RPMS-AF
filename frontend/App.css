@@ -128,7 +128,7 @@
 
 .PanelEvaluateTopic-container{
   background-image: url("./src/components/images/imagepp.jpg");
-  height: 630px;
+  height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -138,7 +138,7 @@
 
 .PanelEvaluatePresentation-container{
   background-image: url("./src/components/images/panel.jpg");
-  height: 500px;
+  height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

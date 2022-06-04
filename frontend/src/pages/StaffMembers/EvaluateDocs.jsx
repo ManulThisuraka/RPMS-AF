@@ -70,11 +70,11 @@ export default class EvaluateDocs extends Component {
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              &nbsp; View Uplorded Presentations
+              &nbsp; View Uplorded Document
             </button>
           <center>
             <b>
-              <h1>Evaluate Presentations </h1>
+              <h1>Evaluate Document </h1>
             </b>
             <br></br>
           </center>
@@ -102,14 +102,14 @@ export default class EvaluateDocs extends Component {
               <b>
                 <label style={{ marginBottom: "5px" }}>
                   {" "}
-                  Panel Presentation Comment{" "}
+                  Evaluate Document Comment{" "}
                 </label>
               </b>
               <input
                 type="text"
                 className="form-control"
                 name="panel_ppComment"
-                placeholder="Enter Presentation Comment"
+                placeholder="Enter Document Comment"
                 value={this.state.panel_ppComment}
                 onChange={this.handleInputChange}
               />
@@ -120,14 +120,14 @@ export default class EvaluateDocs extends Component {
               <b>
                 <label style={{ marginBottom: "5px" }}>
                   {" "}
-                  Presentation Mark{" "}
+                  Evaluate Mark{" "}
                 </label>
               </b>
               <input
                 type="text"
                 className="form-control"
                 name="panel_ppmarks"
-                placeholder="Enter Presentation Marks"
+                placeholder="Enter Document Marks"
                 value={this.state.panel_ppmarks}
                 onChange={this.handleInputChange}
               />

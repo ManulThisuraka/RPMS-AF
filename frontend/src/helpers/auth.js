@@ -5,8 +5,8 @@ import {
   deleteLocalStorage,
 } from "./localStorage";
 
-export const setAuthentication = (token, user) => {
-  setCookie("token", token);
+export const setAuthentication = (user) => {
+  //setCookie("token", token);
   setLocalStorage("user", user);
 };
 

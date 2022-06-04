@@ -308,7 +308,7 @@ const studentRegister = () => {
       {/* already have account */}
       <div>
         <p className="text-center text-Black">
-          <b> Have an account? </b> <Link to="/signin">Log In</Link>
+          <b> Have an account? </b> <Link to="/login">Log In</Link>
         </p>
       </div>
     </form>

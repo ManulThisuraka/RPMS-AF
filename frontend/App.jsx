@@ -59,6 +59,10 @@ import SupervisorHome from "./src/pages/StaffMembers/SupervisorHome";
 import Header from "./src/pages/Common/Header";
 import Home from "./src/pages/Common/Home";
 import Footer from "./src/pages/Common/Footer";
+import AcceptTopic from "./src/pages/StaffMembers/AcceptTopic";
+import ChatRoom from "./src/pages/StaffMembers/ChatRoom";
+import ViewAllRequests from "./src/pages/StaffMembers/ViewAllRequests";
+import Chat from "./src/pages/StaffMembers/Chat";
 
 
 export default class App extends React.Component {
@@ -79,6 +83,7 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
+          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
@@ -94,6 +99,8 @@ export default class App extends React.Component {
           
          
           <Route path="/student/register" element={<StudentRegister />} />
+          <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
+          <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           
           <Route path="/student/register" element={<StudentRegister/>}/>
@@ -106,7 +113,6 @@ export default class App extends React.Component {
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
         
           
-
           // Admin
           <Route path="/admin/manageNotices" element={<ManageNotices/>}/>
           <Route path="/admin/newNotice" element={<NewNoticeForm/>}/>
@@ -117,6 +123,19 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
+
+          //Staff
+          <Route path="/staff/signup" element={<StaffSignup/>}/>
+          <Route path="/student/register" element={<StudentRegister/>}/>
+          <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
+          <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
+          <Route path="/supHome" element={<SupervisorHome/>}></Route>
+          <Route path="/accept/add" element={<AcceptTopic/>} />  
+          <Route path="/viewAllRequest" element={<ViewAllRequests/>} />  
+          <Route path="/chatroom" element={<ChatRoom/>} />  
+          <Route path="/chat" element={<Chat/>} />  
+          
+
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
           <Route path="/student/presentations" element={<PresentationsStudent/>}/>
           <Route path="/staff/documents" element={<DocumentsSupervisor/>}/>

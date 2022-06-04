@@ -24,16 +24,16 @@ const StaffSignup = () => {
        // }, [history]);
       
         const [formData, setFormData] = useState({
-            firstName: "Tania",
-            lastName: "Fernando",
-            userID: "SD0009",
-            userType: "Staff",
-            userSubType: "Co-Supervisor",
-            topicArea: "Machine Learning",
-            email: "taniafdo@gmail.com",
-            username: "TaniaFdo",
-            password: "tania12",
-            password1: "tania12",
+            firstName: "",
+            lastName: "",
+            userID: "",
+            userType: "",
+            userSubType: "",
+            topicArea: "",
+            email: "",
+            username: "",
+            password: "",
+            password1: "",
             successMsg: false,
             errorMsg: false,
             loading: false,
@@ -76,7 +76,6 @@ const StaffSignup = () => {
             isEmpty(firstName) ||
             isEmpty(lastName) ||
             isEmpty(userID) ||
-            isEmpty(userType) ||
             isEmpty(userSubType) ||
             isEmpty(topicArea) ||
             isEmpty(email) ||
@@ -123,6 +122,7 @@ const StaffSignup = () => {
             };
       
             setFormData({ ...formData, loading: true });
+            console.log("DATAAAA",data);
             staffSignup(data)
               .then((response) => {
                 console.log("Axios signup success: ", response);
@@ -213,7 +213,7 @@ const StaffSignup = () => {
               />
             </div>
             {/* user SubType */}
-            <div className="form-group input-group">
+             <div className="form-group input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
                   <i class="fa fa-users" aria-hidden="true"></i>
@@ -226,8 +226,34 @@ const StaffSignup = () => {
                 placeholder="Staff Designation"
                 type="text"
                 onChange={handleChange}
-              />
+              /> 
             </div>
+          {/*         <div className="form-group input-group">
+                    <div className="input-group-prepend">
+                    <span className="input-group-text">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                </span>
+                      {/* <label class="input-group-text" for="inputGroupSelect01">Options</label> */}
+                    
+                    
+                    {/* <select className="form-control" id="inputGroupSelect01" onChange={handleChange}  defaultValue="userSubType"  >
+                      <option selected>Choose...</option>
+                      <option value="userSubType">Supervisor</option>
+                      <option value="Co-userSubType">Co-Supervisor</option>
+                      <option value="userSubType">Panel</option>
+                    </select> */}
+
+              {/*       <select className="form-control" id="inputGroupSelect01" onChange={handleChange} defaultValue={'DEFAULT'}  >
+                        <option value="DEFAULT" disabled>Choose type</option>
+                        <option value="1">Mr</option>
+                        <option value="2">Mrs</option>
+                        <option value="3">Ms</option>
+                        <option value="4">Miss</option>
+                        <option value="5">Dr</option>
+                      </select>
+                  </div> */}
+
+              
             {/* Topic Area */}
             <div className="form-group input-group">
               <div className="input-group-prepend">
@@ -322,7 +348,7 @@ const StaffSignup = () => {
             {/* already have account */}
             <div>
               <p className="text-center text-Black">
-                <b> Have an account? </b> <Link to="/">Log In</Link>
+                <b> Have an account? </b> <Link to="/login">Log In</Link>
               </p>
             </div>
             

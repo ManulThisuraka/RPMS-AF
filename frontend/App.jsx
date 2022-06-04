@@ -76,14 +76,10 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-<<<<<<< HEAD
-          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
-=======
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
 
->>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
@@ -92,11 +88,7 @@ export default class App extends React.Component {
           <Route path="/panelEPresentation/:id" element={<PanelEvaluatePresentation />} />
 
           // Student
-<<<<<<< HEAD
-         
-=======
           
->>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
@@ -105,11 +97,7 @@ export default class App extends React.Component {
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>
           <Route path="/supHome" element={<SupervisorHome/>}></Route>
-<<<<<<< HEAD
           <Route path="/stuHome" element={<StudentHome/>}></Route>
-=======
-          
->>>>>>> 11ee08c544a6a7d68a5da8945164c8fe170456fc
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>

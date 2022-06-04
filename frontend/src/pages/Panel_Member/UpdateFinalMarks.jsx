@@ -84,7 +84,9 @@ export default class UpdateFinalMarks extends Component {
       <div className="finalMarks-container">
         <div className="col-md-8 mt-4 mx-auto">
           <center>
-            <h2 className="h3 mb-3 font-weight-normal"><UPDATE></UPDATE> FINAL MARKS </h2>
+            <h2 className="h3 mb-3 font-weight-normal">
+              <UPDATE></UPDATE> FINAL MARKS{" "}
+            </h2>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}

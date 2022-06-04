@@ -71,8 +71,8 @@ const SignIn = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       {/* email */}
       <div className="form-group input-group">
         <div className="input-group-prepend">
@@ -114,7 +114,7 @@ const SignIn = () => {
           Sign In
         </button>
       </div>
-      </center>
+      </center><br></br>
 
       {/* create new account */}
       <p className="text-center text-Black">

@@ -1,5 +1,5 @@
 .signup-container {
-  background-image: url("./src/components/images/background-main.jpg");
+  background-image: url("./src/components/images/Signup.jpg");
   /*height: 700px;*/
   height:  750px;;
   width: 100%;
@@ -37,7 +37,17 @@
 }
 
 .signin-container {
-  background-image: url("./src/components/images/background-main.jpg");
+  background-image: url("./src/components/images/signIn.jpg");
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.StudentHome_container {
+  background-image: url("./src/components/images/std.jpg");
   height: 650px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -46,12 +56,9 @@
   background-attachment: fixed;
 }
 
-
-
-
 .Home_container {
   background-image: url("./src/components/images/Home.jpg");
-  height:  630px;
+  height:  600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -80,8 +87,8 @@
 }
 
 .viewPanelMember-container {
-  background-image: url("./src/components/images/panelMem.jpg");
-  height: 780px;
+  background-image: url("./src/components/images/viewpmember.jpg");
+  height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -100,7 +107,7 @@
 }
 
 .finalMarks-container {
-  background-image: url("./src/components/images/image_addpanel.png");
+  background-image: url("./src/components/images/panelMem.jpg");
   height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -110,8 +117,18 @@
 }
 
 .PanelEvaluateTopic-container{
-  background-image: url("./src/components/images/pevaluation.jpg");
+  background-image: url("./src/components/images/imagepp.jpg");
   height: 630px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.PanelEvaluatePresentation-container{
+  background-image: url("./src/components/images/panel.jpg");
+  height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -121,7 +138,7 @@
 
 .StaffHome_container {
   background-image: url("./src/components/images/staffhome.jpg");
-  height: 630px;
+  height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -131,13 +148,34 @@
 
 .panel-container {
   background-image: url("./src/components/images/panelMem.jpg");
-  height: 700px;
+  height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.8;
   background-attachment: fixed;
 }
+
+.viewPanel-container {
+  background-image: url("./src/components/images/viewpmember.jpg");
+  height: 550px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+.viewFinalmarks-container {
+  background-image: url("./src/components/images/viewpmember.jpg");
+  height: 550px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
 
 .center {
   display: flex;
@@ -151,3 +189,5 @@
   overflow: hidden;
   color: white;
 }
+
+

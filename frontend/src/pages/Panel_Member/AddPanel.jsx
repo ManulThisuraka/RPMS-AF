@@ -47,15 +47,29 @@ export default class AddPanel extends Component {
 
   render() {
     return (
-      <div className="panel-container"><br></br><br></br>
+      <div className="panel-container">
+        <br></br>
+        <br></br>
         <div className="col-md-8 mt-4 mx-auto">
+        <button
+              className="btn btn-secondary"
+              type="submit"
+              style={{ marginTop: "20px" }}
+              onClick={this.onSubmit}
+            >
+              &nbsp; View Registered Panel Members
+            </button>
           <center>
-            <b><h1>ADD PANAL </h1></b>
+            <b>
+              <h1>ADD PANAL </h1>
+            </b>
           </center>
           <form className="needs-validation" noValidate>
             {/* Panel Group ID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-              <b><label style={{ marginBottom: "5px" }}> Panel Group ID </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -68,7 +82,9 @@ export default class AddPanel extends Component {
 
             {/* Panel Head */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Panel Head </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}> Panel Head </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -81,10 +97,12 @@ export default class AddPanel extends Component {
 
             {/* Panel Research Area */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}>
-                {" "}
-                Panel Research Area{" "}
-              </label></b>
+              <b>
+                <label style={{ marginBottom: "5px" }}>
+                  {" "}
+                  Panel Research Area{" "}
+                </label>
+              </b>
               <input
                 type="text"
                 className="form-control"
@@ -94,16 +112,16 @@ export default class AddPanel extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-
+            <center>
             <button
               className="btn btn-secondary"
               type="submit"
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              <i className="far fa-check-square"></i>
-              &nbsp; SAVE
-            </button>
+              
+              &nbsp;SAVE
+            </button></center>
           </form>
         </div>
       </div>

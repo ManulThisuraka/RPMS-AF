@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-export default class SubmitTopicToPanel extends Component {
+import Select from "react-select";
+class SupervisorRequest extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      dropDownOpt: [],
+      id: "",
+      name: "",
       groupID: "",
       supervisorID: "",
       topic: "",
@@ -13,100 +16,120 @@ export default class SubmitTopicToPanel extends Component {
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
-
     this.setState({
       ...this.state,
       [name]: value,
+      id: e.value,
+      name: e.label,
+      
     });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { panelGroupID, panelHead, panel_researchArea } = this.state;
-
     const data = {
-      panelGroupID: panelGroupID,
-      panelHead: panelHead,
-      panel_researchArea: panel_researchArea,
-    };
+      groupID: this.state.groupID,
+      supervisorID: this.state.id,
+      topic: this.state.topic
+    }
 
-    console.log(data);
-
-    axios.post("http://localhost:5000/panel/save", data).then((res) => {
+    axios.post("http://localhost:5000/topic/create", data).then((res) => {
       if (res.data.success) {
-        alert("Data saved successfully !!!");
-        this.setState({
-          panelGroupID: "",
-          panelHead: "",
-          panel_researchArea: "",
-        });
+        alert("Supervisor requested Successfully");
+        // this.empty();
       }
     });
   };
 
+  async renderData() {
+    axios.get("http://localhost:5000/staff/view").then((res) => {
+      if (res.data.success) {
+        const serverResponse = res.data.existingStaff.filter(
+          (d) => d.userSubType === "Supervisor"
+        );
+        const dropDownValue = serverResponse?.map((response) => ({
+          value: response._id,
+          label: response.username,
+        }));
+        console.log(dropDownValue);
+        this.setState({
+          dropDownOpt: dropDownValue,
+        });
+      }
+    });
+  }
+  onChange(event) {
+    this.setState({
+      id: event.value,
+      name: event.label,
+    });
+    console.log(this.state.id);
+  }
+  componentDidMount() {
+    this.renderData();
+  }
   render() {
     return (
-      <div className="panel-container">
-        <div className="col-md-8 mt-4 mx-auto">
-          <center>
-            <h2 className="h3 mb-3 font-weight-normal">ADD PANAL </h2>
-          </center>
-          <form className="needs-validation" noValidate>
-            {/* Student Group ID */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Group ID </label>
-              <input
-                type="text"
-                className="form-control"
-                name="groupID"
-                placeholder="Enter Panel Group ID"
-                value={this.state.panelGroupID}
-                onChange={this.handleInputChange}
+      <div className="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h2>Request Supervisor</h2>
+        <form>
+          <div className="form-group">
+            <label>Group ID</label>
+            <input
+              type="text"
+              className="form-control"
+              id="groupID"
+              placeholder="Enter Notice Category"
+              name="groupID"
+              value={this.state.groupID}
+              onChange={this.handleInputChange}
+            />
+
+            <small className="text-danger">{this.state.enoticeCategory}</small>
+          </div>
+
+          <div className="form-group">
+            <label>Your Topic Area</label>
+            <input
+              type="text"
+              className="form-control"
+              id="topic"
+              placeholder="Enter Notice Header"
+              name="topic"
+              value={this.state.topic}
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Supervisor Name</label>
+            <div className="custom-dropdown">
+              <Select
+                class="dropdown-menu"
+                defaultValue={""}
+                options={this.state.dropDownOpt}
+                onChange={this.onChange.bind(this)}
+                
               />
             </div>
-
-            {/* Supervisor ID */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}> Panel Head </label>
-              <input
-                type="text"
-                className="form-control"
-                name="panelHead"
-                placeholder="Enter Panel Head"
-                value={this.state.panelHead}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {/* Panel Research Area */}
-            <div className="form-group" style={{ marginBottom: "15px" }}>
-              <label style={{ marginBottom: "5px" }}>
-                {" "}
-                Panel Research Area{" "}
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                name="panel_researchArea"
-                placeholder="Enter Panel Research Area "
-                value={this.state.panel_researchArea}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              <i className="far fa-check-square"></i>
-              &nbsp; SAVE
-            </button>
-          </form>
-        </div>
+          </div>
+        </form>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={this.onSubmit}
+          style={{ marginTop: "10px" }}
+        >
+          Request
+        </button>
+        &nbsp;
       </div>
     );
   }
 }
+export default SupervisorRequest;

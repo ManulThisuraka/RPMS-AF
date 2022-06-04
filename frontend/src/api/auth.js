@@ -25,3 +25,16 @@ export const signin = async (data) => {
 
   return response;
 };
+
+//Staff Signup 
+export const staffSignup = async (data) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await axios.post("http://localhost:5000/staff/save", data);
+
+  return response;
+};

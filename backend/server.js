@@ -27,6 +27,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
+
+
+
+
 //route middleware
 app.use(AdminRouter);
 app.use(panelMemberRoutes);

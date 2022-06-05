@@ -8,6 +8,9 @@ export default class AddPanel extends Component {
       panelGroupID: "",
       panelHead: "",
       panel_researchArea: "",
+      epanelGroupID: "",
+      epanelHead: "",
+      epanel_researchArea: "",
     };
   }
 
@@ -25,14 +28,18 @@ export default class AddPanel extends Component {
     let epanelHead = "";
     let epanel_researchArea = "";
 
+    if (!this.state.panelGroupID.match(/PANEL_/)) {
+      epanelGroupID = "Group ID prefix should be (PANEL_) !!!"
+    }
+
     if (!this.state.panelGroupID) {
-      taffID = "Staff ID is required !!!"
+      epanelGroupID = "Group ID is required !!!"
     }
     if (!this.state.panelHead) {
-      anelmemberID = "Panel Member ID is required !!!"
+      epanelHead = "Panel Member ID is required !!!"
     }
     if (!this.state.panel_researchArea) {
-      anelmemberName = "Panel Member Name is required !!!"
+      epanel_researchArea = "Panel Member Name is required !!!"
     }
     if (epanelGroupID || epanelHead || epanel_researchArea) {
         this.setState({ epanelGroupID, epanelHead, epanel_researchArea});
@@ -82,14 +89,6 @@ export default class AddPanel extends Component {
         <br></br>
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">
-        <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              &nbsp; View Registered Panel Members
-            </button>
           <center>
             <b>
               <h1>ADD PANAL </h1>

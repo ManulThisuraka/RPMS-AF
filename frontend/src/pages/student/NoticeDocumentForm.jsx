@@ -45,8 +45,8 @@ export default class NoticeDocumentForm extends Component {
         if (!this.state.documentDescription) {
             edocumentDescription = "Document Description is required !!!"
         }
-        if (!this.state.supervisorID.match(/STF/)) {
-            esupervisorID = "Panel ID Prefix should be (STF)!!!"
+        if (!this.state.supervisorID.match(/SD/)) {
+            esupervisorID = "Panel ID Prefix should be (SD)!!!"
         }
         if (!this.state.supervisorID) {
             esupervisorID = "Supervisor ID is required !!!"

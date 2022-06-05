@@ -37,6 +37,7 @@ class SupervisorRequest extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    console.log(this.state)
     const data = {
       groupID: JSON.parse(localStorage.getItem("groupID")),
       supervisorID: this.state.id,

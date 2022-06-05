@@ -70,14 +70,6 @@ navigate = () => {
         <br></br>
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">
-        <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              &nbsp; View Uplorded Presentations
-            </button>
           <center>
             <b>
               <h1>Evaluate Presentations </h1>

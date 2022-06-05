@@ -70,6 +70,15 @@ export default class ViewFinalMarks extends React.Component {
             <br></br>
             <br></br>
             <br></br>
+            <button className="btn btn-secondary btn-lg active">
+                  <a
+                    href="/panelhome"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    {" "}
+                    BACK{" "}
+                  </a>
+                </button>
             <h1>
               <center>
                 <b>Final Marks Details</b>

@@ -43,9 +43,15 @@ export default class ViewNoticesStaff extends Component {
   render() {
     return (
       <div className="admin-container">
+      <div className="container">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
-            <h2>Student Notices</h2>
+            <h2>Staff Notices</h2>
           </div>
         </div>
 
@@ -76,6 +82,7 @@ export default class ViewNoticesStaff extends Component {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   }

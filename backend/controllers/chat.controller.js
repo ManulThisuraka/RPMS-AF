@@ -120,17 +120,37 @@ const getGroupChatsByStaff = async (req, res) => {
 };
 
 const getGroupChatsByStudent = async (req, res) => {
-    const studentId = req.query.studentID;
-    const leaderId = req.query.leaderID;
-    console.log('leaderId', leaderId)
-    console.log('Id', studentId)
-    if(leaderId != undefined && studentId == undefined) {
-        studentGroup
-      .find({leaderID: leaderId})
+  const id = req.query.id;
+  console.log(id)
+  if (id != undefined) {
+    await studentGroup
+      .find()
       .then((groups) => {
-        res.json({
-          success: true,
-          groupList: groups,
+        
+        groups.forEach((group) => {
+          if (group.leaderID == id) {
+            console.log('test')
+            return res.json({
+              success: true,
+              groupList: [group],
+            });
+          } else {
+
+            if (group.members[0].member_1 == id || group.members[0].member_2 == id || group.members[0].member_3 == id
+            ) {
+
+              return res.json({
+                success: true,
+                groupList: [group],
+              });
+            } else {
+
+              return res.json({
+                success: true,
+                groupList: [],
+              });
+            }
+          }s
         });
       })
       .catch((err) => {
@@ -138,38 +158,12 @@ const getGroupChatsByStudent = async (req, res) => {
           error: err,
         });
       });
-    } else if(leaderId == undefined && studentId != undefined) {
-       await studentGroup
-        .find()
-        .then((groups) => {
-            groups.forEach(group =>{
-                console.log(group.members[0])
-                if(group.members[0].member_1 == studentId || group.members[0].member_2 == studentId || group.members[0].member_3 == studentId) {
-                    res.json({
-                        success: true,
-                        groupList: [group],
-                      });
-                } else {
-                    res.json({
-                        success: true,
-                        groupList: [],
-                      });
-                }
-            })
-        })
-        .catch((err) => {
-          return res.status(400).json({
-            error: err,
-          });
-        });
-    } else {
-        return res.status(400).json({
-          error: "Please enter leader id or student id",
-        });
-      }
-    
+  } else {
+    return res.status(400).json({
+      error: "Please enter leader id or student id",
+    });
+  }
 };
-
 //
 module.exports = {
   findAll,
@@ -180,5 +174,5 @@ module.exports = {
   destroyAll,
   destroy,
   getGroupChatsByStaff,
-  getGroupChatsByStudent
+  getGroupChatsByStudent,
 };

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 export default class AcceptTopic extends Component {
@@ -32,8 +33,10 @@ export default class AcceptTopic extends Component {
     };
 
     console.log(data);
-
-    axios.post('/topic/create', data).then((res) => {
+    let id = (new URLSearchParams(window.location.search)).get("id")
+ 
+    console.log('gfghghh', id)
+    axios.put(`http://localhost:5000/topic/update/${id}`, data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
         this.navigate("/supHome");
@@ -45,6 +48,7 @@ export default class AcceptTopic extends Component {
       }
     });
   };
+
 
   navigate = (link) => {
 

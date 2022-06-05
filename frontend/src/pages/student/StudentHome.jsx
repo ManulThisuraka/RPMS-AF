@@ -61,7 +61,7 @@ export default class StaffHome extends Component {
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href=""
+                href="/chatroom"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}

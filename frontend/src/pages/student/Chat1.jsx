@@ -111,7 +111,7 @@ let styles = {
 
 const autoScrollOffset = 100 //offset value that allows screen to auto scroll when you are not exactly at bottom of chat window
 
-const Chat =()=> {
+const chat1 =()=> {
 
 	const [name, setName] = useState('');
 	const [isUserExist, setIsUserExist] = useState(false);
@@ -180,11 +180,7 @@ const Chat =()=> {
 	const sendMessageData=()=>{
 		if(message.length > 0){
 			//Send chat message to server...
-            if(currentUser.userType == 'Student') {
-                socket.emit("SendMessage", {message: message, username: currentUser.fullName , userID: currentUser._id, groupId: groupID, timeStamp: null})
-            } else {
-                socket.emit("SendMessage", {message: message, username: `${currentUser.firstName} ${currentUser.lastName}` , userID: currentUser._id, groupId: groupID, timeStamp: null})
-            }
+			socket.emit("SendMessage", {message: message, username: `${currentUser.firstName} ${currentUser.lastName}` , userID: currentUser._id, groupId: groupID, timeStamp: null})
 			//Clear chat message textfield box
 			setMessage('')
 		}
@@ -268,13 +264,15 @@ const Chat =()=> {
 			<Container style={styles.chatThread} ref={messagesEndRef}>
 				{chatRoomData.map( (messageData, index) => {
                     // console.log('messageData', messageData);
-                    console.log('messageData.userI', messageData.userID);
 					console.log('currentUsername', currentUsername);
+					console.log('msg', messageData.userID);
 					if(messageData.userID == currentUsername) {
+		
 						return <CurrentUserText key={index} username={messageData.username} message={messageData.message}/>
 					} else if (messageData.username === '') {
 						return <ChatNotification key={index} username={messageData.username} message={messageData.message}/>
 					} else {
+					
 						return <OtherUserText key={index} username={messageData.username} message={messageData.message}/>
 					}
 
@@ -312,4 +310,4 @@ const Chat =()=> {
 	);
 }
 
-export default Chat;
+export default Chat1;

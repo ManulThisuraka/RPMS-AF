@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const supervisorSelection = new mongoose.Schema({
   groupID: {
     type: String,
-    required: true,
+    required: false,
   },
   supervisorID: {
     type: String,
-    required: true,
+    required: false,
   },
   co_supervisorID: {
     type: String,
@@ -15,7 +15,7 @@ const supervisorSelection = new mongoose.Schema({
   },
   topic: {
     type: String,
-    required: true,
+    required: false,
   },
   status: {
     type: String,

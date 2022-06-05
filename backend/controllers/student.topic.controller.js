@@ -25,7 +25,8 @@ exports.requestSupervisor = async (req, res) => {
 
 //view all supervisor request with related group & topic 
 exports.ViewAllTopics = async (req, res) => {
-  supervisorRequest.find().exec((err, accept1) => {
+  const id = req.query.id;
+  supervisorRequest.find({supervisorID: id}).exec((err, accept) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -33,10 +34,27 @@ exports.ViewAllTopics = async (req, res) => {
     }
     return res.status(200).json({
       success: true,
-      statsTopics: accept1,
+      statsTopics: accept,
     });
   });
 };
 
+
+//Update Topic status
+exports.UpdateTopic = async (req, res) => {
+  supervisorRequest
+    .findByIdAndUpdate(req.params.id, {
+      $set: req.body,
+    })
+    .then(() => {
+      res.status(200).json({ success: "Topics are updated successfully" });
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ status: "Error with updating data", error: err.message });
+    });
+};
 
 

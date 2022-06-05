@@ -63,7 +63,7 @@ export default class EvaluateDocs extends Component {
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
-              &nbsp; View Uplorded Documents
+              &nbsp; View Uploaded Documents
             </button>
           <center>
             <b>

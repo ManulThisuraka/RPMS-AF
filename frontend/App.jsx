@@ -116,6 +116,7 @@ export default class App extends React.Component {
           <Route path="/student/requestSupervisor" element={<SupervisorRequest />} />
           <Route path="/student/creategroup" element={<CreateStudentGroups />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
+          
         
           
           // Admin
@@ -139,6 +140,7 @@ export default class App extends React.Component {
           <Route path="/viewAllRequest" element={<ViewAllRequests/>} />  
           <Route path="/chatroom" element={<ChatRoom/>} />  
           <Route path="/chat" element={<Chat/>} />  
+          <Route path="/evalDoc" element={<EvaluateDocs/>} />  
           <Route path="/staff/document/:id" element={<EvaluateDocs/>} />  
           
 

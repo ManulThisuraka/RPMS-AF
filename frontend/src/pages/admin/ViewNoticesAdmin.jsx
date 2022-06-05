@@ -45,6 +45,7 @@ export default class ViewNoticesAdmin extends Component{
   render(){
     return(
       <div className="admin-container">
+        <div className="container">
 
         <br/>
         <br/>
@@ -87,6 +88,7 @@ export default class ViewNoticesAdmin extends Component{
         ))}
         </tbody>
       </table>
+      </div>
       </div>
     )
   }

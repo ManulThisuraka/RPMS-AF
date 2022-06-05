@@ -24,6 +24,7 @@ import StudentHome from "./src/pages/student/StudentHome";
 
 
 
+
 import ViewAllPanels from "./src/pages/Panel_Member/ViewAllPanels";
 import ViewAllPanelMembers from "./src/pages/Panel_Member/ViewAllPanelMembers";
 import ViewFinalMarks from "./src/pages/Panel_Member/ViewFinalMarks";
@@ -31,6 +32,7 @@ import PanelHome from "./src/pages/Panel_Member/PanelHome";
 import PanelEvaluateTopic from "./src/pages/Panel_Member/PanelEvaluateTopic";
 import PanelEvaluatePresentation from "./src/pages/Panel_Member/PanelEvaluatePresentation";
 import StaffHome from "./src/pages/Panel_Member/StaffHome";
+
 
 import ManageNotices from "./src/pages/admin/ManageNotices";
 import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
@@ -65,6 +67,8 @@ import AcceptTopic from "./src/pages/StaffMembers/AcceptTopic";
 import ChatRoom from "./src/pages/StaffMembers/ChatRoom";
 import ViewAllRequests from "./src/pages/StaffMembers/ViewAllRequests";
 import Chat from "./src/pages/StaffMembers/Chat";
+import EvaluateDocs from "./src/pages/StaffMembers/EvaluateDocs";
+
 
 
 export default class App extends React.Component {
@@ -85,7 +89,7 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
+          
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
@@ -94,7 +98,7 @@ export default class App extends React.Component {
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
           <Route path="/finalMarks/viewall" element={<ViewFinalMarks />} />        
-          <Route path="/panelETopic" element={<PanelEvaluateTopic />} />
+          <Route path="/panelETopic/:id" element={<PanelEvaluateTopic />} />
           <Route path="/panelEPresentation/:id" element={<PanelEvaluatePresentation />} />
 
           // Student
@@ -102,7 +106,6 @@ export default class App extends React.Component {
          
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
-          <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           
           <Route path="/student/register" element={<StudentRegister/>}/>
@@ -136,6 +139,7 @@ export default class App extends React.Component {
           <Route path="/viewAllRequest" element={<ViewAllRequests/>} />  
           <Route path="/chatroom" element={<ChatRoom/>} />  
           <Route path="/chat" element={<Chat/>} />  
+          <Route path="/staff/document/:id" element={<EvaluateDocs/>} />  
           
 
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>

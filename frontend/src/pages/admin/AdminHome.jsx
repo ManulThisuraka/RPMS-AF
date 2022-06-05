@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export default class AdminHome extends Component {
   render() {
     return (
-      <div className="StudentHome_container">
+      <div className="admin-container">
         <center>
           <br></br>
           <br></br>

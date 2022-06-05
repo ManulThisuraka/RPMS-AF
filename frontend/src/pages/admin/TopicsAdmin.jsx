@@ -42,7 +42,7 @@ export default class TopicsAdmin extends Component {
 
     render() {
         return (
-            <div className="StudentHome_container">
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />

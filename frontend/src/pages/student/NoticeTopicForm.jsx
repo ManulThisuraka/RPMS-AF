@@ -173,6 +173,7 @@ export default class NoticeTopicForm extends Component {
 
   render() {
     return (
+      <div className="admin-container">
       <div className="container">
         <br />
         <br />
@@ -267,6 +268,7 @@ export default class NoticeTopicForm extends Component {
         >
           Submit
         </button>
+      </div>
       </div>
     );
   }

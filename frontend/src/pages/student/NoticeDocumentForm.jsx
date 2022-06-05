@@ -45,8 +45,14 @@ export default class NoticeDocumentForm extends Component {
         if (!this.state.documentDescription) {
             edocumentDescription = "Document Description is required !!!"
         }
+        if (!this.state.supervisorID.match(/STF/)) {
+            esupervisorID = "Panel ID Prefix should be (STF)!!!"
+        }
         if (!this.state.supervisorID) {
             esupervisorID = "Supervisor ID is required !!!"
+        }
+        if (!this.state.groupID.match(/GRP/g)) {
+            egroupID = "Group ID Prefix should be (GRP) !!!"
         }
         if (!this.state.groupID) {
             egroupID = "Group ID is required !!!"
@@ -133,6 +139,7 @@ export default class NoticeDocumentForm extends Component {
 
     render() {
         return (
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />
@@ -180,6 +187,7 @@ export default class NoticeDocumentForm extends Component {
 
                 </form>
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Submit</button>
+            </div>
             </div>
         )
     }

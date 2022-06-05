@@ -33,6 +33,10 @@ export default class PanelEvaluatePresentation extends Component {
     })
 }
 
+navigate = () => {
+  location.href = "/panel/presentations";
+}
+
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -53,6 +57,7 @@ export default class PanelEvaluatePresentation extends Component {
     axios.put(`http://localhost:5000/presentations/update/${id}`, data).then((res,err) => {
       if (res.data.success) {
         alert("Data Updated successfully !!!");
+        this.navigate();
       }else{
         console.log(err);
       }

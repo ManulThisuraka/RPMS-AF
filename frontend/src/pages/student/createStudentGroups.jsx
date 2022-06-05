@@ -65,15 +65,17 @@ class CreateStudentGroups extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="createstu-container">
+        <div className="container">
         <br />
         <br />
         <br />
         <br />
-        <h2>Create Student Groups</h2>
+        <center>
+        <h1><b>Create Student Groups</b></h1></center>
         <form>
           <div className="form-group">
-            <label>Leader ID</label>
+            <b><label>Leader ID</label></b>
             <input
               type="text"
               className="form-control"
@@ -83,10 +85,10 @@ class CreateStudentGroups extends React.Component {
               value={this.state.leaderID}
               onChange={this.handleInputChange}
             />
-          </div>
+          </div><br></br>
 
           <div className="form-group">
-            <label>Group Member 1</label>
+          <b><label>Group Member 1</label></b>
             <input
               type="text"
               className="form-control"
@@ -96,10 +98,10 @@ class CreateStudentGroups extends React.Component {
               value={this.state.member1}
               onChange={this.handleInputChange}
             />
-          </div>
+          </div><br></br>
 
           <div className="form-group">
-            <label>Group Member 2</label>
+          <b><label>Group Member 2</label></b>
             <input
               type="text"
               className="form-control"
@@ -109,9 +111,9 @@ class CreateStudentGroups extends React.Component {
               value={this.state.member2}
               onChange={this.handleInputChange}
             />
-          </div>
+          </div><br></br>
           <div className="form-group">
-            <label>Group Member 3</label>
+          <b><label>Group Member 3</label></b>
             <input
               type="text"
               className="form-control"
@@ -121,17 +123,18 @@ class CreateStudentGroups extends React.Component {
               value={this.state.member3}
               onChange={this.handleInputChange}
             />
-          </div>
+          </div><br></br>
         </form>
-        <button
+        <center><button
           type="submit"
           className="btn btn-primary"
           onClick={this.onSubmit}
           style={{ marginTop: "10px" }}
         >
           Submit Group
-        </button>
+        </button></center>
         &nbsp;
+      </div>
       </div>
     );
   }

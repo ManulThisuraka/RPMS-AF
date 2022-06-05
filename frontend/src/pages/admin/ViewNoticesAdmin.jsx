@@ -45,6 +45,7 @@ export default class ViewNoticesAdmin extends Component{
   render(){
     return(
       <div className="admin-container">
+        <div className="container">
 
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
@@ -82,7 +83,7 @@ export default class ViewNoticesAdmin extends Component{
         ))}
         </tbody>
       </table>
-      </div>
+      </div></div>
     )
   }
 }

@@ -132,7 +132,8 @@ export default class NoticePresentationForm extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="createstu-container">
+                <div className="container">
                 <br />
                 <br />
                 <br />
@@ -179,7 +180,7 @@ export default class NoticePresentationForm extends Component {
 
                 </form>
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Submit</button>
-            </div>
+            </div></div>
         )
     }
 }

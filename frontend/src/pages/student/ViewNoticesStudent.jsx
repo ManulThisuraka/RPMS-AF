@@ -53,7 +53,7 @@ export default class ViewNoticesStudent extends Component{
 
   render(){
     return(
-      <div className="container">
+      <div className="createstu-container">
 
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">

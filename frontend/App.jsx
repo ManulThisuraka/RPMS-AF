@@ -65,7 +65,7 @@ export default class App extends React.Component {
       <Router>
         <Header/>
         <Routes>
-        {/* <Route path="/" element={<Home/>} /> */}
+        <Route path="/" element={<Home/>} /> 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
           <Route path="/studentHome" element={<StudentHome/>}></Route>
@@ -76,10 +76,7 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-          
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
-
-
           <Route path="/panelmember/add" element={<AddPanelMember />} />
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
@@ -90,9 +87,7 @@ export default class App extends React.Component {
           // Student
           
           <Route path="/assignment/add" element={<AddAssignment />} />
-          <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
-          <Route path="/assignment/add" element={<AddAssignment/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>
           <Route path="/staffViewAll" element={<StaffInfo/>}></Route>

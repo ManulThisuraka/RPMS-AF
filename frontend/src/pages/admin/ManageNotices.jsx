@@ -7,6 +7,11 @@ export default class ManageNotices extends Component {
                 <div className="admin-container">
                 <center>
                     <br/>
+                    <br/><br/>
+                    <br/><br/>
+                    <br/><br/>
+                    <br/><br/>
+              
                     <br/>
                     <h2>Manage Notices</h2>
                     <br/>

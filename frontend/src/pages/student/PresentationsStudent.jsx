@@ -46,7 +46,8 @@ export default class PresentationsStudent extends Component {
     render() {
         return (
 
-            <div className="container">
+            <div className="createstu-container">
+                 <div className="container">
                 <br />
                 <br />
                 <br />
@@ -100,7 +101,7 @@ export default class PresentationsStudent extends Component {
                         ))}
                     </tbody>
                 </table>
-            </div>
+            </div></div>
         )
     }
 }

@@ -79,12 +79,13 @@ class SupervisorRequest extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="createstu-container">
+        <div className="container">
         <br />
         <br />
         <br />
         <br />
-        <h2>Request Supervisor</h2>
+        <center><h2>Request Supervisor</h2></center>
         <form>
           <div className="form-group">
             <label>Group ID</label>
@@ -136,7 +137,7 @@ class SupervisorRequest extends React.Component {
           Request
         </button>
         &nbsp;
-      </div>
+      </div></div>
     );
   }
 }

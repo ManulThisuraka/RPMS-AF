@@ -64,7 +64,7 @@ handleSearchArea = (e) => {
 
   render() {
     return(
-      <div className="staff-container">
+      <div className="statusRe-container">
         <div className="container">
           <div className="row">
             <div className="col-lg-9 mt-2 mb-2"><br></br><br></br><br></br>

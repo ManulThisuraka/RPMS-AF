@@ -37,6 +37,7 @@ class SupervisorRequest extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    console.log(this.state)
     const data = {
       groupID: JSON.parse(localStorage.getItem("groupID")),
       supervisorID: this.state.id,
@@ -58,7 +59,7 @@ class SupervisorRequest extends React.Component {
           (d) => d.userSubType === "Supervisor"
         );
         const dropDownValue = serverResponse?.map((response) => ({
-          value: response._id,
+          value: response.userID,
           label: response.username,
         }));
         console.log(dropDownValue);

@@ -7,6 +7,8 @@ export default class EvaluateDocs extends Component {
     this.state = {
       comments: "",
       marks: "",
+      ecomments: "",
+      emarks: "",
     };
   }
 
@@ -19,8 +21,30 @@ export default class EvaluateDocs extends Component {
     });
   };
 
+  validate = () => {
+    let ecomments = "";
+    let emarks = "";
+    
+
+    if (!this.state. comments) {
+      ecomments = "Comment is required !!!"
+    }
+    if (!this.state.marks) {
+      emarks = "Mark is required!!!"
+    }
+   
+    if (ecomments ||  emarks) {
+        this.setState({ ecomments,  emarks });
+        return false;
+    }
+    return true;
+};
+
+
   onSubmit = (e) => {
     e.preventDefault();
+
+    const isValid = this.validate();
 
     const { comments, marks } = this.state;
 
@@ -53,19 +77,11 @@ export default class EvaluateDocs extends Component {
 
   render() {
     return (
-      <div className="PanelEvaluatePresentation-container">
+      <div className="SupEvaluateDoc-container">
         <br></br>
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">
-        <button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              <a href= "/staff/documents"></a>
-              &nbsp; View Uploaded Documents
-            </button>
+       <br/>
           <center>
             <b>
               <h1>Evaluate Document </h1>
@@ -107,6 +123,7 @@ export default class EvaluateDocs extends Component {
                 value={this.state.comments}
                 onChange={this.handleInputChange}
               />
+               <small className="text-danger">{this.state.ecomments}</small>
             </div>
 
             {/* Presentation Mark */}
@@ -125,6 +142,7 @@ export default class EvaluateDocs extends Component {
                 value={this.state.marks}
                 onChange={this.handleInputChange}
               />
+               <small className="text-danger">{this.state.emarks}</small>
             </div>
 
             <center><button

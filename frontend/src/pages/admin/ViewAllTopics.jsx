@@ -17,7 +17,7 @@ export default class ViewAllTopics extends Component {
     }
 
     retrievetopics() {
-        axios.get("http://localhost:5000/topic/status").then(res => {
+        axios.get("http://localhost:5000/topic/getTopicsAdmin").then(res => {
             if (res.data.success) {
                 this.setState({
                     topicList: res.data.statsTopics
@@ -48,7 +48,7 @@ export default class ViewAllTopics extends Component {
                         <h2>All Topics</h2>
                     </div>
                 </div>
-
+                <br/>
                 <table class="table" id="table">
                     <thead>
                         <tr>

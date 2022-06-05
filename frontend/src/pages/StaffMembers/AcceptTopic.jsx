@@ -30,26 +30,18 @@ export default class AcceptTopic extends Component {
     let eremarks = "";
     
 
-    if (!this.state.documentDescription) {
-        edocumentDescription = "Document Description is required !!!"
+    if (!this.state.co_supervisorID) {
+      eco_supervisorID = "Co-Supervisor ID is required !!!"
     }
-    if (!this.state.supervisorID.match(/SD/)) {
-        esupervisorID = "Panel ID Prefix should be (SD)!!!"
+    if (!this.state.status) {
+      estatus = "Status is required!!!"
     }
-    if (!this.state.supervisorID) {
-        esupervisorID = "Supervisor ID is required !!!"
+    if (!this.state.remarks) {
+      eremarks = "Remark is required !!!"
     }
-    if (!this.state.groupID.match(/GRP/g)) {
-        egroupID = "Group ID Prefix should be (GRP) !!!"
-    }
-    if (!this.state.groupID) {
-        egroupID = "Group ID is required !!!"
-    }
-    if (!this.state.document) {
-        edocument = "Document is required !!!"
-    }
-    if (edocumentDescription || esupervisorID || egroupID ||edocument) {
-        this.setState({ edocumentDescription, esupervisorID, egroupID, edocument });
+   
+    if (eco_supervisorID || estatus || eremarks) {
+        this.setState({ eco_supervisorID, estatus, eremarks });
         return false;
     }
     return true;
@@ -110,7 +102,7 @@ export default class AcceptTopic extends Component {
                 value={this.state.status}
                 onChange={this.handleInputChange}
               />
-              <small className="text-danger">{this.state.edocumentDescription}</small>
+              <small className="text-danger">{this.state.estatus}</small>
             </div>
 
             {/* co_supervisorID */}
@@ -124,7 +116,7 @@ export default class AcceptTopic extends Component {
                 value={this.state.co_supervisorID}
                 onChange={this.handleInputChange}
               />
-              <small className="text-danger">{this.state.edocumentDescription}</small>
+              <small className="text-danger">{this.state.eco_supervisorID}</small>
             </div>
 
             {/* remarks */}
@@ -141,7 +133,7 @@ export default class AcceptTopic extends Component {
                 value={this.state.remarks}
                 onChange={this.handleInputChange}
               />
-              <small className="text-danger">{this.state.edocumentDescription}</small>
+              <small className="text-danger">{this.state.eremarks}</small>
             </div>
 
             <button

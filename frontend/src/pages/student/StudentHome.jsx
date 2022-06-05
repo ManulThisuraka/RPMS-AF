@@ -98,9 +98,10 @@ export default class StaffHome extends Component {
                 Presentation submissions{" "}
               </a>
             </button>{" "}
+          
           </form>
-
-        </center>
+         
+        </center> 
       </div>
     );
   }

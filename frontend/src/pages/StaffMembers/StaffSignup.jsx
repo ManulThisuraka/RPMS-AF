@@ -372,7 +372,7 @@ const StaffSignup = () => {
 
   return (
     <div className="staffsignup-container">
-      <div className="row px-3 py-4 vh-100">
+      <div className="row px-3 py-4 vh-145">
         <div className="col-md-5 mx-auto align-self-center">
           <br />
           <br />

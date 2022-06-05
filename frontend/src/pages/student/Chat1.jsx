@@ -254,6 +254,8 @@ const chat1 =()=> {
 					</Container>
 				</div>
 			</React.Fragment>} */
+			<div className="chat-container">
+        <div className="container">
         <>
     {!isUserExist &&
 		<Container style = {styles.chatRoomContainer}>
@@ -307,6 +309,8 @@ const chat1 =()=> {
 			</Container>
 		</Container>}
 		</>
+		</div>
+		</div>
 	);
 }
 

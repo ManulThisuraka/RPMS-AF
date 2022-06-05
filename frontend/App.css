@@ -12,8 +12,22 @@
 
 .staffsignup-container {
   background-image: url('./src/components/images/staffSignup.png');
-  height: 1200px;
+  /* height: 1200px; */
   /* height: auto; */
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+  height: 145vh!important;
+
+}
+
+.supervisorHome_container {
+  background-image: url('./src/components/images/imageSHome.jpg');
+  height: 800px;
+  /*height: auto;*/
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,8 +37,35 @@
 
 }
 
-.supervisorHome_container {
-  background-image: url('./src/components/images/imageSHome.jpg');
+.supervisor-container {
+  background-image: url('./src/components/images/std.jpg');
+  height: 800px;
+  /*height: auto;*/
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+
+}
+
+.chat-container {
+  background-image: url('./src/components/images/Chat1.png');
+  height: 800px;
+  /*height: auto;*/
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+
+}
+
+
+.statusRe-container {
+  background-image: url('./src/components/images/viewpmember.jpg');
   height: 800px;
   /*height: auto;*/
   width: 100%;
@@ -48,7 +89,7 @@
 
 .StudentHome_container {
   background-image: url("./src/components/images/std.jpg");
-  height: 650px;
+  height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -139,6 +180,15 @@
 .PanelEvaluatePresentation-container{
   background-image: url("./src/components/images/panel.jpg");
   height: 700px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+.SupEvaluateDoc-container{
+  background-image: url("./src/components/images/panel.jpg");
+  height: 550px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

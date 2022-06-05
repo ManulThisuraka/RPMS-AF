@@ -50,7 +50,10 @@ const ChatRoom1 = (props) => {
   }, []);
 
   return (
+    <div className="statusRe-container">
+        <div className="container">
     <div>
+      	
       <br></br>
       <br></br>
       <br></br>
@@ -61,7 +64,7 @@ const ChatRoom1 = (props) => {
       <div style={{display:"grid" , placeContent:"center"}}>
         {mylist.map((item) => (
           <div>
-            <button style={{ width: "400px" , backgroundColor:"#4CAF50" , margin:"10px"}} color="success"
+            <button type="button" class="btn btn-outline-primary" style={{ width: "400px" , margin:"10px"}} 
             onClick={(e)=>{
               setSelectedChat(item.groupID);
                 window.location.href = "chat1";
@@ -78,6 +81,8 @@ const ChatRoom1 = (props) => {
       <br></br>
       <br></br>
       <br></br>
+    </div>
+    </div>
     </div>
   );
 };

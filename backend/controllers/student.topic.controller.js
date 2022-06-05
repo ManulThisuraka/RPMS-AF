@@ -38,6 +38,19 @@ exports.ViewAllTopics = async (req, res) => {
     });
   });
 };
+exports.ViewAllTopicsByAdmin = async (req, res) => {
+  supervisorRequest.find().exec((err, accept) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      statsTopics: accept,
+    });
+  });
+};
 
 
 //Update Topic status

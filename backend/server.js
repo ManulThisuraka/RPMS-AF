@@ -16,7 +16,7 @@ const AdminRouter = require("./routes/admin.routes");
 //Import student routes
 const studentRoute = require("./routes/student.route");
 //Import panel member routes
-const panelMemberRoutes = require("./routes/panelMember.route");
+const panelMemberRoutes = require("./routes/PanelMember.route");
 
 //App middleware
 app.use(bodyParser.json());
@@ -26,10 +26,6 @@ app.use(express.json());
 //App middleware
 app.use(bodyParser.json());
 app.use(cors());
-
-
-
-
 
 //route middleware
 app.use(AdminRouter);

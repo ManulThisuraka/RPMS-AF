@@ -85,9 +85,8 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-          <Route path="/test/dropdown" element={<MultiSelectComponent />} />
           
-          <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
+          
 
 
           <Route path="/panelmember/add" element={<AddPanelMember />} />
@@ -102,7 +101,7 @@ export default class App extends React.Component {
          
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
-          <Route path="/assignment/add" element={<AddAssignment/>}/>
+          {/* <Route path="/assignment/add" element={<AddAssignment/>}/> */}
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           
           <Route path="/student/register" element={<StudentRegister/>}/>

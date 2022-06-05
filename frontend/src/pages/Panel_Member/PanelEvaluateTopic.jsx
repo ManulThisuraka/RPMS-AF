@@ -5,7 +5,6 @@ export default class PanelEvaluateTopic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      panelID: "",
       status: "",
       comment: "",
     };
@@ -23,27 +22,30 @@ export default class PanelEvaluateTopic extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { panelID, status, comment } = this.state;
+    const { status, comment } = this.state;
 
     const data = {
-      panelID: panelID,
       status: status,
       comment: comment,
     };
 
     console.log(data);
 
-    axios.post("http://localhost:5000/panel/save", data).then((res) => {
+    const myArray = window.location.pathname.split("/", 3);
+    console.log(myArray[2]);
+    let id = myArray[2];
+
+    axios.put(`http://localhost:5000/topics/update/${id}`, data).then((res) => {
       if (res.data.success) {
         alert("Data saved successfully !!!");
-        this.setState({
-          panelID: "",
-          status: "",
-          comment: "",
-        });
+        this.navigate();
       }
     });
   };
+
+  navigate = () => {
+    location.href = "/panel/topics";
+}
 
   render() {
     return (

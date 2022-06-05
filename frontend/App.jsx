@@ -24,6 +24,7 @@ import StudentHome from "./src/pages/student/StudentHome";
 
 
 
+
 import ViewAllPanels from "./src/pages/Panel_Member/ViewAllPanels";
 import ViewAllPanelMembers from "./src/pages/Panel_Member/ViewAllPanelMembers";
 import ViewFinalMarks from "./src/pages/Panel_Member/ViewFinalMarks";
@@ -31,6 +32,7 @@ import PanelHome from "./src/pages/Panel_Member/PanelHome";
 import PanelEvaluateTopic from "./src/pages/Panel_Member/PanelEvaluateTopic";
 import PanelEvaluatePresentation from "./src/pages/Panel_Member/PanelEvaluatePresentation";
 import StaffHome from "./src/pages/Panel_Member/StaffHome";
+
 
 import ManageNotices from "./src/pages/admin/ManageNotices";
 import NewNoticeForm from "./src/pages/admin/NewNoticeForm";
@@ -48,6 +50,8 @@ import DocumentsStudent from "./src/pages/student/DocumentsStudent";
 import TopicsAdmin from "./src/pages/admin/TopicsAdmin";
 import TopicsPanel from "./src/pages/Panel_Member/TopicsPanel";
 import TopicsStudent from "./src/pages/student/TopicsStudent";
+import AssignPanel from "./src/pages/admin/AssignPanel";
+import AdminHome from "./src/pages/admin/AdminHome";
 
 
 
@@ -66,6 +70,7 @@ import Chat from "./src/pages/StaffMembers/Chat";
 import EvaluateDocs from "./src/pages/StaffMembers/EvaluateDocs";
 
 
+
 export default class App extends React.Component {
 
   render() {
@@ -73,7 +78,7 @@ export default class App extends React.Component {
       <Router>
         <Header/>
         <Routes>
-        <Route path="/" element={<Home/>} /> 
+        <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/staffhome" element={<StaffHome />} />
           <Route path="/studentHome" element={<StudentHome/>}></Route>
@@ -84,7 +89,7 @@ export default class App extends React.Component {
           <Route path="/panel/viewall" element={<ViewAllPanels />} />
           <Route path="/finalMarks/add" element={<AddFinalMarks />} />
           <Route path="/finalMarks/update" element={<UpdateFinalMarks />} />
-          {/* <Route path="/test/dropdown" element={<MultiSelectComponent />} /> */}
+          
           
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
 
@@ -93,7 +98,7 @@ export default class App extends React.Component {
           <Route path="/edit/:id" element = { <UpdatePanelMember/>} />
           <Route path="/panelmember/viewall" element={<ViewAllPanelMembers />} />
           <Route path="/finalMarks/viewall" element={<ViewFinalMarks />} />        
-          <Route path="/panelETopic" element={<PanelEvaluateTopic />} />
+          <Route path="/panelETopic/:id" element={<PanelEvaluateTopic />} />
           <Route path="/panelEPresentation/:id" element={<PanelEvaluatePresentation />} />
 
           // Student
@@ -101,7 +106,6 @@ export default class App extends React.Component {
          
           <Route path="/student/register" element={<StudentRegister />} />
           <Route path="/admin/getAllStudents" element={<GetAllStudents/>}/>
-          {/* <Route path="/assignment/add" element={<AddAssignment/>}/> */}
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           
           <Route path="/student/register" element={<StudentRegister/>}/>
@@ -137,6 +141,7 @@ export default class App extends React.Component {
           <Route path="/chatroom" element={<ChatRoom/>} />  
           <Route path="/chat" element={<Chat/>} />  
           <Route path="/evalDoc" element={<EvaluateDocs/>} />  
+          <Route path="/staff/document/:id" element={<EvaluateDocs/>} />  
           
 
           <Route path="/panel/presentations" element={<PresentationsPanel/>}/>
@@ -146,6 +151,8 @@ export default class App extends React.Component {
           <Route path="/admin/topics" element={<TopicsAdmin/>}/>
           <Route path="/panel/topics" element={<TopicsPanel/>}/>
           <Route path="/student/topics" element={<TopicsStudent/>}/>
+          <Route path="/admin/topics/:id" element={<AssignPanel/>}/>
+          <Route path="/admin/" element={<AdminHome/>}/>
           
         </Routes>
         <Footer/>

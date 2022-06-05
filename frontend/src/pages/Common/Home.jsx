@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class PanelHome extends Component {
+export default class Home extends Component {
   render() {
     return (
         <center>

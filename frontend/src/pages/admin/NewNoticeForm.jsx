@@ -43,8 +43,14 @@ export default class NewNoticeForm extends Component {
         if (!this.state.noticeHeader) {
             enoticeHeader = "Notice Header is required !!!"
         }
+        if (!(this.state.roleID.match("student") ||this.state.roleID.match("staff") || this.state.roleID.match("all"))) {
+            eroleID = "Broadcast Type Should Be (student/staff/all) !!!"
+        }
         if (!this.state.roleID) {
             eroleID = "Broadcast Type is required !!!"
+        }
+        if (!(this.state.noticeCategory.match("topic")||this.state.noticeCategory.match("document")||this.state.noticeCategory.match("presentation")||this.state.noticeCategory.match("notice"))) {
+            enoticeCategory = "Notice Category Should Be (topic/notice/presentation/document) !!!"
         }
         if (!this.state.noticeCategory) {
             enoticeCategory = "Notice Category is required !!!"
@@ -106,6 +112,7 @@ export default class NewNoticeForm extends Component {
 
         return (
             <div className="admin-container">
+                <div className="container">
                 <br />
                 <br />
                 <br />
@@ -159,6 +166,7 @@ export default class NewNoticeForm extends Component {
 
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Publish</button>&nbsp;
                 
+            </div>
             </div>
         )
     }

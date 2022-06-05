@@ -44,8 +44,14 @@ export default class NoticePresentationForm extends Component {
         if (!this.state.presentationType) {
             epresentationType = "Presentation Type is required !!!"
         }
+        if (!this.state.panelID.match(/PANEL_/)) {
+            epanelID = "Panel ID Prefix should be (PANEL_)!!!"
+        }
         if (!this.state.panelID) {
             epanelID = "Panel ID is required !!!"
+        }
+        if (!this.state.groupID.match(/GRP/g)) {
+            egroupID = "Group ID Prefix should be (GRP) !!!"
         }
         if (!this.state.groupID) {
             egroupID = "Group ID is required !!!"
@@ -132,6 +138,7 @@ export default class NoticePresentationForm extends Component {
 
     render() {
         return (
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />
@@ -179,6 +186,7 @@ export default class NoticePresentationForm extends Component {
 
                 </form>
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit} style={{ marginTop: '10px' }}>Submit</button>
+            </div>
             </div>
         )
     }

@@ -11,12 +11,12 @@ export default class ManageNotices extends Component {
                     <br/>
                     <br/>
                     <br/>
-                    <h2>Manage Notices</h2>
+                    <h1>MANAGE NOTICES</h1>
                     <br/>
                     <br/>
                     <br/>
-                    <button type="button" class="btn btn-primary"><a href="/admin/newNotice" style={{textDecoration:'none',color:'white'}}>Publish New Notice</a></button>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary"><a href="/admin/viewNotices" style={{textDecoration:'none',color:'white'}}>View All Notices</a></button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-secondary"><a href="/admin/newNotice" style={{textDecoration:'none',color:'white'}}>Publish New Notice</a></button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-secondary"><a href="/admin/viewNotices" style={{textDecoration:'none',color:'white'}}>View All Notices</a></button>&nbsp;&nbsp;&nbsp;
                     </center>
                 </div>
             </div>

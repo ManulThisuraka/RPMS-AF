@@ -63,30 +63,8 @@ router.post(
       });
   }
 );
-router.get(
-  "/documents/viewBySupervisor/:staffID",
-  doccontroller.getCategoryDocuments
-);
-router.get(
-  "/documents/viewByGroup/:groupID",
-  doccontroller.getCategoryDocumentsGroup
-);
-router.get("/documents/view", doccontroller.getAllDocuments);
-
-//presentations Routes
-router.post(
-  "/presentations/add",
-  multerUploadInMemory.single("file"),
-  async (req, res) => {}
-);
-router.get(
-  "/documents/viewBySupervisor/:staffID",
-  doccontroller.getCategoryDocuments
-);
-router.get(
-  "/documents/viewByGroup/:groupID",
-  doccontroller.getCategoryDocumentsGroup
-);
+router.get("/documents/viewBySupervisor/:staffID",doccontroller.getCategoryDocuments);
+router.get("/documents/viewByGroup/:groupID",doccontroller.getCategoryDocumentsGroup);
 router.get("/documents/view", doccontroller.getAllDocuments);
 router.get("/documents/view/:id", doccontroller.getDocument);
 router.put("/documents/update/:id", doccontroller.updateDocument);
@@ -129,14 +107,8 @@ router.post(
       });
   }
 );
-router.get(
-  "/presentations/viewByPanel/:panelID",
-  prescontroller.getCategoryPresentations
-);
-router.get(
-  "/presentations/viewByGroup/:groupID",
-  prescontroller.getCategoryPresentationsGroup
-);
+router.get("/presentations/viewByPanel/:panelID",prescontroller.getCategoryPresentations);
+router.get("/presentations/viewByGroup/:groupID",prescontroller.getCategoryPresentationsGroup);
 router.get("/presentations/view", prescontroller.getAllPresentations);
 router.get("/presentations/view/:id", prescontroller.getPresentation);
 router.put("/presentations/update/:id", prescontroller.updatePresentation);

@@ -38,13 +38,13 @@ export default class DocumentsSupervisor extends Component {
     }
 
     navigate = (id)=>{
-            location.href = `/panelEPresentation/${id}`;
+            location.href = `/staff/document/${id}`;
       }
       
 
     render() {
         return (
-
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />
@@ -103,6 +103,7 @@ export default class DocumentsSupervisor extends Component {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         )
     }

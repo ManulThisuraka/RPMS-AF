@@ -44,7 +44,7 @@ export default class TopicsStudent extends Component {
 
     render() {
         return (
-
+            <div className="admin-container">
             <div className="container">
                 <br />
                 <br />
@@ -103,6 +103,7 @@ export default class TopicsStudent extends Component {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         )
     }

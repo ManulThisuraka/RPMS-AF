@@ -95,7 +95,6 @@ export default class App extends React.Component {
 
           // Student
           
-          <Route path="/assignment/add" element={<AddAssignment />} />
           <Route path="/staff/signup" element={<StaffSignup/>}/>
           <Route path="/student/register" element={<StudentRegister/>}/>
           <Route path="/staff/view/:id" element={<StaffDetails/>}></Route>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 //import { useParams } from 'react-router-dom';
+import { isAuthenticated, logout } from "../../helpers/auth";
 
 export default class StaffDetails extends Component {
   constructor(props) {
@@ -13,6 +14,10 @@ export default class StaffDetails extends Component {
   }
 
   componentDidMount() {
+    const USER = isAuthenticated();
+    if(USER.userType !== "Staff"){
+      window.location.replace("/login");
+      }
     const { id } = useParams();
 
     axios.get(`http://localhost:5000/staff/view/${id}`).then((res) => {

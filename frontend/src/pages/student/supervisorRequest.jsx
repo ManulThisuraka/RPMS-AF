@@ -5,6 +5,7 @@ import { isAuthenticated, logout } from "../../helpers/auth";
 class SupervisorRequest extends React.Component {
 
   componentDidMount(){
+    this.renderData();
     const USER = isAuthenticated();
     if(USER.userType !== "Student"){
       window.location.replace("/login");
@@ -37,7 +38,7 @@ class SupervisorRequest extends React.Component {
     e.preventDefault();
 
     const data = {
-      groupID: this.state.groupID,
+      groupID: JSON.parse(localStorage.getItem("groupID")),
       supervisorID: this.state.id,
       topic: this.state.topic
     }
@@ -74,9 +75,7 @@ class SupervisorRequest extends React.Component {
     });
     console.log(this.state.id);
   }
-  componentDidMount() {
-    this.renderData();
-  }
+  
   render() {
     return (
       <div className="createstu-container">
@@ -95,7 +94,7 @@ class SupervisorRequest extends React.Component {
               id="groupID"
               placeholder="Enter Notice Category"
               name="groupID"
-              value={this.state.groupID}
+              value={JSON.parse(localStorage.getItem("groupID"))}
               onChange={this.handleInputChange}
             />
 

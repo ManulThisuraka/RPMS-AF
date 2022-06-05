@@ -23,4 +23,20 @@ exports.requestSupervisor = async (req, res) => {
   });
 };
 
-//
+//view all supervisor request with related group & topic 
+exports.ViewAllTopics = async (req, res) => {
+  supervisorRequest.find().exec((err, accept1) => {
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      statsTopics: accept1,
+    });
+  });
+};
+
+
+

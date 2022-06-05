@@ -37,6 +37,11 @@ const {
   deleteEvDocumentController,
 } = require("../controllers/EvaluationDocument.controller");
 
+/** Chat Controller */
+const {getGroupChatsByStaff
+} = require("../controllers/chat.controller");
+
+
 /** Begin of Staff  Signup Routes **/
 //Staff Save details
 router.post(
@@ -89,4 +94,8 @@ router.put("/evDoc/update/:id", updateEvDocument);
 router.delete("/evDoc/delete/:id", deleteEvDocumentController);
 /** End of Evaluation Document Routes **/
 
+/** Chat Route */
+router.get("/chat/getChatsByStaff",getGroupChatsByStaff);
+
 module.exports = router;
+

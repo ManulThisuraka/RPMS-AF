@@ -1,7 +1,9 @@
 import React   from "react";
 import axios from 'axios';
-
+import { isAuthenticated, logout } from "../../helpers/auth";
 export default class StaffInfo extends React.Component {
+  
+
 constructor(props) {
   super(props);
 
@@ -12,6 +14,10 @@ constructor(props) {
 }
 
 componentDidMount(){
+  const USER = isAuthenticated();
+    if(USER.userType !== "Staff"){
+      window.location.replace("/login");
+      }
   this.retrieveStaff();
 };
 

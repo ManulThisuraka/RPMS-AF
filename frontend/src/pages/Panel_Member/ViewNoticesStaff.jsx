@@ -46,7 +46,7 @@ export default class ViewNoticesStaff extends Component {
         <div className="container">
         <div className="row">
           <div className="col-lg-9 mt-2 mb-2">
-            <h2>Student Notices</h2>
+            <h2>Staff Notices</h2>
           </div>
         </div>
 

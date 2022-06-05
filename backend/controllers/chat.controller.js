@@ -1,4 +1,6 @@
 const Chat = require("../models/chat.model");
+const supervisorGroups = require("../models/research.topic.model");
+const studentGroup = require("../models/student.groups.model");
 
 //Get all chat data
 const findAll = async (id) => {
@@ -78,6 +80,97 @@ const destroy = async (req, res) => {
   throw new NotFound("Chat not found by the id: " + req.params.id);
 };
 
+const getGroupChatsByStaff = async (req, res) => {
+  //reqSupervisor, co_supervisorID
+  const supervisorID = req.query.supervisor;
+  const co_supervisorID = req.query.co_supervisor;
+  if (supervisorID != undefined && co_supervisorID == undefined) {
+    supervisorGroups
+      .find({ supervisorID: supervisorID })
+      .then((groups) => {
+        res.json({
+          success: true,
+          groupList: groups,
+        });
+      })
+      .catch((err) => {
+        return res.status(400).json({
+          error: err,
+        });
+      });
+  } else if (co_supervisorID != undefined && supervisorID == undefined) {
+    supervisorGroups
+      .find({ co_supervisorID: co_supervisorID })
+      .then((groups) => {
+        res.json({
+          success: true,
+          groupList: groups,
+        });
+      })
+      .catch((err) => {
+        return res.status(400).json({
+          error: err,
+        });
+      });
+  } else {
+    return res.status(400).json({
+      error: "Please enter supervisor id or co supervisor id",
+    });
+  }
+};
+
+const getGroupChatsByStudent = async (req, res) => {
+    const studentId = req.query.studentID;
+    const leaderId = req.query.leaderID;
+    console.log('leaderId', leaderId)
+    console.log('Id', studentId)
+    if(leaderId != undefined && studentId == undefined) {
+        studentGroup
+      .find({leaderID: leaderId})
+      .then((groups) => {
+        res.json({
+          success: true,
+          groupList: groups,
+        });
+      })
+      .catch((err) => {
+        return res.status(400).json({
+          error: err,
+        });
+      });
+    } else if(leaderId == undefined && studentId != undefined) {
+       await studentGroup
+        .find()
+        .then((groups) => {
+            groups.forEach(group =>{
+                console.log(group.members[0])
+                if(group.members[0].member_1 == studentId || group.members[0].member_2 == studentId || group.members[0].member_3 == studentId) {
+                    res.json({
+                        success: true,
+                        groupList: [group],
+                      });
+                } else {
+                    res.json({
+                        success: true,
+                        groupList: [],
+                      });
+                }
+            })
+        })
+        .catch((err) => {
+          return res.status(400).json({
+            error: err,
+          });
+        });
+    } else {
+        return res.status(400).json({
+          error: "Please enter leader id or student id",
+        });
+      }
+    
+};
+
+//
 module.exports = {
   findAll,
   findByPagination,
@@ -86,4 +179,6 @@ module.exports = {
   update,
   destroyAll,
   destroy,
+  getGroupChatsByStaff,
+  getGroupChatsByStudent
 };

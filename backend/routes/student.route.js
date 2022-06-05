@@ -40,11 +40,16 @@ const {
 //Student Research Topic
 const {
   requestSupervisor,
+  ViewAllTopics,
   test,
 } = require("../controllers/student.topic.controller");
 
 //topic Registation
 let topiccontroller = require("../Controllers/student.topic.panel.controller");
+
+/** Chat Controller */
+const {getGroupChatsByStudent
+} = require("../controllers/chat.controller");
 
 //Student routes
 router.post("/register", signupController);
@@ -58,6 +63,7 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 
 //Research topic routes
 router.post("/topic/create", requestSupervisor);
+router.get("/topic/status", ViewAllTopics)
 
 //topics Registation
 router.post("/topics/add", multerUploadInMemory.single("file"),
@@ -143,5 +149,9 @@ router.post("/test/add", upload.single("file"), async (req, res) => {
       .catch((err) => res.json(err.message));
   } catch (err) {}
 });
+
+
+/** Chat Route */
+router.get("/chat/getChatsByStudent",getGroupChatsByStudent);
 
 module.exports = router;

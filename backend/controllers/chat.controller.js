@@ -128,7 +128,6 @@ const getGroupChatsByStudent = async (req, res) => {
       .then((groups) => {
         
         groups.forEach((group) => {
-          //console.log('groups', group)
           if (group.leaderID == id) {
             console.log('test')
             return res.json({
@@ -136,16 +135,16 @@ const getGroupChatsByStudent = async (req, res) => {
               groupList: [group],
             });
           } else {
-            console.log('test 2')
+
             if (group.members[0].member_1 == id || group.members[0].member_2 == id || group.members[0].member_3 == id
             ) {
-              console.log('test3')
+
               return res.json({
                 success: true,
                 groupList: [group],
               });
             } else {
-              console.log('test 4')
+
               return res.json({
                 success: true,
                 groupList: [],
@@ -153,10 +152,6 @@ const getGroupChatsByStudent = async (req, res) => {
             }
           }s
         });
-        // res.json({
-        //   success: true,
-        //   groupList: groups,
-        // });
       })
       .catch((err) => {
         return res.status(400).json({

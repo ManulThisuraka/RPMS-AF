@@ -41,6 +41,7 @@ const {
 const {
   requestSupervisor,
   ViewAllTopics,
+  UpdateTopic,
   test,
 } = require("../controllers/student.topic.controller");
 
@@ -63,7 +64,8 @@ router.get("/studentgroup/getAll", getAllStudentGroups);
 
 //Research topic routes
 router.post("/topic/create", requestSupervisor);
-router.get("/topic/status", ViewAllTopics)
+router.get("/topic/status", ViewAllTopics);
+router.put("/topic/update/:id", UpdateTopic);
 
 //topics Registation
 router.post("/topics/add", multerUploadInMemory.single("file"),

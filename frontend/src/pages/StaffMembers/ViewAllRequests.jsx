@@ -1,5 +1,6 @@
 import React   from "react";
 import axios from 'axios';
+import { getCurrentUser, setSelectedChat } from "../../helpers/auth";
 
 export default class ViewAllRequests extends React.Component {
 constructor(props) {
@@ -29,7 +30,8 @@ componentDidMount(){
   });
 } */
 retrieveStatusRe() {
-  axios.get("http://localhost:5000/topic/status").then(res =>{
+  var user = getCurrentUser();
+  axios.get(`http://localhost:5000/topic/status?id=${user.userID}`).then(res =>{
     if(res.data.success){
       this.setState({
         statusRe:res.data.statsTopics
@@ -61,7 +63,7 @@ retrieveStatusRe() {
 handleSearchArea = (e) => {
   const searchKey = e.currentTarget.value;
 
-  axios.get("http://localhost:5000/topic/status").then((res) => {
+  axios.get(`http://localhost:5000/topic/status?id=${user.userID}`).then((res) => {
     if (res.data.success) {
       this.filterData(res.data.statsTopics, searchKey);
     }
@@ -100,8 +102,8 @@ handleSearchArea = (e) => {
                       <td>{statusRe.supervisorID}</td>
                       <td>{statusRe.topic}</td>
                       <td>
-                        <a className="btn btn-secondary btn-sm btn-block" href="/accept/add">
-                          <i className="far fa-trash-alt"></i>&nbsp;VIEW
+                        <a className="btn btn-secondary btn-sm btn-block" href={`/accept/add?id=${statusRe._id}`}>
+                          <i className="fa fa-eye"></i>&nbsp;VIEW
                         </a>
                       </td>
                     </tr>

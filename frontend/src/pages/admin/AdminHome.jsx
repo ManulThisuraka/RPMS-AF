@@ -25,17 +25,26 @@ export default class AdminHome extends Component {
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Manage Notices{" "}
+               Notice Management{" "}
               </a>
             </button>{" "}
 
             <button className="btn btn-secondary btn-lg">
               <a
-                href="/admin/topics"
+                href="/admin/allTopics"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 {" "}
-                Topics{" "}
+                Topic Management{" "}
+              </a>
+            </button>{" "}
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/admin/panels"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Panal Management{" "}
               </a>
             </button>{" "}
           </form>

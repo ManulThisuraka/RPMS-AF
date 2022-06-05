@@ -9,6 +9,9 @@ export default class AcceptTopic extends Component {
         co_supervisorID: "",
         status: "",
         remarks: "",
+        eco_supervisorID: "",
+        estatus: "",
+        eremarks: "",
     };
   }
 
@@ -21,8 +24,40 @@ export default class AcceptTopic extends Component {
     });
   };
 
+  validate = () => {
+    let eco_supervisorID = "";
+    let estatus = "";
+    let eremarks = "";
+    
+
+    if (!this.state.documentDescription) {
+        edocumentDescription = "Document Description is required !!!"
+    }
+    if (!this.state.supervisorID.match(/SD/)) {
+        esupervisorID = "Panel ID Prefix should be (SD)!!!"
+    }
+    if (!this.state.supervisorID) {
+        esupervisorID = "Supervisor ID is required !!!"
+    }
+    if (!this.state.groupID.match(/GRP/g)) {
+        egroupID = "Group ID Prefix should be (GRP) !!!"
+    }
+    if (!this.state.groupID) {
+        egroupID = "Group ID is required !!!"
+    }
+    if (!this.state.document) {
+        edocument = "Document is required !!!"
+    }
+    if (edocumentDescription || esupervisorID || egroupID ||edocument) {
+        this.setState({ edocumentDescription, esupervisorID, egroupID, edocument });
+        return false;
+    }
+    return true;
+};
+
   onSubmit = (e) => {
     e.preventDefault();
+    const isValid = this.validate();
 
     const { co_supervisorID, status, remarks } = this.state;
 
@@ -75,19 +110,21 @@ export default class AcceptTopic extends Component {
                 value={this.state.status}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.edocumentDescription}</small>
             </div>
 
             {/* co_supervisorID */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
-            <b><label style={{ marginBottom: "5px" }}> Co-Supervisor Name </label></b>
+            <b><label style={{ marginBottom: "5px" }}> Co-Supervisor ID </label></b>
               <input
                 type="text"
                 className="form-control"
                 name="co_supervisorID"
-                placeholder="Enter Co-Supervisor Name"
+                placeholder="Enter Co-Supervisor ID"
                 value={this.state.co_supervisorID}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.edocumentDescription}</small>
             </div>
 
             {/* remarks */}
@@ -104,6 +141,7 @@ export default class AcceptTopic extends Component {
                 value={this.state.remarks}
                 onChange={this.handleInputChange}
               />
+              <small className="text-danger">{this.state.edocumentDescription}</small>
             </div>
 
             <button

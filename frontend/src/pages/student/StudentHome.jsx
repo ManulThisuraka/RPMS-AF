@@ -68,6 +68,36 @@ export default class StaffHome extends Component {
                 Chat with Supervisor{" "}
               </a>
             </button>{" "}
+
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/student/documents"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Submitted Documents{" "}
+              </a>
+            </button>{" "}
+
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/student/topics"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Topic Status{" "}
+              </a>
+            </button>{" "}
+
+            <button className="btn btn-secondary btn-lg">
+              <a
+                href="/student/presentations"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                {" "}
+                Presentation submissions{" "}
+              </a>
+            </button>{" "}
           </form>
 
         </center>

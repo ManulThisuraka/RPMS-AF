@@ -68,6 +68,9 @@ import ChatRoom from "./src/pages/StaffMembers/ChatRoom";
 import ViewAllRequests from "./src/pages/StaffMembers/ViewAllRequests";
 import Chat from "./src/pages/StaffMembers/Chat";
 import EvaluateDocs from "./src/pages/StaffMembers/EvaluateDocs";
+import ManagePanels from "./src/pages/admin/ManagePanels";
+import ViewAllTopics from "./src/pages/admin/ViewAllTopics";
+import ManageTopics from "./src/pages/admin/ManageTopics";
 
 
 
@@ -129,6 +132,11 @@ export default class App extends React.Component {
           <Route path="/student/NoticePresentation/:id" element={<NoticePresentationForm/>}/>
           <Route path="/student/viewNotices" element={<ViewNoticesStudent/>}/>
           <Route path="/staff/viewNotices" element={<ViewNoticesStaff/>}/>
+          <Route path="/admin/panels" element={<ManagePanels/>}/>
+          <Route path="/admin/supTopics" element={<ViewAllTopics/>}/>
+          <Route path="/admin/allTopics" element={<ManageTopics/>}/>
+          
+
 
           //Staff
           <Route path="/staff/signup" element={<StaffSignup/>}/>

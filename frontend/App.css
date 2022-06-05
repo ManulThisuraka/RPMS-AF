@@ -12,8 +12,8 @@
 
 .staffsignup-container {
   background-image: url('./src/components/images/staffSignup.png');
-  /*height: 700px;*/
-  height: auto;
+  height: 1200px;
+  /* height: auto; */
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;

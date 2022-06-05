@@ -39,7 +39,7 @@ export default class EvaluateDocs extends Component {
     axios.put(`http://localhost:5000/documents/update/${id}`, data).then((res,err) => {
       if (res.data.success) {
         alert("Data Updated successfully !!!");
-        this.navigate();
+        this.navigate("/supHome");
       }else{
         console.log(err);
       }
@@ -63,6 +63,7 @@ export default class EvaluateDocs extends Component {
               style={{ marginTop: "20px" }}
               onClick={this.onSubmit}
             >
+              <a href= "/staff/documents"></a>
               &nbsp; View Uploaded Documents
             </button>
           <center>

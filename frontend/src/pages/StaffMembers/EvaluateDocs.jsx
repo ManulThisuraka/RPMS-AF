@@ -24,32 +24,32 @@ export default class EvaluateDocs extends Component {
   validate = () => {
     let ecomments = "";
     let emarks = "";
-    
 
-    if (!this.state. comments) {
-      ecomments = "Comment is required !!!"
+    if (!this.state.comments) {
+      ecomments = "Comment is required !!!";
     }
     if (!this.state.marks) {
-      emarks = "Mark is required!!!"
+      emarks = "Mark is required!!!";
     }
-   
-    if (ecomments ||  emarks) {
-        this.setState({ ecomments,  emarks });
-        return false;
+
+    if (ecomments || emarks) {
+      this.setState({ ecomments, emarks });
+      return false;
     }
     return true;
-};
+  };
 
-
-  onSubmit = (e) => {
+  onSubmit = async (e) => {
     e.preventDefault();
-
-    const isValid = this.validate();
+    var isValid = await this.validate();
+    console.log(isValid);
+    if (isValid == false) {
+      return;
+    }
 
     const { comments, marks } = this.state;
 
     const data = {
-        
       marks: marks,
       comments: comments,
     };
@@ -60,20 +60,21 @@ export default class EvaluateDocs extends Component {
     console.log(myArray[3]);
     let id = myArray[3];
 
-    axios.put(`http://localhost:5000/documents/update/${id}`, data).then((res,err) => {
-      if (res.data.success) {
-        alert("Data Updated successfully !!!");
-        this.navigate("/supHome");
-      }else{
-        console.log(err);
-      }
-    });
+    axios
+      .put(`http://localhost:5000/documents/update/${id}`, data)
+      .then((res, err) => {
+        if (res.data.success) {
+          alert("Data Updated successfully !!!");
+          this.navigate("/supHome");
+        } else {
+          console.log(err);
+        }
+      });
   };
 
   navigate = () => {
     location.href = "/staff/documents";
-}
-
+  };
 
   render() {
     return (
@@ -81,7 +82,7 @@ export default class EvaluateDocs extends Component {
         <br></br>
         <br></br>
         <div className="col-md-8 mt-4 mx-auto">
-       <br/>
+          <br />
           <center>
             <b>
               <h1>Evaluate Document </h1>
@@ -123,16 +124,13 @@ export default class EvaluateDocs extends Component {
                 value={this.state.comments}
                 onChange={this.handleInputChange}
               />
-               <small className="text-danger">{this.state.ecomments}</small>
+              <small className="text-danger">{this.state.ecomments}</small>
             </div>
 
             {/* Presentation Mark */}
             <div className="form-group" style={{ marginBottom: "15px" }}>
               <b>
-                <label style={{ marginBottom: "5px" }}>
-                  {" "}
-                  Document Mark{" "}
-                </label>
+                <label style={{ marginBottom: "5px" }}> Document Mark </label>
               </b>
               <input
                 type="text"
@@ -142,17 +140,19 @@ export default class EvaluateDocs extends Component {
                 value={this.state.marks}
                 onChange={this.handleInputChange}
               />
-               <small className="text-danger">{this.state.emarks}</small>
+              <small className="text-danger">{this.state.emarks}</small>
             </div>
 
-            <center><button
-              className="btn btn-secondary"
-              type="submit"
-              style={{ marginTop: "20px" }}
-              onClick={this.onSubmit}
-            >
-              &nbsp;SUBMIT
-            </button></center>
+            <center>
+              <button
+                className="btn btn-secondary"
+                type="submit"
+                style={{ marginTop: "20px" }}
+                onClick={this.onSubmit}
+              >
+                &nbsp;SUBMIT
+              </button>
+            </center>
           </form>
         </div>
       </div>

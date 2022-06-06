@@ -32,12 +32,15 @@ export default class AcceptTopic extends Component {
 
     if (!this.state.co_supervisorID) {
       eco_supervisorID = "Co-Supervisor ID is required !!!"
+      
     }
     if (!this.state.status) {
       estatus = "Status is required!!!"
+      
     }
     if (!this.state.remarks) {
       eremarks = "Remark is required !!!"
+      
     }
    
     if (eco_supervisorID || estatus || eremarks) {
@@ -47,9 +50,13 @@ export default class AcceptTopic extends Component {
     return true;
 };
 
-  onSubmit = (e) => {
+  onSubmit = async(e)  => {
     e.preventDefault();
-    const isValid = this.validate();
+    var isValid = await this.validate();
+    console.log(isValid)
+    if (isValid == false) {
+      return 
+    }
 
     const { co_supervisorID, status, remarks } = this.state;
 

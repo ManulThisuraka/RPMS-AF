@@ -59,7 +59,7 @@ class SupervisorRequest extends React.Component {
           (d) => d.userSubType === "Supervisor"
         );
         const dropDownValue = serverResponse?.map((response) => ({
-          value: response._id,
+          value: response.userID,
           label: response.username,
         }));
         console.log(dropDownValue);
